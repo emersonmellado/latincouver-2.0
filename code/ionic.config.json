@@ -1,0 +1,10 @@
+{
+  "name": "ionic-conference-app",
+  "app_id": "",
+  "typescript": true,
+  "v2": true,
+  "proxies": [{
+    "path": "/api",
+    "proxyUrl": "http://api.steampowered.com"
+  }]
+}

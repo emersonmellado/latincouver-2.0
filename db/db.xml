@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
+<!-- Active URL: http://ondras.zarovi.cz/sql/demo/?keyword=default -->
+<sql>
+<datatypes db="mysql">
+<group color="rgb(238,238,170)" label="Numeric">
+<type label="Integer" quote="" sql="INTEGER" length="0"/>
+<type label="TINYINT" quote="" sql="TINYINT" length="0"/>
+<type label="SMALLINT" quote="" sql="SMALLINT" length="0"/>
+<type label="MEDIUMINT" quote="" sql="MEDIUMINT" length="0"/>
+<type label="INT" quote="" sql="INT" length="0"/>
+<type label="BIGINT" quote="" sql="BIGINT" length="0"/>
+<type label="Decimal" quote="" sql="DECIMAL" length="1" re="DEC"/>
+<type label="Single precision" quote="" sql="FLOAT" length="0"/>
+<type label="Double precision" quote="" sql="DOUBLE" length="0" re="DOUBLE"/>
+</group>
+
+<group color="rgb(255,200,200)" label="Character">
+<type label="Char" quote="'" sql="CHAR" length="1"/>
+<type label="Varchar" quote="'" sql="VARCHAR" length="1"/>
+<type label="Text" quote="'" sql="MEDIUMTEXT" length="0" re="TEXT"/>
+<type label="Binary" quote="'" sql="BINARY" length="1"/>
+<type label="Varbinary" quote="'" sql="VARBINARY" length="1"/>
+<type label="BLOB" quote="'" sql="BLOB" length="0" re="BLOB"/>
+</group>
+
+<group color="rgb(200,255,200)" label="Date &amp; Time">
+<type label="Date" quote="'" sql="DATE" length="0"/>
+<type label="Time" quote="'" sql="TIME" length="0"/>
+<type label="Datetime" quote="'" sql="DATETIME" length="0"/>
+<type label="Year" quote="" sql="YEAR" length="0"/>
+<type label="Timestamp" quote="'" sql="TIMESTAMP" length="0"/>
+</group>
+
+<group color="rgb(200,200,255)" label="Miscellaneous">
+<type label="ENUM" quote="" sql="ENUM" length="1"/>
+<type label="SET" quote="" sql="SET" length="1"/>
+<type label="Bit" quote="" sql="bit" length="0"/>
+</group>
+</datatypes><table x="229" y="136" name="person">
+<row name="personId" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="eventId" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="event" row="eventId" />
+</row>
+<row name="plazaId" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="plaza" row="plazaId" />
+</row>
+<row name="personGroupId" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="personGroup" row="personGroupId" />
+</row>
+<row name="personTypeId" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="personType" row="personTypeId" />
+</row>
+<row name="cssClassId" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<relation table="cssStyle" row="cssStyleId" />
+</row>
+<row name="name" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<row name="description" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+</row>
+<row name="shortDescription" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+</row>
+<row name="order" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="imageUrl" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+</row>
+<row name="active" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>1</default></row>
+<key type="PRIMARY" name="">
+<part>personId</part>
+</key>
+</table>
+<table x="413" y="304" name="plaza">
+<row name="eventId" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="event" row="eventId" />
+</row>
+<row name="plazaId" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="cssClassId" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<relation table="cssStyle" row="cssStyleId" />
+</row>
+<row name="name" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<row name="description" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+</row>
+<row name="imageUrl" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+</row>
+<row name="active" null="0" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>1</default></row>
+<key type="PRIMARY" name="">
+<part>plazaId</part>
+</key>
+</table>
+<table x="569" y="77" name="schedule">
+<row name="scheduleId" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="personId" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="person" row="personId" />
+</row>
+<row name="eventId" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="event" row="eventId" />
+</row>
+<row name="plazaId" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="plaza" row="plazaId" />
+</row>
+<row name="cssClassId" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<relation table="cssStyle" row="cssStyleId" />
+</row>
+<row name="from" null="0" autoincrement="0">
+<datatype>DATETIME</datatype>
+</row>
+<row name="to" null="0" autoincrement="0">
+<datatype>DATETIME</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>scheduleId</part>
+</key>
+</table>
+<table x="407" y="507" name="cssStyle">
+<row name="cssStyleId" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="name" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>cssStyleId</part>
+</key>
+</table>
+<table x="40" y="24" name="personLink">
+<row name="personLinkId" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="personId" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="person" row="personId" />
+</row>
+<row name="name" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+</row>
+<row name="href" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+</row>
+<row name="active" null="0" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>1</default></row>
+<row name="icon" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>personLinkId</part>
+</key>
+</table>
+<table x="29" y="331" name="personGroup">
+<row name="personGroupId" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="name" null="0" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+</row>
+<row name="active" null="0" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>1</default></row>
+<key type="PRIMARY" name="">
+<part>personGroupId</part>
+</key>
+</table>
+<table x="38" y="446" name="personType">
+<row name="personTypeId" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="name" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<row name="active" null="0" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>1</default></row>
+<key type="PRIMARY" name="">
+<part>personTypeId</part>
+</key>
+</table>
+<table x="20" y="202" name="personProduct">
+<row name="personProductId" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="personId" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="person" row="personId" />
+</row>
+<row name="name" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<row name="active" null="0" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>1</default></row>
+<key type="PRIMARY" name="">
+<part>personProductId</part>
+</key>
+</table>
+<table x="803" y="243" name="user">
+<row name="userId" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="email" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+</row>
+<row name="password" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+</row>
+<row name="active" null="0" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>1</default></row>
+<key type="PRIMARY" name="">
+<part>userId</part>
+</key>
+</table>
+<table x="654" y="302" name="event">
+<row name="eventId" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="cssStyleId" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="cssStyle" row="cssStyleId" />
+</row>
+<row name="name" null="0" autoincrement="0">
+<datatype>VARCHAR(200)</datatype>
+</row>
+<row name="date" null="0" autoincrement="0">
+<datatype>DATETIME</datatype>
+</row>
+<row name="imageUrl" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+</row>
+<row name="externalUrl" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+</row>
+<row name="longitude" null="1" autoincrement="0">
+<datatype>DECIMAL(10,6)</datatype>
+<default>NULL</default></row>
+<row name="latitude" null="1" autoincrement="0">
+<datatype>DECIMAL(10,6)</datatype>
+</row>
+<row name="active" null="0" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>1</default></row>
+<key type="PRIMARY" name="">
+<part>eventId</part>
+</key>
+</table>
+<table x="954" y="242" name="userViewsLog">
+<row name="userViewsLogId" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="userId" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="user" row="userId" />
+</row>
+<row name="objectId" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="objectName" null="0" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+</row>
+<row name="datetime" null="0" autoincrement="0">
+<datatype>DATETIME</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>userViewsLogId</part>
+</key>
+</table>
+<table x="950" y="432" name="userProfile">
+<row name="userProfileId" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="userId" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="user" row="userId" />
+</row>
+<row name="gender" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<row name="name" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>userProfileId</part>
+</key>
+</table>
+</sql>
