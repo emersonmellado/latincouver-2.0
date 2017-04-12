@@ -165,9 +165,9 @@ CREATE TABLE `event` (
   `name` VARCHAR(200) NOT NULL,
   `date` DATETIME NOT NULL,
   `imageUrl` MEDIUMTEXT NOT NULL,
-  `externalUrl` MEDIUMTEXT NULL,
+  `externalUrl` MEDIUMTEXT NULL DEFAULT NULL,
   `longitude` DECIMAL(10,6) NULL DEFAULT NULL,
-  `latitude` DECIMAL(10,6) NULL,
+  `latitude` DECIMAL(10,6) NULL DEFAULT NULL,
   `active` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`eventId`)
 );
@@ -201,6 +201,19 @@ CREATE TABLE `userProfile` (
   `gender` VARCHAR(100) NOT NULL,
   `name` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`userProfileId`)
+);
+
+-- ---
+-- Table 'configuration'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `configuration`;
+    
+CREATE TABLE `configuration` (
+  `configurationId` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `mainText` VARCHAR(50) NULL DEFAULT NULL,
+  PRIMARY KEY (`configurationId`)
 );
 
 -- ---
@@ -240,6 +253,7 @@ ALTER TABLE `userProfile` ADD FOREIGN KEY (userId) REFERENCES `user` (`userId`);
 -- ALTER TABLE `event` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `userViewsLog` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `userProfile` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `configuration` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ---
 -- Test Data
@@ -269,3 +283,5 @@ ALTER TABLE `userProfile` ADD FOREIGN KEY (userId) REFERENCES `user` (`userId`);
 -- ('','','','','');
 -- INSERT INTO `userProfile` (`userProfileId`,`userId`,`gender`,`name`) VALUES
 -- ('','','','');
+-- INSERT INTO `configuration` (`configurationId`,`mainText`) VALUES
+-- ('','');

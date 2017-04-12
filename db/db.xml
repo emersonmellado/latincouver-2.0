@@ -83,7 +83,7 @@
 <part>personId</part>
 </key>
 </table>
-<table x="413" y="304" name="plaza">
+<table x="400" y="299" name="plaza">
 <row name="eventId" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 <relation table="event" row="eventId" />
@@ -111,7 +111,7 @@
 <part>plazaId</part>
 </key>
 </table>
-<table x="569" y="77" name="schedule">
+<table x="555" y="63" name="schedule">
 <row name="scheduleId" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
@@ -141,12 +141,12 @@
 <part>scheduleId</part>
 </key>
 </table>
-<table x="407" y="507" name="cssStyle">
+<table x="382" y="511" name="cssStyle">
 <row name="cssStyleId" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
 <row name="name" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>VARCHAR(100)</datatype>
 </row>
 <key type="PRIMARY" name="">
 <part>cssStyleId</part>
@@ -222,7 +222,7 @@
 <part>personProductId</part>
 </key>
 </table>
-<table x="803" y="243" name="user">
+<table x="827" y="226" name="user">
 <row name="userId" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
@@ -239,7 +239,7 @@
 <part>userId</part>
 </key>
 </table>
-<table x="654" y="302" name="event">
+<table x="585" y="306" name="event">
 <row name="eventId" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
