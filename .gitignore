@@ -17,6 +17,11 @@ lib-cov
 example-ionic-2.0
 PGBuild
 
+#Vagrant
+.vagrant
+cookbooks
+tmp/
+
 # Coverage directory used by tools like istanbul
 coverage
 

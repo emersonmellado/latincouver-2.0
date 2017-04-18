@@ -1,4 +1,4 @@
-# latincouver-2.0
+# Latincouver 2.0
 
 This is the repo for the dynamic version of the Latincouver app.
 
@@ -8,3 +8,14 @@ TODO list:
 1. Rails api
 2. UI for json management
 3. Ionic 2.0
+
+# Vagrant to run Rails (Just in case you want)
+
+[Full case](https://gorails.com/guides/using-vagrant-for-rails-development)
+
+1. Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+2. Install [Vagrant](https://www.vagrantup.com/downloads.html)
+3. Install vagrant plugins in the terminal:
+..* >/ vagrant plugin install vagrant-vbguest
+..* >/ vagrant plugin install vagrant-librarian-chef-nochef
+4. 
