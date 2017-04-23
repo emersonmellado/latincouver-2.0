@@ -1,0 +1,27 @@
+<section class="container col-md-6 col-md-offset-3" ng-hide="users.isAuthenticated()">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <img src="http://d9hhrg4mnvzow.cloudfront.net/get.thinkific.com/create-your-own-courses-online/b28e094a--logo-grey-highres-1280x720_02m01h02m00l00000g.png" class="logo center-block" />
+      <h3 class="text-center">LC - Management App</h3>
+    </div>
+    <div class="panel-body text-center">
+      <form method="post" ng-submit="users.login()" name="loginForm">
+        <div class="form-group">
+          <div class="group">
+            Email
+            <input class="form-controls input-lg" type="email" name="email" ng-model="users.loginForm.email" placeholder="Email" style="background-color:rgba(0,0,0,0) !important;border:none !important;box-shadow:none !important;" required autofocus/>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="group">
+            Password
+            <input class="form-controls input-lg" type="password" name="password" ng-model="users.loginForm.password" placeholder="Password" style="background-color:rgba(0,0,0,0) !important;border:none !important;box-shadow:none !important;" required autofocus/>
+          </div>
+        </div>
+        <button type="submit" ng-disabled="loginForm.$invalid" class="btn btn-lg btn-block btn-primary">
+        Log in
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

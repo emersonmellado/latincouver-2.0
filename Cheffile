@@ -1,9 +1,9 @@
-site "http://community.opscode.com/api/v1"
+# site "http://community.opscode.com/api/v1"
 
-cookbook 'apt', '~> 6.1.0'
-cookbook 'build-essential', '~> 8.0.1'
-cookbook 'system', '~> 0.11.2'
-cookbook 'ruby_build', '~> 1.1.0'
-cookbook 'ruby_rbenv', '~> 1.1.0'
-cookbook 'postgresql', git: 'https://github.com/ChowOps/chef-postgresql'
-cookbook 'vim'
+# cookbook 'apt', '~> 6.1.0'
+# cookbook 'build-essential', '~> 8.0.1'
+# cookbook 'system', '~> 0.11.2'
+# cookbook 'ruby_build', '~> 1.1.0'
+# cookbook 'ruby_rbenv', '~> 1.1.0'
+# cookbook 'postgresql', git: 'https://github.com/ChowOps/chef-postgresql'
+# cookbook 'vim'

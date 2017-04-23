@@ -1,0 +1,35 @@
+<div class="panel panel-default">
+	<div class="panel-body">
+		<p ng-if=users.error>
+			{{ users.error }}
+		</p>
+		<div class="form-horizontal">
+			<form name="form">
+				<div class="group">
+					<label>Email</label> <span class="required" ng-show="form.email.$error.required">*</span>
+					<input class="form-control" type="text" name="email" data-ng-model="users.form.attributes.email" placeholder="What is the user email?" ng-required="true" data-ng-class="{'invalid' : form.email.$invalid && !form.email.$pristine}">
+				</div>
+				<div class="group">
+					<label>Password</label> <span class="required" ng-show="form.password.$error.required">*</span>
+					<input class="form-control" type="password" name="password" data-ng-model="users.form.attributes.password" placeholder="What is the user password?" ng-required="true" data-ng-class="{'invalid' : form.password.$invalid && !form.password.$pristine}">
+				</div>
+				<div class="group">
+					<label>Integer</label> <span class="required" ng-show="form.integer.$error.required">*</span>
+					<input class="form-control" type="text" name="integer" data-ng-model="users.form.attributes.integer" placeholder="What is the current user integer?" ng-required="true" data-ng-class="{'invalid' : form.integer.$invalid && !form.integer.$pristine}">
+				</div>
+				<br/>
+				<div class="group pull-right">
+					<button data-ng-click="users.add(users.form)"  data-ng-disabled="users.editing || form.$invalid" class="btn btn-default btn-success" name="action"><i class="glyphicon glyphicon-plus-sign"></i> Add new user</button>
+					<button ng-show="users.isAuthenticated()" data-ng-click="users.save(users.form)" data-ng-disabled="!users.editing || form.$invalid" class="btn btn-default btn-info"><i class="glyphicon glyphicon-floppy-save"></i> Save</button>
+				</div>
+				<br/>
+				<span class="small" ng-if="users.auth_token">
+					<h6>
+					This is the token for the user, please copy this data, otherwise the authenticate service will need to be called:
+					<br/><b>auth_token:</b> {{users.auth_token}}
+					</h6>
+				</span>
+			</form>
+		</div>
+	</div>
+</div>
