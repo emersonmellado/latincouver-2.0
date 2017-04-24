@@ -6,5 +6,7 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
 
   has_many :events
-  
+  has_many :plazas
+  has_many :trades
+
 end
