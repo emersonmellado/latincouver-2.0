@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170413220222) do
+ActiveRecord::Schema.define(version: 20170423233220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,7 +47,9 @@ ActiveRecord::Schema.define(version: 20170413220222) do
     t.integer  "css_style_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "event_id"
     t.index ["css_style_id"], name: "index_plazas_on_css_style_id", using: :btree
+    t.index ["event_id"], name: "index_plazas_on_event_id", using: :btree
     t.index ["user_id"], name: "index_plazas_on_user_id", using: :btree
   end
 
@@ -111,6 +113,10 @@ ActiveRecord::Schema.define(version: 20170413220222) do
     t.integer  "trade_group_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "event_id"
+    t.integer  "plaza_id"
+    t.index ["event_id"], name: "index_trades_on_event_id", using: :btree
+    t.index ["plaza_id"], name: "index_trades_on_plaza_id", using: :btree
     t.index ["trade_group_id"], name: "index_trades_on_trade_group_id", using: :btree
     t.index ["trade_type_id"], name: "index_trades_on_trade_type_id", using: :btree
   end
@@ -147,6 +153,7 @@ ActiveRecord::Schema.define(version: 20170413220222) do
   add_foreign_key "events", "css_styles"
   add_foreign_key "events", "users"
   add_foreign_key "plazas", "css_styles"
+  add_foreign_key "plazas", "events"
   add_foreign_key "plazas", "users"
   add_foreign_key "schedules", "css_styles"
   add_foreign_key "schedules", "events"
@@ -154,6 +161,8 @@ ActiveRecord::Schema.define(version: 20170413220222) do
   add_foreign_key "schedules", "trades"
   add_foreign_key "trade_links", "trades"
   add_foreign_key "trade_products", "trades"
+  add_foreign_key "trades", "events"
+  add_foreign_key "trades", "plazas"
   add_foreign_key "trades", "trade_groups"
   add_foreign_key "trades", "trade_types"
 end
