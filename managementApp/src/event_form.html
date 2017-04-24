@@ -1,0 +1,107 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <p ng-if="event.error">
+            {{ event.error }}
+        </p>
+        <div class="form-horizontal">
+            <form name="form">
+                <div class="col-xs-6">
+                    <div class="group">
+                        <label>
+                            Name
+                        </label>
+                        <span class="required" ng-show="form.name.$error.required">
+                            *
+                        </span>
+                        <input class="form-control" data-ng-class="{'invalid' : form.name.$invalid && !form.name.$pristine}" data-ng-model="event.form.name" name="name" ng-required="true" placeholder="What is the event name?" type="text">
+                        </input>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="group">
+                        <label>
+                            Image URL
+                        </label>
+                        <span class="required" ng-show="form.image_url.$error.required">
+                            *
+                        </span>
+                        <input class="form-control" data-ng-class="{'invalid' : form.image_url.$invalid && !form.image_url.$pristine}" data-ng-model="event.form.image_url" name="image_url" ng-required="true" placeholder="What is the event image url?" type="text">
+                        </input>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="group">
+                        <label>
+                            External URL
+                        </label>
+                        <span class="required" ng-show="form.external_url.$error.required">
+                            *
+                        </span>
+                        <input class="form-control" data-ng-class="{'invalid' : form.external_url.$invalid && !form.external_url.$pristine}" data-ng-model="event.form.external_url" name="external_url" ng-required="true" placeholder="What is the event external url?" type="text">
+                        </input>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="group">
+                        <label>
+                            Latitude
+                        </label>
+                        <span class="required" ng-show="form.latitude.$error.required">
+                            *
+                        </span>
+                        <input class="form-control" data-ng-class="{'invalid' : form.latitude.$invalid && !form.latitude.$pristine}" data-ng-model="event.form.latitude" name="latitude" ng-required="true" placeholder="What is the event latitude?" type="text">
+                        </input>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="group">
+                        <label>
+                            Longitude
+                        </label>
+                        <span class="required" ng-show="form.longitude.$error.required">
+                            *
+                        </span>
+                        <input class="form-control" data-ng-class="{'invalid' : form.longitude.$invalid && !form.longitude.$pristine}" data-ng-model="event.form.longitude" name="longitude" ng-required="true" placeholder="What is the event longitude?" type="text">
+                        </input>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="group">
+                        <label>
+                            Active
+                        </label>
+                        <span class="required" ng-show="form.active.$error.required">
+                            *
+                        </span>
+                        <input class="form-control" data-ng-class="{'invalid' : form.active.$invalid && !form.active.$pristine}" data-ng-model="event.form.active" name="active" ng-required="true" placeholder="What is the event active?" type="checkbox">
+                        </input>
+                    </div>
+                </div>
+                <br/>
+                <div class="group pull-right">
+                    <button class="btn btn-default btn-success" data-ng-click="event.add(event.form)" data-ng-disabled="event.editing || form.$invalid" name="action">
+                        <i class="glyphicon glyphicon-plus-sign">
+                        </i>
+                        Add new user
+                    </button>
+                    <button class="btn btn-default btn-info" data-ng-click="event.save(event.form)" data-ng-disabled="!event.editing || form.$invalid">
+                        <i class="glyphicon glyphicon-floppy-save">
+                        </i>
+                        Save
+                    </button>
+                </div>
+                <br/>
+                <span class="small" ng-if="event.auth_token">
+                    <h6>
+                        This is the token for the user, please copy this data, otherwise the authenticate service will need to be called:
+                        <br/>
+                        <b>
+                            auth_token:
+                        </b>
+                        {{event.auth_token}}
+                    </h6>
+                </span>
+            </form>
+        </div>
+    </div>
+</div>
