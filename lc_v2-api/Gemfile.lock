@@ -158,7 +158,6 @@ GEM
       tzinfo (>= 1.0.0)
     warden (1.2.7)
       rack (>= 1.0)
-    wdm (0.1.1)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -182,10 +181,9 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
-  wdm (>= 0.1.0)
 
 RUBY VERSION
-   ruby 2.3.3p222
+   ruby 2.4.1p111
 
 BUNDLED WITH
    1.14.6

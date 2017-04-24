@@ -1,4 +1,5 @@
 class Trade < ApplicationRecord
+  belongs_to :user
   belongs_to :trade_type
   belongs_to :trade_group
   belongs_to :event
