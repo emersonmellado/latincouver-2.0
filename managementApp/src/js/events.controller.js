@@ -1,8 +1,8 @@
 (function() {
     "use strict";
 
-    function EventController(EventService, $log, toastr, $auth, Api) {
-        var Service = EventService;
+    function EventsController(EventsService, $log, toastr, $auth, Api) {
+        var Service = EventsService;
         var vm = this;
         vm.title = "Event Management";
         vm.add = add;
@@ -82,5 +82,5 @@
             vm.editing = false;
         }
     }
-    angular.module("lcv2").controller("EventController", EventController);
+    angular.module("lcv2").controller("EventsController", EventsController);
 })();

@@ -1,1 +1,1 @@
-angular.module('lcv2', ["toastr", "satellizer"]);
+angular.module('lcv2', ["toastr", "satellizer", "ui.router"]);

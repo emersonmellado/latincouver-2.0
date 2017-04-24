@@ -1,7 +1,7 @@
 (function() {
     "use strict";
 
-    function EventService($http, Api) {
+    function EventsService($http, Api) {
         //Change this vars for a new base service
         var singularName = "event";
         var pluralName = "events";
@@ -48,5 +48,5 @@
             };
         }
     }
-    angular.module("lcv2").factory("EventService", EventService);
+    angular.module("lcv2").factory("EventsService", EventsService);
 })();
