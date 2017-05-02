@@ -21,6 +21,7 @@ import { TutorialPage } from '../pages/tutorial/tutorial';
 import { SupportPage } from '../pages/support/support';
 
 import { ConferenceData } from '../providers/conference-data';
+import { EventData } from '../providers/event-data';
 import { UserData } from '../providers/user-data';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser';
@@ -70,6 +71,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     ConferenceData,
+    EventData,
     UserData,
     InAppBrowser,
     SplashScreen
