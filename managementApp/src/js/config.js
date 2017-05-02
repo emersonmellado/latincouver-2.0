@@ -2,6 +2,7 @@
     'use strict';
 
     function config($logProvider, toastrConfig, $httpProvider, $authProvider, Api) {
+
         $authProvider.httpInterceptor = function() {
             return true;
         };
@@ -27,5 +28,7 @@
         toastrConfig.preventDuplicates = false;
         toastrConfig.progressBar = true;
     }
+
     angular.module('lcv2').config(['$logProvider', 'toastrConfig', '$httpProvider', '$authProvider', 'Api', config]);
+
 })();

@@ -1,0 +1,25 @@
+
+
+.form {
+  transition:all linear 0.5s;
+  background: transparent;
+}
+.invalid {
+  border: 1px red solid;
+}
+.required{
+  color: red;
+}
+.panel{
+  margin-top: 20px;
+}
+
+/* menu */
+
+header .navbar-default {
+  background-color: #fff;
+}
+
+header .navbar-toggle {
+  background-color: #fff;
+}

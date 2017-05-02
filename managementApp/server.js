@@ -20,5 +20,5 @@ app.use(serveStatic(__dirname + '/src', {
   'extensions': ['html']
 }))
 app.listen(port, function() {
-  console.log('server running ...');
+  console.log('server running on localhost:' + port);
 });
