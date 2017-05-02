@@ -19,6 +19,7 @@ import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
 import { SupportPage } from '../pages/support/support';
 
 import { ConferenceData } from '../providers/conference-data';
+import { EventData } from '../providers/event-data';
 import { UserData } from '../providers/user-data';
 
 export interface PageInterface {
@@ -54,8 +55,8 @@ export class ConferenceApp {
   ];
   loggedOutPages: PageInterface[] = [
     { title: 'Login', component: LoginPage, icon: 'log-in' },
-    { title: 'Support', component: SupportPage, icon: 'help' },
-    { title: 'Signup', component: SignupPage, icon: 'person-add' }
+    { title: 'Signup', component: SignupPage, icon: 'person-add' },
+    { title: 'Support', component: SupportPage, icon: 'help' }
   ];
   rootPage: any;
 
@@ -65,6 +66,7 @@ export class ConferenceApp {
     public menu: MenuController,
     public platform: Platform,
     public confData: ConferenceData,
+    public eventData: EventData,
     public storage: Storage,
     public splashScreen: SplashScreen
   ) {
@@ -81,7 +83,7 @@ export class ConferenceApp {
       })
 
     // load the conference data
-    confData.load();
+    eventData.load();
 
     // decide which menu items should be hidden by current login status stored in local storage
     this.userData.hasLoggedIn().then((hasLoggedIn) => {
