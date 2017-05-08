@@ -4,7 +4,7 @@
             <h2 class="center">
                 {{event.title}}
             </h2>
-            <div class="panel panel-default" ng-show="event.editing">
+            <div class="panel panel-default" ng-show="event.viewForm">
                 <div class="panel-body">
                     <p ng-if="event.error">
                         {{ event.error }}
@@ -40,73 +40,68 @@
                                     <label>
                                         External URL
                                     </label>
-                                    <span class="required" ng-show="form.attributes.external_url.$error.required">
-                                        *
-                                    </span>
                                     <input class="form-control" data-ng-class="{'invalid' : form.attributes.external_url.$invalid && !form.attributes.external_url.$pristine}" data-ng-model="event.form.attributes['external-url']" name="external_url" ng-required="false" placeholder="What is the event external url?" type="text">
                                     </input>
                                 </div>
                             </div>
-                            <div class="col-xs-6">
+                            <div class="col-xs-4">
                                 <div class="group">
                                     <label>
                                         Latitude
                                     </label>
-                                    <span class="required" ng-show="form.attributes.latitude.$error.required">
-                                        *
-                                    </span>
-                                    <input class="form-control" data-ng-class="{'invalid' : form.attributes.latitude.$invalid && !form.attributes.latitude.$pristine}" data-ng-model="event.form.attributes.latitude" name="latitude" ng-required="true" placeholder="What is the event latitude?" type="text">
+                                    <input class="form-control" data-ng-class="{'invalid' : form.attributes.latitude.$invalid && !form.attributes.latitude.$pristine}" data-ng-model="event.form.attributes.latitude" name="latitude" placeholder="What is the event latitude?" type="text">
                                     </input>
                                 </div>
                             </div>
-                            <div class="col-xs-6">
+                            <div class="col-xs-4">
                                 <div class="group">
                                     <label>
                                         Longitude
                                     </label>
-                                    <span class="required" ng-show="form.attributes.longitude.$error.required">
-                                        *
-                                    </span>
-                                    <input class="form-control" data-ng-class="{'invalid' : form.attributes.longitude.$invalid && !form.attributes.longitude.$pristine}" data-ng-model="event.form.attributes.longitude" name="longitude" ng-required="true" placeholder="What is the event longitude?" type="text">
+                                    <input class="form-control" data-ng-class="{'invalid' : form.attributes.longitude.$invalid && !form.attributes.longitude.$pristine}" data-ng-model="event.form.attributes.longitude" name="longitude"placeholder="What is the event longitude?" type="text">
                                     </input>
                                 </div>
                             </div>
-                            <div class="col-xs-6">
+                            <div class="col-xs-4" ng-show="event.adding">
+                                <div class="group">
+                                    <label>
+                                        User Id
+                                    </label>
+                                    <input class="form-control" data-ng-class="{'invalid' : form.attributes.user_id.$invalid && !form.attributes.user_id.$pristine}" data-ng-model="event.form.attributes['user-id']" name="user_id" placeholder="What is the event user id?" type="text">
+                                    </input>
+                                </div>
+                            </div> 
+                            <div class="col-xs-4" ng-show="event.adding">
+                                <div class="group">
+                                    <label>
+                                        CSS Style Id
+                                    </label>
+                                    <input class="form-control" data-ng-class="{'invalid' : form.attributes.css_style_id.$invalid && !form.attributes.css_style_id.$pristine}" data-ng-model="event.form.attributes['css-style-id']" name="css_style_id" placeholder="What is the event css style id?" type="text">
+                                    </input>
+                                </div>
+                            </div>                                                       
+                            <div class="col-xs-2">
                                 <div class="group">
                                     <label>
                                         Active
                                     </label>
-                                    <span class="required" ng-show="form.attributes.active.$error.required">
-                                        *
-                                    </span>
-                                    <input class="form-control" data-ng-class="{'invalid' : form.attributes.active.$invalid && !form.attributes.active.$pristine}" data-ng-model="event.form.attributes.active" name="active" ng-required="true" placeholder="What is the event active?" type="checkbox">
+                                    <input class="form-control" data-ng-class="{'invalid' : form.attributes.active.$invalid && !form.attributes.active.$pristine}" data-ng-model="event.form.attributes.active" name="active" placeholder="What is the event active?" type="checkbox">
                                     </input>
                                 </div>
                             </div>
                             <br/>
                             <div class="group pull-right">
-                                <button class="btn btn-default btn-success" data-ng-click="event.add(event.form)" data-ng-disabled="event.editing || form.$invalid" name="action">
+                                <button class="btn btn-default btn-success" data-ng-click="event.add(event.form)" data-ng-disabled="event.viewForm || form.$invalid" name="action">
                                     <i class="glyphicon glyphicon-plus-sign">
                                     </i>
                                     Add new user
                                 </button>
-                                <button class="btn btn-default btn-info" data-ng-click="event.save(event.form)" data-ng-disabled="!event.editing || form.$invalid">
+                                <button class="btn btn-default btn-info" data-ng-click="event.save(event.form)" data-ng-disabled="!event.viewForm || form.$invalid">
                                     <i class="glyphicon glyphicon-floppy-save">
                                     </i>
                                     Save
                                 </button>
                             </div>
-                            <br/>
-                            <span class="small" ng-if="event.auth_token">
-                                <h6>
-                                    This is the token for the user, please copy this data, otherwise the authenticate service will need to be called:
-                                    <br/>
-                                    <b>
-                                        auth_token:
-                                    </b>
-                                    {{event.auth_token}}
-                                </h6>
-                            </span>
                         </form>
                     </div>
                 </div>
@@ -116,9 +111,15 @@
                     <table class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th colspan="7">
+                                <th colspan="6">
                                     <input class="form-control col-lg-12" data-ng-model="searchUser" data-ng-model-options="event.modelOptions" placeholder="Search">
                                     </input>
+                                </th>
+                                <th>
+                                    <button class="btn btn-success" data-ng-click="event.prepareAdd()" name="action">
+                                        <i class="glyphicon glyphicon-plus">
+                                        </i>
+                                    </button>                                
                                 </th>
                             </tr>
                             <tr>

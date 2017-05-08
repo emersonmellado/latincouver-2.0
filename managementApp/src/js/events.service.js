@@ -20,7 +20,7 @@
         }
 
         function create(obj) {
-            return $http.post(url(), obj).then(handleSuccess, handleError("Error creating " + singularName));
+            return $http.post(url(), serializeObj_toSave(obj)).then(handleSuccess, handleError("Error creating " + singularName));
         }
 
         function update(obj) {
@@ -38,8 +38,7 @@
             angular.forEach(obj.attributes, function(value, key) {
                 this.push(key + ': ' + value);
             }, log);
-            console.log("log", log);
-            console.log("obj", obj);
+
             var objSerialized = {
                 "event": {
                     "name": obj.attributes.name,
@@ -52,19 +51,24 @@
                     "user-id": obj.attributes["user-id"]
                 }
             };
-            console.log("objSerialized", objSerialized);
             return objSerialized;
         }
-        /*
-        "name": "123",
-        "image-url": "123",
-        "external-url": "123",
-        "longitude": "123",
-        "latitude": "123",
-        "active": true,
-        "css-style-id": 1,
-        "user-id": 1
-        */
+        function serializeObj_toSave(obj) {
+            var objSerialized = {
+                "event": {
+                    "name": obj.attributes.name,
+                    "image_url": obj.attributes['image-url'],
+                    "external_url": obj.attributes['external-url'],
+                    "longitude": obj.attributes.longitude,
+                    "latitude": obj.attributes.latitude,
+                    "active": obj.attributes.active,
+                    "css_style_id": obj.attributes["css-style-id"],
+                    "user_id": obj.attributes["user-id"]
+                }
+            };
+            return objSerialized;
+        }        
+
         function url() {
             return Api.URL_API + apiEndpointName;
         }
@@ -75,6 +79,7 @@
         }
 
         function handleError(error) {
+            console.log("error", error);
             return function() {
                 return {
                     success: false,

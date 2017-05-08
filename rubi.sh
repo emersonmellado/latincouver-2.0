@@ -94,28 +94,32 @@
 
 # fi
 
-# if [ ! -f /home/$USER_NAME/provision/rubi ]; then  
-#   # https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-ubuntu-16-04
-#   cd
-#   git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-#   echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-#   echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-#   exec $SHELL
+if [ ! -f /home/$USER_NAME/provision/rubi ]; then  
+  # https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-ubuntu-16-04
+  sudo apt-get install git
+  
+  cd
+  git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+  echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+  echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+  exec $SHELL
 
-#   git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-#   echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
-#   exec $SHELL
+  git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+  echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
+  exec $SHELL
 
-#   rbenv install 2.4.1
-#   rbenv global 2.4.1
-#   #ruby -v
-#   gem install bundler
+  rbenv install 2.4.1
+  rbenv global 2.4.1
+  #ruby -v
+  gem install bundler
 
-#   gem install rails -v 5.0.2
+  gem install rails -v 5.0.2
 
-#   su -c "touch /home/$USER_NAME/provision/rubi" vagrant
+  sudo apt-get install libpq-dev
 
-# fi
+  su -c "touch /home/$USER_NAME/provision/rubi" vagrant
+
+fi
 
 # if [ ! -f /home/$USER_NAME/provision/rails ]; then
 
