@@ -29,7 +29,7 @@ export class EventData {
   processData(data: any) {
     // just some good 'ol JS fun with objects and arrays
     // build up the data by linking speakers to sessions
-    this.data = data;
+    this.data = data.json().data;
 
     //this.data.tracks = [];
 
@@ -65,6 +65,12 @@ export class EventData {
     console.log("this.data", this.data);
 
     return this.data;
+  }
+
+  getData(){
+    return this.load().map((data: any) => {
+      return data;
+    });
   }
 
   getTimeline(dayIndex: number, queryText = '', excludeTracks: any[] = [], segment = 'all') {

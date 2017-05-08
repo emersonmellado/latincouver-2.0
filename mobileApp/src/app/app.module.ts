@@ -3,7 +3,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { IonicStorageModule } from '@ionic/storage';
 
-import { ConferenceApp } from './app.component';
+import { LatincouverApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
 import { PopoverPage } from '../pages/about-popover/about-popover';
@@ -11,6 +11,7 @@ import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
 import { MapPage } from '../pages/map/map';
 import { SchedulePage } from '../pages/schedule/schedule';
+import { MainPage } from '../pages/main/main';
 import { ScheduleFilterPage } from '../pages/schedule-filter/schedule-filter';
 import { SessionDetailPage } from '../pages/session-detail/session-detail';
 import { SignupPage } from '../pages/signup/signup';
@@ -27,16 +28,16 @@ import { UserData } from '../providers/user-data';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-
 @NgModule({
   declarations: [
-    ConferenceApp,
+    LatincouverApp,
     AboutPage,
     AccountPage,
     LoginPage,
     MapPage,
     PopoverPage,
     SchedulePage,
+    MainPage,
     ScheduleFilterPage,
     SessionDetailPage,
     SignupPage,
@@ -47,18 +48,19 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SupportPage
   ],
   imports: [
-    IonicModule.forRoot(ConferenceApp),
+    IonicModule.forRoot(LatincouverApp),
 		IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    ConferenceApp,
+    LatincouverApp,
     AboutPage,
     AccountPage,
     LoginPage,
     MapPage,
     PopoverPage,
     SchedulePage,
+    MainPage,
     ScheduleFilterPage,
     SessionDetailPage,
     SignupPage,

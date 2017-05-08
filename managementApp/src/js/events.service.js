@@ -43,8 +43,8 @@
             var objSerialized = {
                 "event": {
                     "name": obj.attributes.name,
-                    "image-url": obj.attributes.image_url,
-                    "external_url": obj.attributes.external_url,
+                    "image_url": obj.attributes['image-url'],
+                    "external_url": obj.attributes['external-url'],
                     "longitude": obj.attributes.longitude,
                     "latitude": obj.attributes.latitude,
                     "active": obj.attributes.active,

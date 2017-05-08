@@ -31,7 +31,7 @@
                                     <span class="required" ng-show="form.attributes.image_url.$error.required">
                                         *
                                     </span>
-                                    <input class="form-control" data-ng-class="{'invalid' : form.attributes.image_url.$invalid && !form.attributes.image_url.$pristine}" data-ng-model="event.form.attributes.image_url" name="image_url" ng-required="true" placeholder="What is the event image url?" type="text">
+                                    <input class="form-control" data-ng-class="{'invalid' : form.attributes.image_url.$invalid && !form.attributes.image_url.$pristine}" data-ng-model="event.form.attributes['image-url']" name="image_url" ng-required="true" placeholder="What is the event image url?" type="text">
                                     </input>
                                 </div>
                             </div>
@@ -43,7 +43,7 @@
                                     <span class="required" ng-show="form.attributes.external_url.$error.required">
                                         *
                                     </span>
-                                    <input class="form-control" data-ng-class="{'invalid' : form.attributes.external_url.$invalid && !form.attributes.external_url.$pristine}" data-ng-model="event.form.attributes.external_url" name="external_url" ng-required="true" placeholder="What is the event external url?" type="text">
+                                    <input class="form-control" data-ng-class="{'invalid' : form.attributes.external_url.$invalid && !form.attributes.external_url.$pristine}" data-ng-model="event.form.attributes['external-url']" name="external_url" ng-required="false" placeholder="What is the event external url?" type="text">
                                     </input>
                                 </div>
                             </div>
