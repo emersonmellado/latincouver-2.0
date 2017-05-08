@@ -11,14 +11,14 @@ import { AboutPage } from '../pages/about/about';
 import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
 import { MapPage } from '../pages/map/map';
-import { SignupPage } from '../pages/signup/signup';
+// import { SignupPage } from '../pages/signup/signup';
 import { TabsPage } from '../pages/tabs/tabs';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { SchedulePage } from '../pages/schedule/schedule';
 import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
 import { SupportPage } from '../pages/support/support';
 
-import { ConferenceData } from '../providers/conference-data';
+//import { ConferenceData } from '../providers/conference-data';
 import { EventData } from '../providers/event-data';
 import { UserData } from '../providers/user-data';
 
@@ -34,7 +34,7 @@ export interface PageInterface {
 @Component({
   templateUrl: 'app.template.html'
 })
-export class ConferenceApp {
+export class LatincouverApp {
   // the root nav is a child of the root app component
   // @ViewChild(Nav) gets a reference to the app's root nav
   @ViewChild(Nav) nav: Nav;
@@ -54,9 +54,9 @@ export class ConferenceApp {
     { title: 'Logout', component: TabsPage, icon: 'log-out', logsOut: true }
   ];
   loggedOutPages: PageInterface[] = [
-    { title: 'Login', component: LoginPage, icon: 'log-in' },
-    { title: 'Signup', component: SignupPage, icon: 'person-add' },
-    { title: 'Support', component: SupportPage, icon: 'help' }
+    { title: 'Login', component: LoginPage, icon: 'log-in' }//,
+    // { title: 'Signup', component: SignupPage, icon: 'person-add' },
+    // { title: 'Support', component: SupportPage, icon: 'help' }
   ];
   rootPage: any;
 
@@ -65,7 +65,7 @@ export class ConferenceApp {
     public userData: UserData,
     public menu: MenuController,
     public platform: Platform,
-    public confData: ConferenceData,
+    //public confData: ConferenceData,
     public eventData: EventData,
     public storage: Storage,
     public splashScreen: SplashScreen
