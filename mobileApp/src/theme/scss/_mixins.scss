@@ -1,0 +1,27 @@
+@mixin bg-gradient-t2b($start-colour:#fff, $end-colour:#000) {
+    background-color: $start-colour;
+    background-image: -webkit-gradient(linear, left bottom, right top, from($start-colour), to($end-colour));
+    background-image: -webkit-linear-gradient(60deg, $start-colour, $end-colour);
+    background-image: -moz-linear-gradient(60deg, $start-colour, $end-colour);
+    background-image: -ms-linear-gradient(60deg, $start-colour, $end-colour);
+    background-image: -o-linear-gradient(60deg, $start-colour, $end-colour);
+    background-image: linear-gradient(60deg, $start-colour, $end-colour);
+    //filter: progid:DXImageTransform.Microsoft.gradient(start-colourStr='#{$start-colour}', end-colourStr='#{$end-colour}', gradientType='1');
+    background: $start-colour;
+    background: -moz-linear-gradient(top, $start-colour 0%, $end-colour 50%);
+    background: -webkit-linear-gradient(top, $start-colour 0%, $end-colour 50%);
+    background: linear-gradient(to bottom, $start-colour 0%, $end-colour 50%);
+    //filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='$start-colour', endColorstr='$end-colour', GradientType=0);
+    
+}
+
+@mixin bg-gradient-l2r($start-colour:#fff, $end-colour:#000) {
+    background-color: $start-colour;
+    background-image: -webkit-gradient(linear, left bottom, right top, from($start-colour), to($end-colour));
+    background-image: -webkit-linear-gradient(60deg, $start-colour, $end-colour);
+    background-image:    -moz-linear-gradient(60deg, $start-colour, $end-colour);
+    background-image:     -ms-linear-gradient(60deg, $start-colour, $end-colour);
+    background-image:      -o-linear-gradient(60deg, $start-colour, $end-colour);
+    background-image:         linear-gradient(60deg, $start-colour, $end-colour);
+    filter:            progid:DXImageTransform.Microsoft.gradient(start-colourStr='#{$start-colour}', end-colourStr='#{$end-colour}', gradientType='1');
+}
