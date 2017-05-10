@@ -43,20 +43,20 @@ export class LatincouverApp {
   // the left menu only works after login
   // the login page disables the left menu
   appPages: PageInterface[] = [
-    { title: 'Schedule', component: TabsPage, tabComponent: SchedulePage, icon: 'calendar' },
-    { title: 'Speakers', component: TabsPage, tabComponent: SpeakerListPage, index: 1, icon: 'contacts' },
-    { title: 'Map', component: TabsPage, tabComponent: MapPage, index: 2, icon: 'map' },
-    { title: 'About', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'information-circle' }
+  { title: 'Schedule', component: TabsPage, tabComponent: SchedulePage, icon: 'calendar' },
+  { title: 'Speakers', component: TabsPage, tabComponent: SpeakerListPage, index: 1, icon: 'contacts' },
+  { title: 'Map', component: TabsPage, tabComponent: MapPage, index: 2, icon: 'map' },
+  { title: 'About', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'information-circle' }
   ];
   loggedInPages: PageInterface[] = [
-    { title: 'Account', component: AccountPage, icon: 'person' },
-    { title: 'Support', component: SupportPage, icon: 'help' },
-    { title: 'Logout', component: TabsPage, icon: 'log-out', logsOut: true }
+  { title: 'Account', component: AccountPage, icon: 'person' },
+  { title: 'Support', component: SupportPage, icon: 'help' },
+  { title: 'Logout', component: TabsPage, icon: 'log-out', logsOut: true }
   ];
   loggedOutPages: PageInterface[] = [
-    { title: 'Login', component: LoginPage, icon: 'log-in' }//,
-    // { title: 'Signup', component: SignupPage, icon: 'person-add' },
-    // { title: 'Support', component: SupportPage, icon: 'help' }
+  { title: 'Login', component: LoginPage, icon: 'log-in' }//,
+  // { title: 'Signup', component: SignupPage, icon: 'person-add' },
+  // { title: 'Support', component: SupportPage, icon: 'help' }
   ];
   rootPage: any;
 
@@ -69,18 +69,18 @@ export class LatincouverApp {
     public eventData: EventData,
     public storage: Storage,
     public splashScreen: SplashScreen
-  ) {
+    ) {
 
     // Check if the user has already seen the tutorial
     this.storage.get('hasSeenTutorial')
-      .then((hasSeenTutorial) => {
-        if (hasSeenTutorial) {
-          this.rootPage = TabsPage;
-        } else {
-          this.rootPage = TutorialPage;
-        }
-        this.platformReady()
-      })
+    .then((hasSeenTutorial) => {
+      if (hasSeenTutorial) {
+        this.rootPage = TabsPage;
+      } else {
+        this.rootPage = TutorialPage;
+      }
+      this.platformReady()
+    })
 
     // load the conference data
     eventData.load();

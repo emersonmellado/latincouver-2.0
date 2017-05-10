@@ -1,83 +1,80 @@
-<!-- <ion-header>
+<ion-header>
   <ion-navbar no-border-bottom>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+    <div class="bar bar-header bar-positive bar-positive-main">
+      <span class="title">
+        UPCOMING EVENTS
+      </span>
+    </div>    
+  </ion-navbar>  
+</ion-header>
 
-    <ion-segment [(ngModel)]="segment" (ionChange)="updateSchedule()">
-      <ion-segment-button value="all">
-        All
-      </ion-segment-button>
-      <ion-segment-button value="favorites">
-        Favorites
-      </ion-segment-button>
-    </ion-segment>
-
-    <ion-buttons end>
-      <button ion-button icon-only (click)="presentFilter()">
-        <ion-icon ios="ios-options-outline" md="md-options"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-navbar>
-
-  <ion-toolbar no-border-top>
-    <ion-searchbar color="primary"
-                   [(ngModel)]="queryText"
-                   (ionInput)="updateSchedule()"
-                   placeholder="Search">
-    </ion-searchbar>
-  </ion-toolbar>
-</ion-header> -->
-
-<ion-content>
-  <ion-list #mainList [hidden]="events === 0">
-    <ion-item-group *ngFor="let ev of events">
-
-<!--       <ion-item-divider sticky>
-        <ion-label>
-          {{ev.id}}
-        </ion-label>
-      </ion-item-divider> -->
-
-      <ion-item-sliding *ngFor="let session of events">
-
-        <button ion-item (click)="goToSessionDetail(session)">
-          <h3>{{session.attributes.name}}</h3>
-          <p>
-            {{session.attributes.latitude}} &mdash;
-            {{session.attributes.longitude}}
-          </p>
-          <img [src]="session.attributes['image-url']">
-        </button>
-
-        <ion-item-options>
-          <button ion-button color="favorite" (click)="addFavorite(slidingItem, session)" *ngIf="segment === 'all'">
-            Favorite
-          </button>
-          <button ion-button color="danger" (click)="removeFavorite(slidingItem, session, 'Remove Favorite')" *ngIf="segment === 'favorites'">
-            Remove
-          </button>
-        </ion-item-options>
-
-      </ion-item-sliding>
-
-    </ion-item-group>
-
-  </ion-list>
-
-  <ion-list-header [hidden]="events !== 0">
-      No Sessions Found
-  </ion-list-header>
-
-<!--   <ion-fab bottom right #fab>
-    <button ion-fab><ion-icon name="share"></ion-icon></button>
-    <ion-fab-list side="top">
-      <button ion-fab color="vimeo" (click)="openSocial('Vimeo', fab)"><ion-icon name="logo-vimeo"></ion-icon></button>
-      <button ion-fab color="google" (click)="openSocial('Google+', fab)"><ion-icon name="logo-googleplus"></ion-icon></button>
-      <button ion-fab color="twitter" (click)="openSocial('Twitter', fab)"><ion-icon name="logo-twitter"></ion-icon></button>
-      <button ion-fab color="facebook" (click)="openSocial('Facebook', fab)"><ion-icon name="logo-facebook"></ion-icon></button>
-    </ion-fab-list>
-  </ion-fab> -->
-
-
+<ion-content class="content no-padding main-content">
+  <div class="main-list">    
+    <div class="button grow" *ngFor="let event of events">
+      <div class="green">
+        <h3>{{event.attributes.name}}</h3>
+        <h4>{{event.attributes.name}}</h4>
+      </div>
+      <img [src]="event.attributes['image-url']">
+    </div>
+  </div>
 </ion-content>
+
+<!-- <ion-content class="content no-padding main-content">
+  <div class="main-list">
+    <div ui-sref="event" class="button item grow">
+      <div class="green">
+        <h3>Carnaval del Sol</h3>            
+        <h4>
+          <i class="ion ion-calendar icon-accent"></i>
+          July 9th & 10th | 9am - 10pm
+        </h4>
+        <h4>
+          <i class="ion ion-android-pin icon-accent"></i>
+          Concord Pacific Place  | 88 Pacific Blvd
+        </h4>                    
+      </div>
+      <img src="http://latincouver.er7.ca/images/carnaval_delsol.png">
+    </div>
+    <div class="button item main-small grow" ui-sref="latinhub">
+      <div class="blue">
+        <h3>Latin Innovation Hub</h3>                    
+      </div>                
+      <img src="http://latincouver.er7.ca/images/carnaval_delsol.png">
+    </div>            
+    <div class="button item grow" href="#" onclick="window.open('http://www.latincouver.ca/events/latin-live-events/', '_system'); return false;">
+      <div class="yellow">
+        <h3>Latin Live Events</h3>                    
+      </div>
+      <img src="assets/images/home/latin_america.jpg">
+    </div>
+    <div class="button item main-small grow" href="#" onclick="window.open('http://www.expoplazalatina.ca/', '_system'); return false;">
+      <div class="red">
+        <h3>ExpoPlaza Latina</h3>
+        <h4>
+          <i class="ion ion-calendar icon-accent"></i>
+          September 14th 
+        </h4>
+        <h4>
+          <i class="ion ion-android-pin icon-accent"></i>
+          Vancouver
+        </h4>                       
+      </div>
+      <img src="assets/images/home/expoplaza_latina.jpg">
+    </div>
+    <div class="button item main-small grow" href="#" onclick="window.open('http://www.latincouver.ca/lcpn/', '_system'); return false;">
+      <div class="green">
+        <h3>LCPN</h3>
+        <h4>
+          <i class="ion ion-calendar icon-accent"></i>
+          November 21st
+        </h4>
+        <h4>
+          <i class="ion ion-android-pin icon-accent"></i>
+          Vancouver
+        </h4>                       
+      </div>
+      <img src="assets/images/home/LCPN.jpg">
+    </div>                        
+  </div>
+</ion-content> -->
