@@ -2,15 +2,12 @@
 default: 
   adapter: postgresql
   encoding: unicode
-  pool: "<%= ENV.fetch(\"RAILS_MAX_THREADS\") { 5 } %>"
 development: 
   adapter: postgresql
   database: latincouver_v2-api_development
   encoding: unicode
-  pool: "<%= ENV.fetch(\"RAILS_MAX_THREADS\") { 5 } %>"
 production: 
   database: dbge5v3rr2q6v9
-  adapter: postgresql
   host: ec2-54-235-120-39.compute-1.amazonaws.com
   user: nhifmbvlvzkwfl
   password: 817e7f490c813708b748daa0ad824010257d94a60fb001dca2c0de0c904c6d28  
@@ -18,4 +15,3 @@ test:
   adapter: postgresql
   database: latincouver_v2-api_test
   encoding: unicode
-  pool: "<%= ENV.fetch(\"RAILS_MAX_THREADS\") { 5 } %>"
