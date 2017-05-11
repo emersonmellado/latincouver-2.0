@@ -88,4 +88,3 @@ production:
   #database: latincouver_v2-api_production
   #username: latincouver_v2-api
   #password: <%= ENV['LATINCOUVER_V2-API_DATABASE_PASSWORD'] %>
-  
