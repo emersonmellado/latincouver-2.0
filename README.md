@@ -9,8 +9,8 @@ TODO list:
   - Deploy to heroku-api:
   heroku git:remote -a latincouverapi
   git remote rename heroku heroku-api
-  git subtree push --prefix lc_v2-api heroku-api master
-  git push heroku-api 'git subtree push --prefix lc_v2-api heroku-api master':master --force
+  git subtree push --prefix lc_v2-api heroku-api master  
+  git push heroku-api `git subtree split --prefix lc_v2-api master`:master --force
 
 2. UI for json management
   - Deploy to heroku-admin
