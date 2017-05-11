@@ -80,9 +80,12 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+DATABASE_URL="postgres://nhifmbvlvzkwfl:817e7f490c813708b748daa0ad824010257d94a60fb001dca2c0de0c904c6d28@ec2-54-235-120-39.compute-1.amazonaws.com:5432/dbge5v3rr2q6v9"
+
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   #database: latincouver_v2-api_production
   #username: latincouver_v2-api
   #password: <%= ENV['LATINCOUVER_V2-API_DATABASE_PASSWORD'] %>
-  DATABASE_URL="postgres://nhifmbvlvzkwfl:817e7f490c813708b748daa0ad824010257d94a60fb001dca2c0de0c904c6d28@ec2-54-235-120-39.compute-1.amazonaws.com/dbge5v3rr2q6v9"
+  
