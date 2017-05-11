@@ -6,8 +6,15 @@ In this version we are going to create a few things and try to decouple the api 
 
 TODO list:
 1. Rails api
+  - Deploy to heroku-api:
+  git subtree push --prefix lc_v2-api heroku-api master
+  git push heroku-api `git subtree split --prefix lc_v2-api master`:master --force
+
 2. UI for json management
+  - Deploy to heroku-admin
+  
 3. Ionic 2.0
+  - Deploy to heroku-mobile
 
 # Vagrant to run Rails (Just in case you want)
 
