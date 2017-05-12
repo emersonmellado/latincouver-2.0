@@ -4,12 +4,13 @@
   angular
     .module('lcv2', [
       'ngRoute',
-      "toastr",
+      'toastr',
       'satellizer',
 
       'event',
       'home',
-      'login'
+      'login',
+      'user'
     ])
     .controller('Lcv2Controller', Lcv2Controller);
 

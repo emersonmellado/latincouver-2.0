@@ -37,6 +37,16 @@ function config($locationProvider, $routeProvider) {
          },
          template: '<event></event>'
       })
+      .when('/user', {
+         resolve: {
+            function($location, $rootScope) {
+               if (!$rootScope.logged) {
+                   $location.path('/login');
+               }
+            }
+         },
+         template: '<user></user>'
+      })
       .otherwise('/');
 
    // configure html5 to get links working on jsfiddle

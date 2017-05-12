@@ -2,21 +2,21 @@
   'use strict';
 
   angular
-    .module('event', [])
-    .component('event', {
-      templateUrl: 'app/event/event.template.html',
-      controller: EventController,
+    .module('user', [])
+    .component('user', {
+      templateUrl: 'app/user/user.template.html',
+      controller: UserController,
       controllerAs: 'vm'
     });
 
-  EventController.$inject = ['$log', 'toastr', 'dataService'];
+  UserController.$inject = ['$log', 'toastr', 'dataService'];
 
-  function EventController($log, toastr, dataService) {
+  function UserController($log, toastr, dataService) {
 
     //Change this vars for a new base service on Rails
-    var singularName = "event";
-    var pluralName = "events";
-    var apiEndpointName = "events";
+    var singularName = "user";
+    var pluralName = "users";
+    var apiEndpointName = "users";
     //
 
     var vm = this;
@@ -27,7 +27,7 @@
     vm.data;
     vm.auth_token = 'auth_token';
 
-    vm.title = "Event Management";
+    vm.title = "User Management";
     vm.add = add;
     vm.remove = remove;
     vm.edit = edit;
@@ -56,21 +56,10 @@
     function add() {
       vm.form = {
         id: 0,
-        cssStyleId: 0,
-        name: '',
-        date: new Date(),
-        imageUrl: '',
-        externalUrl: '',
-        longitude: 0,
-        latitude: 0,
+        email: '',
+        password: '',
         active: true
-      };
-      vm.editing = true;
-    }
-
-    function edit(obj, index) {
-      vm.form = angular.copy(obj);
-      vm.form.index = index;
+      }
       vm.editing = true;
     }
 
@@ -88,6 +77,7 @@
           toastr.info('Sucesfully removed!');
         }
       }
+
 
       // var filterDeleted = function(el) {
       //     return obj.id !== el.id;
@@ -114,6 +104,13 @@
       //     }
       // });
 
+    }
+
+    function edit(obj, index) {
+      console.log(obj);
+      vm.form = angular.copy(obj);
+      vm.form.index = index;
+      vm.editing = true;
     }
 
     function save(obj) {
@@ -152,7 +149,6 @@
     }
 
     function dataFailed(error) {
-      console.log('dataFailed');
       console.log(error);
       $log.debug("error:" + error);
       toastr.error("error accessing data!");
