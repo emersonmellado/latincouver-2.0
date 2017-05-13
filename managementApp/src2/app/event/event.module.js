@@ -17,6 +17,8 @@
     var singularName = "event";
     var pluralName = "events";
     var apiEndpointName = "events";
+    var errorMsg;
+    var completeMsg;
     //
 
     var vm = this;
@@ -46,10 +48,20 @@
 
       vm.form = {};
       vm.editing = false;
+      errorMsg = 'error accessing ' + pluralName + '!';
+      completeMsg = '';
 
       return dataService.GetAll(apiEndpointName)
-        .then(dataComplete)
+        .then(getAllComplete)
         .catch(dataFailed);
+
+      function getAllComplete(response) {
+        if(response.success === false) {
+          dataFailed(response.message);
+        } else {
+          vm.data = response.data;
+        }
+      }
 
     }
 
@@ -76,18 +88,12 @@
 
     function remove(obj) {
 
-      return dataService.Remove(apiEndpointName, obj)
-        .then(removeComplete)
-        .catch(dataFailed);
+      errorMsg = 'error removing event!';
+      completeMsg = 'Sucesfully removed!';
 
-      function removeComplete(response) {
-        if(response.success === false) {
-          dataFailed(response.message);
-        } else {
-          activate();
-          toastr.info('Sucesfully removed!');
-        }
-      }
+      return dataService.Remove(apiEndpointName, obj)
+        .then(dataComplete)
+        .catch(dataFailed);
 
       // var filterDeleted = function(el) {
       //     return obj.id !== el.id;
@@ -118,27 +124,21 @@
 
     function save(obj) {
 
+      errorMsg = 'error saving event!';
+      completeMsg = 'All data sucesfully saved!';
+
       if (obj.id) {
 
         return dataService.Update(apiEndpointName, obj)
-          .then(saveComplete)
+          .then(dataComplete)
           .catch(dataFailed);
 
       } else {
 
         return dataService.Create(apiEndpointName, obj)
-          .then(saveComplete)
+          .then(dataComplete)
           .catch(dataFailed);
 
-      }
-
-      function saveComplete(response) {
-        if(response.success === false) {
-          dataFailed(response.message);
-        } else {
-          activate();
-          toastr.info('All data sucesfully saved!');
-        }
       }
 
     }
@@ -147,15 +147,15 @@
       if(response.success === false) {
         dataFailed(response.message);
       } else {
-        vm.data = response.data;
+        if (completeMsg) toastr.info(completeMsg);
+        activate();
       }
     }
 
     function dataFailed(error) {
-      console.log('dataFailed');
-      console.log(error);
-      $log.debug("error:" + error);
-      toastr.error("error accessing data!");
+      console.log(error.message);
+      $log.debug("error:" + error.message);
+      toastr.error(errorMsg);
     }
 
   }

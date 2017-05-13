@@ -2,146 +2,131 @@ var express = require('express');
 var router = express.Router();
 var dbMock = require('./server2mock.json');
 
-
 var eventList = dbMock.eventList;
+var eventItem = JSON.parse(JSON.stringify(dbMock.eventList[0]));
 var userList = dbMock.userList;
+var userItem = JSON.parse(JSON.stringify(dbMock.userList[0]));
+var plazaList = dbMock.plazaList;
+var plazaItem = JSON.parse(JSON.stringify(dbMock.plazaList[0]));
 
 router.use(function timeLog (req, res, next) {
    console.log('Routing mock at ', Date.now());
    next();
 });
 
-// Events
+router.get('/:table', function(req, res) {
 
-router.get('/events/', function(req, res) {
-
-  var list = {
-    data: eventList
+  var table = req.params.table;
+  var list;
+  if (table == 'events') {
+    list = eventList;
+    list.forEach(function(item) {
+      item['image-url'] = item.imageUrl;
+      item['external-url'] = item.externalUrl;
+    });
+  } else if(table == 'plazas') {
+    list = plazaList;
+  } else if(table == 'users') {
+    list = userList;
+  } else {
+    res.status(400).json('no table');
   };
 
-  list.data.forEach(function(item) {
-    item['image-url'] = item.imageUrl;
-    item['external-url'] = item.externalUrl;
-  });
-  res.status(200).json(list);
+  console.log('get ' + table);
+  res.status(200).json({ data: list });
 
 });
 
-router.put('/events/:id', function (req, res) {
+router.post('/:table', function (req, res) {
 
-  var id = req.params.id;
+  var table = req.params.table;
+  var list;
+  var item;
   var data = req.body;
-  data.imageUrl = data['image-url'];
-  data.externalUrl = data['external-url'];
 
-  var i = eventList.findIndex(x => x.id === data.id);
+  if (table == 'events') {
+    list = eventList;
+    item = eventItem;
+    data.imageUrl = data['image-url'];
+    data.externalUrl = data['external-url'];
+  } else if(table == 'plazas') {
+    list = plazaList;
+    item = plazaItem;
+  } else if(table == 'users') {
+    list = userList;
+    item = userItem;
+  } else {
+    res.status(400).json('no table');
+  };
+  var id = req.params.id;
+  console.log('post. ' + table);
+
+  var count = list.length;
+  var id = 0;
+  for (var i = 0; i < count; i++) {
+    if (list[i].id > id) id = list[i].id;
+  }
+  data.id = id + 1;
+
+  for(key in item) {
+    if (data[key] != undefined) item[key] = data[key]; else item[key] = null;
+  };
+  list.push(item);
+  res.status(200).json('ok');
+
+});
+
+router.put('/:table/:id', function (req, res) {
+
+  var table = req.params.table;
+  var list;
+  var data = req.body;
+
+  if (table == 'events') {
+    list = eventList;
+    data.imageUrl = data['image-url'];
+    data.externalUrl = data['external-url'];
+  } else if(table == 'plazas') {
+    list = plazaList;
+  } else if(table == 'users') {
+    list = userList;
+  } else {
+    res.status(400).json('no table');
+  };
+  var id = req.params.id;
+  console.log('put ' + table);
+
+  var i = list.findIndex(x => x.id === data.id);
   if (i == -1) {
     res.status(400).json('not found');
   } else {
-    eventList[i] =  {
-      id: data.id,
-      cssStyleId: data.cssStyleId,
-      name:  data.name,
-      date: data.date,
-      imageUrl: data.imageUrl,
-      externalUrl: data.externalUrl,
-      longitude: data.longitude,
-      latitude: data.latitude,
-      active: data.active
-    };
+    for(key in list[i]) {
+      if (data[key] != undefined) list[i][key] = data[key]; else list[i][key] = null;
+    }
     res.status(200).json('ok');
-  }
+  };
 });
 
-router.post('/events', function (req, res) {
+router.delete('/:table/:id', function (req, res) {
 
-  var data = req.body;
-  data.imageUrl = data['image-url'];
-  data.externalUrl = data['external-url'];
-
-  var count = eventList.length;
-  var id = 0;
-  for (var i = 0; i < count; i++) {
-    if (eventList[i].id > id) id = eventList[i].id;
-  }
-
-  eventList.push({
-    id: id+1,
-    cssStyleId: data.cssStyleId,
-    name:  data.name,
-    date: data.date,
-    imageUrl: data.imageUrl,
-    externalUrl: data.externalUrl,
-    longitude: data.longitude,
-    latitude: data.latitude,
-    active: data.active
-  });
-  res.status(200).json('ok');
-
-});
-
-router.delete('/events/:id', function (req, res) {
-
+  var table = req.params.table;
+  var list;
+  if (table == 'events') {
+    list = eventList;
+  } else if(table == 'plazas') {
+    list = plazaList;
+  } else if(table == 'users') {
+    list = userList;
+  } else {
+    res.status(400).json('no table');
+  };
   var id = req.params.id;
 
-  var i = eventList.findIndex(x => x.id === id);
-  eventList.splice(i, 1);
+  console.log('delete ' + table +' ' + id);
+  var i = list.findIndex(x => x.id === id);
+  list.splice(i, 1);
   res.status(200).json('ok');
 
-});
-
-
-// Users
-
-router.get('/users', function(req, res) {
-
-  console.log('get users');
-  res.status(200).json({ data: userList });
-
-});
-
-router.delete('/users/:id', function (req, res) {
-
-  console.log('delete user ' + req.params.id);
-  var i = userList.findIndex(x => x.id === req.params.id);
-  userList.splice(i, 1);
-  res.status(200).json('ok');
-
-});
-
-router.post('/users', function (req, res) {
-
-  var data = req.body;
-  var count = userList.length;
-  var id = 0;
-  for (var i = 0; i < count; i++) {
-    if (userList[i].id > id) id = userList[i].id;
-  }
-  userList.push({
-    id: id+1,
-    email: data.email,
-    password: data.password,
-    active: data.active
-  });
-  res.status(200).json('ok');
-
-});
-
-router.put('/users/:id', function (req, res) {
-
-  var data = req.body;
-  var i = userList.findIndex(x => x.id == req.params.id);
-  if (i == -1) {
-    res.status(400).json('not found');
-  } else {
-    userList[i] =  {
-      id: data.id,
-      email: data.email,
-      password: data.password,
-      active: data.active
-    };
-    res.status(200).json('ok');
-  }
 });
 
 module.exports = router;

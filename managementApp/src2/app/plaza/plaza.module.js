@@ -2,21 +2,21 @@
   'use strict';
 
   angular
-    .module('user', [])
-    .component('user', {
-      templateUrl: 'app/user/user.template.html',
-      controller: UserController,
+    .module('plaza', [])
+    .component('plaza', {
+      templateUrl: 'app/plaza/plaza.template.html',
+      controller: PlazaController,
       controllerAs: 'vm'
     });
 
-  UserController.$inject = ['$log', 'toastr', 'dataService'];
+  PlazaController.$inject = ['$log', 'toastr', 'dataService'];
 
-  function UserController($log, toastr, dataService) {
+  function PlazaController($log, toastr, dataService) {
 
     //Change this vars for a new base service on Rails
-    var singularName = "user";
-    var pluralName = "users";
-    var apiEndpointName = "users";
+    var singularName = "plaza";
+    var pluralName = "plazas";
+    var apiEndpointName = "plazas";
     var errorMsg;
     var completeMsg;
     //
@@ -29,7 +29,7 @@
     vm.data;
     vm.auth_token = 'auth_token';
 
-    vm.title = "User Management";
+    vm.title = "Plaza Management";
     vm.add = add;
     vm.remove = remove;
     vm.edit = edit;
@@ -68,10 +68,14 @@
     function add() {
       vm.form = {
         id: 0,
-        email: '',
-        password: '',
+        eventId: 0,
+        plazaId: 0,
+        cssClassId: 1,
+        name: '',
+        description: '',
+        imageUrl: '',
         active: true
-      }
+      };
       vm.editing = true;
     }
 
@@ -83,7 +87,7 @@
 
     function remove(obj) {
 
-      errorMsg = 'error removing user!';
+      errorMsg = 'error removing event!';
       completeMsg = 'Sucesfully removed!';
 
       return dataService.Remove(apiEndpointName, obj)
@@ -119,7 +123,7 @@
 
     function save(obj) {
 
-      errorMsg = 'error saving user!';
+      errorMsg = 'error saving event!';
       completeMsg = 'All data sucesfully saved!';
 
       if (obj.id) {

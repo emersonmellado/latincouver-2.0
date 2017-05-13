@@ -37,6 +37,16 @@ function config($locationProvider, $routeProvider) {
          },
          template: '<event></event>'
       })
+      .when('/plaza', {
+         resolve: {
+            function($location, $rootScope) {
+               if (!$rootScope.logged) {
+                   $location.path('/login');
+               }
+            }
+         },
+         template: '<plaza></plaza>'
+      })
       .when('/user', {
          resolve: {
             function($location, $rootScope) {

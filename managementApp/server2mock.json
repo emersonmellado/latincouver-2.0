@@ -34,6 +34,26 @@
       "active": true
     }
   ],
+  "plazaList": [
+    {
+      "id": 1,
+      "eventId": 1,
+      "cssClassId": 1,
+      "name": "Plaza 1",
+      "description": "Plaza number one for the event 1",
+      "imageUrl": "www.plaza1.ca",
+      "active": true
+    },
+    {
+      "id": 2,
+      "eventId": 1,
+      "cssClassId": 2,
+      "name": "Plaza 2",
+      "description": "Plaza number two for the event 1",
+      "imageUrl": "www.plaza2.ca",
+      "active": true
+    }
+  ],
   "userList": [
     {
       "id": 1,

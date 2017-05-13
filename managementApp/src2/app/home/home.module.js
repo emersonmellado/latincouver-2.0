@@ -9,7 +9,7 @@
       controllerAs: 'vm'
     });
 
-  HomeController.$inject = ['$rootScope', 'Api'];
+  HomeController.$inject = ['$rootScope'];
 
   function HomeController($rootScope) {
 
