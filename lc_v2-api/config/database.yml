@@ -11,10 +11,13 @@ development:
   database: latincouver_v2-api_development
   encoding: unicode
 production: 
-  database: dbge5v3rr2q6v9
-  host: ec2-54-235-120-39.compute-1.amazonaws.com
-  user: nhifmbvlvzkwfl
-  password: 817e7f490c813708b748daa0ad824010257d94a60fb001dca2c0de0c904c6d28  
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: dbmi44gpr1dapk
+  host: ec2-54-235-119-27.compute-1.amazonaws.com
+  username: urcctkztrniiqp
+  password: b85cef872d70e68c4734914a9b2e7434391c957651df8e4fc6c51d5c80f5d1d5  
 test:
   <<: *default 
   adapter: postgresql
