@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :trades do
   end
 
-
+  resources :css_style 
 
 
   mount_devise_token_auth_for 'User', at: 'auth'
