@@ -9,13 +9,14 @@
 </ion-header>
 
 <ion-content class="content no-padding main-content">
-  <div class="main-list">    
-    <div class="button grow" *ngFor="let event of events">
+  <div class="main-list">   
+    <div class="button grow" *ngFor="let rec of events">
       <div class="green">
-        <h3>{{event.attributes.name}}</h3>
-        <h4>{{event.attributes.name}}</h4>
+        <h3>{{rec['name']}}</h3>
+        <hr/>
+        <h4>{{rec['name']}}</h4>
       </div>
-      <img [src]="event.attributes['image-url']">
+      <img [src]="rec['imageUrl']">
     </div>
   </div>
 </ion-content>

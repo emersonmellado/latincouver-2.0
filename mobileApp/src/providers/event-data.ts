@@ -21,7 +21,9 @@ export class EventData {
     } else {
       //return this.http.get('assets/data/data.json')
       //return this.http.get('http://er7.ca/api.php')      
-      return this.http.get('http://localhost:3000/events')      
+      //return this.http.get('http://localhost:3000/events')      
+      //return this.http.get('http://latincouver.er7.ca/api/api.php/event')      
+      return this.http.get('http://latincouver.er7.ca/api/api.php/event?include=cssstyle')      
         .map(this.processData, this);
     }
   }
@@ -29,8 +31,9 @@ export class EventData {
   processData(data: any) {
     // just some good 'ol JS fun with objects and arrays
     // build up the data by linking speakers to sessions
-    this.data = data.json().data;
-    console.log("this.data", this.data);
+    
+    this.data = data.json();
+    //console.log("this.data", this.data);
     //this.data.tracks = [];
 
     // // loop through each day in the schedule

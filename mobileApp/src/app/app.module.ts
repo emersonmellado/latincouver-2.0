@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { LatincouverApp } from './app.component';
+import { ObjectValuesPipe } from './pipes';
 
 import { AboutPage } from '../pages/about/about';
 import { PopoverPage } from '../pages/about-popover/about-popover';
@@ -45,7 +46,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SpeakerListPage,
     TabsPage,
     TutorialPage,
-    SupportPage
+    SupportPage,
+    ObjectValuesPipe
   ],
   imports: [
     IonicModule.forRoot(LatincouverApp),

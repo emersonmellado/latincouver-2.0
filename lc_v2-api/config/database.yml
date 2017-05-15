@@ -1,7 +1,12 @@
-default: 
+default: &default 
   adapter: postgresql
   encoding: unicode
+  pool: 5
+  host: localhost
+  username: postgres
+  password: postgres  
 development: 
+  <<: *default
   adapter: postgresql
   database: latincouver_v2-api_development
   encoding: unicode
@@ -10,7 +15,8 @@ production:
   host: ec2-54-235-120-39.compute-1.amazonaws.com
   user: nhifmbvlvzkwfl
   password: 817e7f490c813708b748daa0ad824010257d94a60fb001dca2c0de0c904c6d28  
-test: 
+test:
+  <<: *default 
   adapter: postgresql
   database: latincouver_v2-api_test
   encoding: unicode
