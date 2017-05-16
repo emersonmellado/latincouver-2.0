@@ -9,6 +9,7 @@ class CreateTrades < ActiveRecord::Migration[5.0]
       t.boolean :active
       t.references :trade_type, foreign_key: true
       t.references :trade_group, foreign_key: true
+      t.references :css_style, foreign_key: true
 
       t.timestamps
     end
