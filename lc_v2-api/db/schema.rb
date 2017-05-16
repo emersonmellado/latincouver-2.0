@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170424013736) do
+ActiveRecord::Schema.define(version: 20170516065314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,6 +116,8 @@ ActiveRecord::Schema.define(version: 20170424013736) do
     t.integer  "event_id"
     t.integer  "plaza_id"
     t.integer  "user_id"
+    t.integer  "css_style_id"
+    t.index ["css_style_id"], name: "index_trades_on_css_style_id", using: :btree
     t.index ["event_id"], name: "index_trades_on_event_id", using: :btree
     t.index ["plaza_id"], name: "index_trades_on_plaza_id", using: :btree
     t.index ["trade_group_id"], name: "index_trades_on_trade_group_id", using: :btree
@@ -164,6 +166,7 @@ ActiveRecord::Schema.define(version: 20170424013736) do
   add_foreign_key "schedules", "trades"
   add_foreign_key "trade_links", "trades"
   add_foreign_key "trade_products", "trades"
+  add_foreign_key "trades", "css_styles"
   add_foreign_key "trades", "events"
   add_foreign_key "trades", "plazas"
   add_foreign_key "trades", "trade_groups"
