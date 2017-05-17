@@ -12,9 +12,6 @@ TODO list:
   git subtree push --prefix lc_v2-api heroku-api master  
   git push heroku-api `git subtree split --prefix lc_v2-api master`:master --force
 
-  git subtree split --prefix lc_v2-api master
-  git push heroku-api 8b0b033ef7c90bd8a6ad00807fee2e22c842b05a:master --force
-
 2. UI for json management
   - Deploy to heroku-admin
 
