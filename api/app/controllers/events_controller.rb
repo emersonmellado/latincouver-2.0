@@ -6,7 +6,9 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
 
-    render json: @events
+    #render json: @events, include: => {:plazas},{:users}
+    #render json: @events.as_json(:include => {:plazas => {:include => :subject}, :users => {:include => :subject}})
+    render json: @events, include: ['css_styles']
   end
 
   # GET /events/1
@@ -47,6 +49,6 @@ class EventsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def event_params
-      params.require(:event).permit(:name, :image_url, :external_url, :longitude, :latitude, :active, :user_id, :css_style_id)
+      params.require(:event).permit(:name, :image_url, :external_url, :longitude, :latitude, :active, :css_style_id)
     end
 end

@@ -5,18 +5,51 @@ This is the repo for the dynamic version of the Latincouver app.
 In this version we are going to create a few things and try to decouple the api in a way that it can be integrated back with the ERP they have or it can be used as a single project to manage the mobile app data.
 
 ## Api (Rails 5 api)
-  Endpoints:
+  All endpoints has the methods: `GET` | `POST` | `DELETE` | `PUT`
 
-  http://latincouverapi.heroku.com/css-styles
-  http://latincouverapi.heroku.com/events  
-  http://latincouverapi.heroku.com/plazas
+  * http://latincouverapi.heroku.com/trade-type
+    
+    
+    `POST`
+    {
+      "trade_type":{
+        "name": "Food",
+        "active": 1
+      }
+    }
+
+    Types are: Food, Products, Non-Profit
+
+  * http://latincouverapi.heroku.com/trade-groups
+    Vendors, Business, Sponsors, Artists  
+
+  * http://latincouverapi.heroku.com/css-styles
+    red-flat, blue-flat, yellow-flat, green-flat
+
+  * http://latincouverapi.heroku.com/events
+
+  * http://latincouverapi.heroku.com/plazas
+    `POST`
+    {
+      "plaza":{
+        "name": "Main Stage",
+        "description":"<p>Saturday July 9th marks the beginning of Carnaval Del Sol! We are very proud to be able to host this event for the people we love. This is the most anticipated event yet and we hope it meets your expectations! Indulge in various genres and styles of music as we bring the Latin Community back into Vancouver!</p><p>Different artists and singers will be performing at different times, so be sure to check out the lists of bands we have coming and attend the Main Stage at the allotted times your favourite bands are performing.</p>",
+        "image_url":"http://latincouver.er7.ca/1.0/assets/images/plazas/main-stage.jpg",
+        "longitude":"",
+        "latitude":"",
+        "user_id":"1",
+        "css_style_id":"2",
+        "event_id":"1",
+        "active":1
+      }
+    }
+
   http://latincouverapi.heroku.com/schedules
   http://latincouverapi.heroku.com/trades
-  http://latincouverapi.heroku.com/trade-groups
   http://latincouverapi.heroku.com/trade-link
   http://latincouverapi.heroku.com/trade-product
-  http://latincouverapi.heroku.com/trade-type
 
+  
   - Deploy to heroku-api:
   heroku git:remote -a latincouverapi
   git remote rename heroku heroku-api

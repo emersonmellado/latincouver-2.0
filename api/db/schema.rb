@@ -28,12 +28,12 @@ ActiveRecord::Schema.define(version: 20170516065314) do
     t.string   "longitude"
     t.string   "latitude"
     t.boolean  "active"
-    t.integer  "user_id"
+    #t.integer  "user_id"
     t.integer  "css_style_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["css_style_id"], name: "index_events_on_css_style_id", using: :btree
-    t.index ["user_id"], name: "index_events_on_user_id", using: :btree
+    #t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 
   create_table "plazas", force: :cascade do |t|
@@ -43,14 +43,14 @@ ActiveRecord::Schema.define(version: 20170516065314) do
     t.string   "longitude"
     t.string   "latitude"
     t.boolean  "active"
-    t.integer  "user_id"
+    #t.integer  "user_id"
     t.integer  "css_style_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "event_id"
     t.index ["css_style_id"], name: "index_plazas_on_css_style_id", using: :btree
     t.index ["event_id"], name: "index_plazas_on_event_id", using: :btree
-    t.index ["user_id"], name: "index_plazas_on_user_id", using: :btree
+    #t.index ["user_id"], name: "index_plazas_on_user_id", using: :btree
   end
 
   create_table "schedules", force: :cascade do |t|
@@ -115,14 +115,14 @@ ActiveRecord::Schema.define(version: 20170516065314) do
     t.datetime "updated_at",        null: false
     t.integer  "event_id"
     t.integer  "plaza_id"
-    t.integer  "user_id"
+    #t.integer  "user_id"
     t.integer  "css_style_id"
     t.index ["css_style_id"], name: "index_trades_on_css_style_id", using: :btree
     t.index ["event_id"], name: "index_trades_on_event_id", using: :btree
     t.index ["plaza_id"], name: "index_trades_on_plaza_id", using: :btree
     t.index ["trade_group_id"], name: "index_trades_on_trade_group_id", using: :btree
     t.index ["trade_type_id"], name: "index_trades_on_trade_type_id", using: :btree
-    t.index ["user_id"], name: "index_trades_on_user_id", using: :btree
+    #t.index ["user_id"], name: "index_trades_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -156,10 +156,10 @@ ActiveRecord::Schema.define(version: 20170516065314) do
   end
 
   add_foreign_key "events", "css_styles"
-  add_foreign_key "events", "users"
+  #add_foreign_key "events", "users"
   add_foreign_key "plazas", "css_styles"
   add_foreign_key "plazas", "events"
-  add_foreign_key "plazas", "users"
+  #add_foreign_key "plazas", "users"
   add_foreign_key "schedules", "css_styles"
   add_foreign_key "schedules", "events"
   add_foreign_key "schedules", "plazas"
@@ -171,5 +171,5 @@ ActiveRecord::Schema.define(version: 20170516065314) do
   add_foreign_key "trades", "plazas"
   add_foreign_key "trades", "trade_groups"
   add_foreign_key "trades", "trade_types"
-  add_foreign_key "trades", "users"
+  #add_foreign_key "trades", "users"
 end
