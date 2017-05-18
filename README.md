@@ -8,15 +8,15 @@ In this version we are going to create a few things and try to decouple the api 
   All endpoints has the methods: `GET` | `POST` | `DELETE` | `PUT`
 
   * http://latincouverapi.heroku.com/trade-type
-    
-    
+        
     `POST`
-    {
+    ```{
       "trade_type":{
         "name": "Food",
         "active": 1
       }
     }
+    ```
 
     Types are: Food, Products, Non-Profit
 
@@ -30,7 +30,7 @@ In this version we are going to create a few things and try to decouple the api 
 
   * http://latincouverapi.heroku.com/plazas
     `POST`
-    {
+    ```{
       "plaza":{
         "name": "Main Stage",
         "description":"<p>Saturday July 9th marks the beginning of Carnaval Del Sol! We are very proud to be able to host this event for the people we love. This is the most anticipated event yet and we hope it meets your expectations! Indulge in various genres and styles of music as we bring the Latin Community back into Vancouver!</p><p>Different artists and singers will be performing at different times, so be sure to check out the lists of bands we have coming and attend the Main Stage at the allotted times your favourite bands are performing.</p>",
@@ -43,6 +43,7 @@ In this version we are going to create a few things and try to decouple the api 
         "active":1
       }
     }
+    ```
 
   http://latincouverapi.heroku.com/schedules
   http://latincouverapi.heroku.com/trades
@@ -55,6 +56,10 @@ In this version we are going to create a few things and try to decouple the api 
   git remote rename heroku heroku-api
   git subtree push --prefix api heroku-api master  
   git push heroku-api `git subtree split --prefix api master`:master --force
+  - Reset db
+  heroku pg:reset DATABASE --confirm latincouverapi
+  heroku run rake db:migrate
+  heroku run rake db:seed
 
 ## ManagementApp (angular 1.6 UI for json management)
   - How to create an event:

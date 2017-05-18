@@ -6,9 +6,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
 
-    #render json: @events, include: => {:plazas},{:users}
-    #render json: @events.as_json(:include => {:plazas => {:include => :subject}, :users => {:include => :subject}})
-    render json: @events, include: ['css_styles']
+    render json: @events
   end
 
   # GET /events/1

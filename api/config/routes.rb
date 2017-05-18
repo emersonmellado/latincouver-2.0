@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :json do
+  end
 
   resources :events do
   end
