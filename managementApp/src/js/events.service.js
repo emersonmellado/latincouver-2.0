@@ -20,26 +20,66 @@
         }
 
         function create(obj) {
-            return $http.post(url(), obj).then(handleSuccess, handleError("Error creating " + singularName));
+            return $http.post(url(), serializeObj_toSave(obj)).then(handleSuccess, handleError("Error creating " + singularName));
         }
 
         function update(obj) {
-            return $http.put(url() + "/" + obj.id, obj).then(handleSuccess, handleError("Error updating " + singularName));
+            return $http.put(url() + "/" + obj.id, serializeObj(obj)).then(handleSuccess, handleError("Error updating " + singularName));
         }
 
         function remove(id) {
             return $http.delete(url() + "/" + id).then(handleSuccess, handleError("Error deleting " + singularName));
         }
+        // var values = {name: 'misko', gender: 'male'};
+        // expect(log).toEqual(['name: misko', 'gender: male']);        
         // private functions 
+        function serializeObj(obj) {
+            var log = [];
+            angular.forEach(obj.attributes, function(value, key) {
+                this.push(key + ': ' + value);
+            }, log);
+
+            var objSerialized = {
+                "event": {
+                    "name": obj.attributes.name,
+                    "image_url": obj.attributes['image-url'],
+                    "external_url": obj.attributes['external-url'],
+                    "longitude": obj.attributes.longitude,
+                    "latitude": obj.attributes.latitude,
+                    "active": obj.attributes.active,
+                    "css-style-id": obj.attributes["css-style-id"],
+                    "user-id": obj.attributes["user-id"]
+                }
+            };
+            return objSerialized;
+        }
+        function serializeObj_toSave(obj) {
+            var objSerialized = {
+                "event": {
+                    "name": obj.attributes.name,
+                    "image_url": obj.attributes['image-url'],
+                    "external_url": obj.attributes['external-url'],
+                    "longitude": obj.attributes.longitude,
+                    "latitude": obj.attributes.latitude,
+                    "active": obj.attributes.active,
+                    "css_style_id": obj.attributes["css-style-id"],
+                    "user_id": obj.attributes["user-id"]
+                }
+            };
+            return objSerialized;
+        }        
+
         function url() {
             return Api.URL_API + apiEndpointName;
         }
 
         function handleSuccess(res) {
-            return res.data;
+            console.log("res", res.data);
+            return res.data.data;
         }
 
         function handleError(error) {
+            console.log("error", error);
             return function() {
                 return {
                     success: false,

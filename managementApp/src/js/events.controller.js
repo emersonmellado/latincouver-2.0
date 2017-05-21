@@ -9,6 +9,7 @@
         vm.remove = remove;
         vm.edit = edit;
         vm.save = save;
+        vm.prepareAdd = prepareAdd;
         vm.modelOptions = {
             updateOn: "blur default",
             debounce: {
@@ -21,7 +22,6 @@
             vm.form = {};
             Service.GetAll().then(function(data) {
                 vm.data = data;
-                console.log("data", data);
             }, function(error) {
                 $log.debug("error:" + error);
             });
@@ -30,9 +30,9 @@
 
         function add(obj) {
             Service.Create(obj).then(function(data) {
-                vm.auth_token = data[0].attributes.auth_token;
+                // vm.auth_token = data[0].attributes.auth_token;
                 activate();
-                toastr.success("User added!");
+                toastr.success("Event added!");
             }, function(error) {
                 $log.debug("error:" + error);
                 vm.error = error;
@@ -66,20 +66,32 @@
             });
         }
 
+        function prepareAdd() {
+            // vm.form = angular.copy(obj);
+            // vm.form.index = index;
+            vm.adding = true;
+            vm.viewForm = true;
+        }        
+
         function edit(obj, index) {
             vm.form = angular.copy(obj);
             vm.form.index = index;
-            vm.editing = true;
+            vm.viewForm = true;
+            vm.adding = false;
         }
 
         function save(obj) {
-            Service.Update(obj).then(function(data) {
-                activate();
-                toastr.info('All data sucesfully saved!');
-            }, function(error) {
-                $log.debug("error:" + error);
-            });
-            vm.editing = false;
+            if (vm.adding){
+                add(obj);
+            }else{
+                Service.Update(obj).then(function(data) {
+                    activate();
+                    toastr.info('All data sucesfully saved!');
+                }, function(error) {
+                    $log.debug("error:" + error);
+                });
+            }
+            vm.viewForm = false;
         }
     }
     angular.module("lcv2").controller("EventsController", EventsController);

@@ -1,0 +1,56 @@
+/* Do not remove this comments bellow. It's the markers used by wiredep to inject
+   sass dependencies when defined in the bower.json of your dependencies */
+// bower:scss
+// endbower
+
+@import "scss/_variables";
+
+// Include all of Ionic
+//@import "../../bower_components/ionic/scss/ionic.scss";
+//@import "../assets/ionic/scss/ionic.scss";
+@import "../assets/ionic/scss/_variables.scss";
+@import "../assets/ionic/scss/_mixins.scss";
+@import "../assets/ionic/scss/_items.scss";
+@import "scss/_mixins.scss";
+@import "scss/_fonts.scss";
+@import "scss/_colors.scss";
+@import "scss/_event.scss";
+@import "scss/_home.scss";
+@import "scss/_sidemenu.scss";
+@import "scss/_splash.scss";
+
+*{ font-family: "AvenirNext"!important; }
+html, body {    
+    height: 100%;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+.title{
+    @extend .bold;
+    text-transform: uppercase;
+}
+
+.content{    
+    padding: 0;
+    margin: 0;
+    background: $primaryMid;
+}
+.bar.bar-positive{
+    border: 0px;
+}
+.no-padding {
+    padding: 0px !important;
+}
+
+
+.tabs-positive, .tab-nav, .tabs{
+    border-color: $primaryMid!important;
+}
+
+
+/* Do not remove this comments bellow. It's the markers used by gulp-inject to inject
+   all your sass files automatically */
+// injector
+// endinjector
