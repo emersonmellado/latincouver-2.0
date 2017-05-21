@@ -16,10 +16,9 @@
     //Change this vars for a new base service on Rails
     var apiEndpointName = "events";
     //
-    
+
     var errorMsg;
     var completeMsg;
-
 
     var vm = this;
 
@@ -98,23 +97,31 @@
 
     function save(obj) {
 
-      errorMsg = 'error saving event!';
+      errorMsg = 'error saving' + apiEndpointName;
       completeMsg = 'All data sucesfully saved!';
+      
+      console.log("obj", serializeAttributes(obj));
 
       if (obj.id) {
 
-        return dataService.Update(apiEndpointName, obj)
+        return dataService.Update(apiEndpointName, serializeAttributes(obj))
         .then(dataComplete)
         .catch(dataFailed);
 
       } else {
 
-        return dataService.Create(apiEndpointName, obj)
+        return dataService.Create(apiEndpointName, serializeAttributes(obj))
         .then(dataComplete)
         .catch(dataFailed);
 
       }
 
+    }
+
+    function serializeAttributes(obj){
+      var ret = obj.replace(/-/g, '_');
+      console.log("ret", ret);
+      return ret;
     }
 
     function dataComplete(response) {
