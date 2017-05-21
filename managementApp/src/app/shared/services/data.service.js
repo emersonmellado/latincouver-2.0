@@ -33,8 +33,6 @@
 
     function getAll(apiEndpointName) {
 
-      errorMsg = "Error getting all " + apiEndpointName;
-
       return $http
       .get(url(apiEndpointName))
       .then(handleSuccess)
@@ -42,10 +40,6 @@
     }
 
     function remove(apiEndpointName, obj) {
-
-      console.log('delete ' + url(apiEndpointName) + "/" + obj.id)
-
-      errorMsg = "Error removing " + apiEndpointName;
 
       return $http
       .delete(url(apiEndpointName) + "/" + obj.id)
@@ -56,8 +50,6 @@
 
     function update(apiEndpointName, obj) {
 
-      errorMsg = "Error updating " + apiEndpointName;
-      console.log("obj-update", obj);
       return $http
       .put(url(apiEndpointName) + "/" + obj.id, obj)
       .then(handleSuccess)
@@ -76,7 +68,7 @@
     function handleError(error) {
       return {
         success: false,
-        message: errorMsg
+        message: error
       };
     }
 

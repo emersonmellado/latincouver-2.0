@@ -1,21 +1,20 @@
 <section class="col-md-6 col-md-offset-3">
   <div class="panel panel-default">
-    <div class="panel-heading">
+    <div class="panel">
       <img src="http://latincouver.er7.ca/1.0/assets/images/logo.png" class="logo center-block" />
-      <h3 class="text-center">LC - Management App</h3>
     </div>
     <div class="panel-body text-center">
       <form method="post" ng-submit="vm.login()" name="loginForm">
         <div class="form-group">
           <div class="group">
-            Email
-            <input class="form-controls input-lg" type="email" name="email" ng-model="vm.loginForm.email" placeholder="Email" style="background-color:rgba(0,0,0,0) !important;border:none !important;box-shadow:none !important;" required autofocus/>
+            Username
+            <input class="form-controls input-lg" type="username" name="username" ng-model="vm.loginForm.username" placeholder="Username" style="background-color:rgba(0,0,0,0) !important;border:none !important;box-shadow:none !important;" required autofocus/>
           </div>
         </div>
         <div class="form-group">
           <div class="group">
             Password
-            <input class="form-controls input-lg" type="password" name="password" ng-model="users.loginForm.password" placeholder="Password" style="background-color:rgba(0,0,0,0) !important;border:none !important;box-shadow:none !important;" required autofocus/>
+            <input class="form-controls input-lg" type="password" name="password" ng-model="vm.loginForm.password" placeholder="Password" style="background-color:rgba(0,0,0,0) !important;border:none !important;box-shadow:none !important;" required autofocus/>
           </div>
         </div>
         <button type="submit" ng-disabled="loginForm.$invalid" class="btn btn-lg btn-block btn-primary">
@@ -24,7 +23,4 @@
       </form>
     </div>
   </div>
-  <p>For now logs with any valid email and string as pass</p>
-  <p>Migrating from std to src, first events (at the moment working on user add) and later login</p>
-  <p>Event currently making requests to eventsmock.service, later to actual api in events.service</p>
 </section>

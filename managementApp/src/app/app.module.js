@@ -2,49 +2,35 @@
   'use strict';
 
   angular
-    .module('lcv2', [
-      'ngRoute',
-      'toastr',
-      'satellizer',
+  .module('lcv2', [
+    'ngRoute',
+    'toastr',
+    'satellizer',
 
-      'event',
-      'home',
-      'login',
-      'plaza',
-      'user'
+    'event',
+    'home',
+    'login',
+    'plaza',
+    'user'
     ])
-    .controller('Lcv2Controller', Lcv2Controller);
+  .controller('Lcv2Controller', Lcv2Controller);
 
-  Lcv2Controller.$inject = ['$rootScope', '$location'];
+  Lcv2Controller.$inject = ['$rootScope', '$location', '$auth', 'toastr'];
 
-  function Lcv2Controller($rootScope, $location) {
+  function Lcv2Controller($rootScope, $location, $auth, toastr) {
 
     var vm = this;
 
-    vm.isLoaded = isLoaded;
-    vm.isAuthenticated = isAuthenticated;
-    vm.logout = logout;
-
-    activate();
-
-    function activate() {
-      $rootScope.logged = true;
-      $rootScope.loaded = true;
+    vm.isAuthenticated = function() {
+      return $auth.isAuthenticated();
     }
 
-    function isLoaded() {
-      return $rootScope.loaded;
+    vm.logout = function() {
+      $auth.logout().then(function() {
+        toastr.info('You have been logged out');
+        $location.path('#!/login');
+      });
     }
-
-    function isAuthenticated() {
-      return $rootScope.logged;
-    }
-
-    function logout() {
-      $rootScope.logged = false;
-      $location.path('#!/login');
-    }
-
 
   }
 

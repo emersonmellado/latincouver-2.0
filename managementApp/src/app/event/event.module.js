@@ -9,9 +9,9 @@
     controllerAs: 'vm'
   });
 
-  EventController.$inject = ['$log', 'toastr', 'dataService'];
+  EventController.$inject = ['$log', 'toastr', 'dataService', '$auth'];
 
-  function EventController($log, toastr, dataService) {
+  function EventController($log, toastr, dataService, $auth) {
 
     //Change this vars for a new base service on Rails
     var apiEndpointName = "events";
@@ -26,7 +26,6 @@
     vm.error = false;
     vm.form;
     vm.data;
-    vm.auth_token = 'auth_token';
 
     vm.title = "Event Management";
     vm.add = add;
@@ -50,14 +49,14 @@
       errorMsg = 'error accessing ' + apiEndpointName + '!';
       completeMsg = '';
 
+      // console.log("cssStyle", style);
+
       return dataService.GetAll(apiEndpointName)
       .then(getAllComplete)
       .catch(dataFailed);
 
       function getAllComplete(response) {
-        if(response.success === false) {
-          dataFailed(response.message);
-        } else {
+        if (response && response.data){
           vm.data = response.data;
         }
       }
@@ -81,13 +80,14 @@
 
     function edit(obj, index) {
       vm.form = angular.copy(obj);
+      console.log("vm.form", vm.form);
       vm.form.index = index;
       vm.editing = true;
     }
 
     function remove(obj) {
 
-      errorMsg = 'error removing event!';
+      errorMsg = 'error removing ' + apiEndpointName;
       completeMsg = 'Sucesfully removed!';
 
       return dataService.Remove(apiEndpointName, obj)
@@ -99,7 +99,7 @@
 
       errorMsg = 'error saving' + apiEndpointName;
       completeMsg = 'All data sucesfully saved!';
-      
+
       console.log("obj", obj);
 
       if (obj.id) {
@@ -134,9 +134,8 @@
     }
 
     function dataFailed(error) {
-      console.log(error.message);
+      console.log("error: ", error);
       $log.debug("error:" + error.message);
-      toastr.error(errorMsg);
     }
 
   }

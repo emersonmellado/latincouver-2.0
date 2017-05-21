@@ -1,69 +1,20 @@
 angular
-   .module('lcv2')
-   .config(config);
+.module('lcv2')
+.config(['$locationProvider', '$routeProvider', '$authProvider', '$httpProvider', 'Api', config]);
 
-function config($locationProvider, $routeProvider) {
+function config($locationProvider, $routeProvider, $authProvider, $httpProvider, Api) {
 
-   $locationProvider.hashPrefix('!');
+  $authProvider.httpInterceptor = function() { return true; }
+  $authProvider.withCredentials = false;
+  $authProvider.tokenRoot = null;
+  $authProvider.baseUrl = '/';
+  $authProvider.loginUrl = Api.URL_API + '/authenticate';
+  $authProvider.tokenName = 'auth_token';
+  $authProvider.tokenPrefix = 'satellizer';
+  $authProvider.tokenHeader = 'Authorization';
+  $authProvider.tokenType = 'Bearer';
+  $authProvider.storageType = 'localStorage';
 
-   $routeProvider
-      .when('/', {
-         resolve: {
-            function($location, $rootScope) {
-               if (!$rootScope.logged) {
-                   $location.path('/login');
-               }
-            }
-         },
-         template: '<home></home>'
-      })
-      .when('/login', {
-         resolve: {
-            function($location, $rootScope) {
-               if (!$rootScope.logged) {
-                   $location.path('/login');
-               }
-            }
-         },
-         template: '<login></login>'
-      })
-      .when('/event', {
-         resolve: {
-            function($location, $rootScope) {
-               if (!$rootScope.logged) {
-                   $location.path('/login');
-               }
-            }
-         },
-         template: '<event></event>'
-      })
-      .when('/plaza', {
-         resolve: {
-            function($location, $rootScope) {
-               if (!$rootScope.logged) {
-                   $location.path('/login');
-               }
-            }
-         },
-         template: '<plaza></plaza>'
-      })
-      .when('/user', {
-         resolve: {
-            function($location, $rootScope) {
-               if (!$rootScope.logged) {
-                   $location.path('/login');
-               }
-            }
-         },
-         template: '<user></user>'
-      })
-      .otherwise('/');
-
-   // configure html5 to get links working on jsfiddle
-   //$locationProvider.html5Mode(true);
-
-   function testLogged() {
-      console.log('testing if logged');
-   }
+  $httpProvider.interceptors.push('appInterceptor');
 
 }
