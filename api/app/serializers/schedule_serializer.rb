@@ -1,4 +1,4 @@
-class ScheduleSerializer < ActiveModel::Serializer
+class ScheduleSerializer < BaseSerializer
   attributes :id, :from, :to
   has_one :trade
   has_one :event

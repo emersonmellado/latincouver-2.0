@@ -27,10 +27,10 @@
                                     <label>
                                         Image URL
                                     </label>
-                                    <span class="required" ng-show="form['image-url'].$error.required">
+                                    <span class="required" ng-show="form.image_url.$error.required">
                                         *
                                     </span>
-                                    <input class="form-control" data-ng-class="{'invalid' : form['image-url'].$invalid && !form['image-url'].$pristine}" data-ng-model="vm.form.attributes['image-url']" name="image-url" ng-required="true" placeholder="What is the event image url?" type="text" />
+                                    <input class="form-control" data-ng-class="{'invalid' : form.image_url.$invalid && !form.image_url.$pristine}" data-ng-model="vm.form.attributes.image_url" name="image-url" ng-required="true" placeholder="What is the event image url?" type="text" />
                                 </div>
                             </div>
                             <div class="col-xs-6">
@@ -41,7 +41,7 @@
                                     <span class="required" ng-show="form.external_url.$error.required">
                                         *
                                     </span>
-                                    <input class="form-control" data-ng-class="{'invalid' : form['external-url'].$invalid && !form['external-url'].$pristine}" data-ng-model="vm.form.attributes['external-url']" name="external-url" placeholder="What is the event external url?" type="text" />
+                                    <input class="form-control" data-ng-class="{'invalid' : form.external_url.$invalid && !form.external_url.$pristine}" data-ng-model="vm.form.attributes.external_url" name="external-url" placeholder="What is the event external url?" type="text" />
                                 </div>
                             </div>
                             <div class="col-xs-6">
@@ -150,10 +150,10 @@
                                     {{entry.attributes.name}}
                                 </td>
                                 <td>
-                                    {{entry.attributes['image-url']}}
+                                    {{entry.attributes.image_url}}
                                 </td>
                                 <td>
-                                    {{entry.attributes['external-url']}}
+                                    {{entry.attributes.external_url}}
                                 </td>
                                 <td>
                                     {{entry.attributes.latitude}}, {{entry.attributes.longitude}}

@@ -46,6 +46,6 @@ class CssStylesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def css_style_params
-      params.require(:css_style).permit(:name)
+      params.require(:attributes).permit(:name)
     end
 end

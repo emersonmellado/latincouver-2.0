@@ -46,6 +46,6 @@ class TradeGroupsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def trade_group_params
-      params.require(:trade_group).permit(:name, :active)
+      params.require(:attributes).permit(:name, :active)
     end
 end

@@ -46,6 +46,6 @@ class PlazasController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def plaza_params
-      params.require(:plaza).permit(:name, :description, :image_url, :longitude, :latitude, :active, :css_style_id, :event_id)
+      params.require(:attributes).permit(:name, :description, :image_url, :longitude, :latitude, :active, :css_style_id, :event_id)
     end
 end

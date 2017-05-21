@@ -1,4 +1,4 @@
-class CssStyleSerializer < ActiveModel::Serializer
+class CssStyleSerializer < BaseSerializer
   attributes :id, :name
 
   has_many :events

@@ -46,6 +46,6 @@ class TradeTypesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def trade_type_params
-      params.require(:trade_type).permit(:name, :active)
+      params.require(:attributes).permit(:name, :active)
     end
 end

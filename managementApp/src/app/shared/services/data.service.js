@@ -57,7 +57,7 @@
     function update(apiEndpointName, obj) {
 
       errorMsg = "Error updating " + apiEndpointName;
-
+      console.log("obj-update", obj);
       return $http
       .put(url(apiEndpointName) + "/" + obj.id, obj)
       .then(handleSuccess)
