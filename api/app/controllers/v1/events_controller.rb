@@ -23,7 +23,7 @@ module V1
       if @event.save
         render json: @event, status: :created, location: @event
       else
-        render json: @event.errors, status: :unprocessable_entity
+        serialize_error(@event.errors, :unprocessable_entity)
       end
     end
 
@@ -32,13 +32,20 @@ module V1
       if @event.update(event_params)
         render json: @event
       else
-        render json: @event.errors, status: :unprocessable_entity
+        serialize_error(@event.errors, :unprocessable_entity)
       end
     end
 
     # DELETE /events/1
     def destroy
-      @event.destroy
+      begin
+        @event.destroy
+      rescue => ex
+        # render json: @event.errors
+        # serialize_error("Cannot delete an event with related data.", :unprocessable_entity)
+        render json: {success: false, message: "Cannot delete an event with related data."}
+      end
+
     end
 
     private

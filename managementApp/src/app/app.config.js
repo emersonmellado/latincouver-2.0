@@ -1,8 +1,8 @@
 angular
 .module('lcv2')
-.config(['$locationProvider', '$routeProvider', '$authProvider', '$httpProvider', 'Api', config]);
+.config(['$locationProvider', '$routeProvider', '$authProvider', '$httpProvider', 'Api', 'toastrConfig', config]);
 
-function config($locationProvider, $routeProvider, $authProvider, $httpProvider, Api) {
+function config($locationProvider, $routeProvider, $authProvider, $httpProvider, Api, toastrConfig) {
 
   $authProvider.httpInterceptor = function() { return true; }
   $authProvider.withCredentials = false;
@@ -16,5 +16,12 @@ function config($locationProvider, $routeProvider, $authProvider, $httpProvider,
   $authProvider.storageType = 'localStorage';
 
   $httpProvider.interceptors.push('appInterceptor');
+
+  // Set options third-party lib
+  toastrConfig.allowHtml = true;
+  toastrConfig.timeOut = 3000;
+  toastrConfig.positionClass = 'toast-top-right';
+  toastrConfig.preventDuplicates = false;
+  toastrConfig.progressBar = true;
 
 }

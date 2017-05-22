@@ -27,31 +27,20 @@
   angular.module('lcv2').factory('appInterceptor', ['$q', '$log', '$injector', 'toastr', appInterceptor]);
 })();
 
+(function() {
+  'use strict';
 
-// angular.module('lcv2', ['myApp.services', 'myApp.directives'], function ($routeProvider, $locationProvider, $httpProvider, $location) {
+  function cssStyle($q, dataService) {
+    return {
+      loadDropDown: function () {
+        var deferred = $q.defer();
+        dataService.GetAll("css-styles").then(function (data) {
+          deferred.resolve(data);
+        });
+        return deferred.promise;
+      }
+    };
+  }
 
-//     var httpInterceptor = ['$rootScope', '$q', function (scope, $q) {
-
-//         function success(response) {
-//             return response;
-//         }
-
-//         function error(response) {
-//             var status = response.status;
-
-//             if (status == 401) {
-//                 $location.url('/login');
-//                 return;
-//             }
-
-//             return $q.reject(response);
-
-//         }
-
-//         return function (promise) {
-//             return promise.then(success, error);
-//         }
-
-//     }];
-//     $httpProvider.responseInterceptors.push(httpInterceptor);
-// });
+  angular.module('lcv2').factory('cssStyle', ['$q', 'dataService', cssStyle]);
+})();
