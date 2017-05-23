@@ -42,6 +42,18 @@
       }
     }
 
+    cssStyle.loadDropDown().then(function(res){
+      vm.cssStyle = [];
+      angular.forEach(res.data, function(attributes){
+        var opt = {
+          css_style_id: attributes.id,
+          value: attributes.attributes.name
+        }
+        vm.cssStyle.push(opt);
+      });
+      console.log("vm.cssStyle", vm.cssStyle);
+    });
+
     activate();
 
     function activate() {
@@ -50,24 +62,6 @@
       vm.editing = false;
       errorMsg = 'error accessing ' + apiEndpointName + '!';
       completeMsg = '';
-
-      // cssStyle.loadDropDown().then(function(data){
-      //   vm.cssStyle = data;
-      //   console.log("vm.cssStyle", vm.cssStyle);
-      // });
-
-      cssStyle.loadDropDown().then(function(res){
-        vm.cssStyle = [];
-        angular.forEach(res.data, function(attributes){
-          var opt = {
-            css_style_id: attributes.id,
-            value: attributes.attributes.name
-          }
-          vm.cssStyle.push(opt);
-        });
-        console.log("vm.cssStyle", vm.cssStyle);
-      });
-
 
       return dataService.GetAll(apiEndpointName)
       .then(getAllComplete)
@@ -131,8 +125,6 @@
 
       errorMsg = 'error saving' + apiEndpointName;
       completeMsg = 'All data sucesfully saved!';
-
-      console.log("obj", obj);
 
       if (obj.id) {
 

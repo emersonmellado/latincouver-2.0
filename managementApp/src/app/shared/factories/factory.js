@@ -44,3 +44,21 @@
 
   angular.module('lcv2').factory('cssStyle', ['$q', 'dataService', cssStyle]);
 })();
+
+(function() {
+  'use strict';
+
+  function events($q, dataService) {
+    return {
+      loadDropDown: function () {
+        var deferred = $q.defer();
+        dataService.GetAll("events").then(function (data) {
+          deferred.resolve(data);
+        });
+        return deferred.promise;
+      }
+    };
+  }
+
+  angular.module('lcv2').factory('events', ['$q', 'dataService', events]);
+})();

@@ -2,16 +2,16 @@
   'use strict';
 
   angular
-    .module('plaza', [])
-    .component('plaza', {
-      templateUrl: 'app/plaza/plaza.template.html',
-      controller: PlazaController,
-      controllerAs: 'vm'
-    });
+  .module('plaza', [])
+  .component('plaza', {
+    templateUrl: 'app/plaza/plaza.template.html',
+    controller: PlazaController,
+    controllerAs: 'vm'
+  });
 
-  PlazaController.$inject = ['$log', 'toastr', 'dataService'];
+  PlazaController.$inject = ['$log', 'toastr', 'dataService', 'cssStyle', 'events'];
 
-  function PlazaController($log, toastr, dataService) {
+  function PlazaController($log, toastr, dataService, cssStyle, events) {
 
     //Change this vars for a new base service on Rails
     var singularName = "plaza";
@@ -35,12 +35,36 @@
     vm.edit = edit;
     vm.save = save;
     vm.modelOptions = {
-        updateOn: "blur default",
-        debounce: {
-            default: 300,
-            blur: 0
-        }
+      updateOn: "blur default",
+      debounce: {
+        default: 300,
+        blur: 0
+      }
     }
+
+    cssStyle.loadDropDown().then(function(res){
+      vm.cssStyle = [];
+      angular.forEach(res.data, function(attributes){
+        var opt = {
+          css_style_id: attributes.id,
+          value: attributes.attributes.name
+        }
+        vm.cssStyle.push(opt);
+      });
+      console.log("vm.cssStyle", vm.cssStyle);
+    });
+
+    events.loadDropDown().then(function(res){
+      vm.events = [];
+      angular.forEach(res.data, function(attributes){
+        var opt = {
+          event_id: attributes.id,
+          value: attributes.attributes.name
+        }
+        vm.events.push(opt);
+      });
+      console.log("vm.events", vm.events);
+    });
 
     activate();
 
@@ -52,8 +76,8 @@
       completeMsg = '';
 
       return dataService.GetAll(apiEndpointName)
-        .then(getAllComplete)
-        .catch(dataFailed);
+      .then(getAllComplete)
+      .catch(dataFailed);
 
       function getAllComplete(response) {
         if(response.success === false) {
@@ -85,40 +109,19 @@
       vm.editing = true;
     }
 
+    function cancel(){
+      vm.form = {};
+      vm.editing = false;
+    }
+
     function remove(obj) {
 
       errorMsg = 'error removing event!';
       completeMsg = 'Sucesfully removed!';
 
       return dataService.Remove(apiEndpointName, obj)
-        .then(dataComplete)
-        .catch(dataFailed);
-
-      // var filterDeleted = function(el) {
-      //     return obj.id !== el.id;
-      // }
-      // if (!obj.id) {
-      //     vm.data = vm.data.filter(filterDeleted);
-      //     return;
-      // }
-      //vm.yesRemoveData = function() {
-      // Service.Remove(obj.id).then(function() {
-      //     vm.data = vm.data.filter(filterDeleted);
-      //     toastr.info("User removed!");
-      // }, function(error) {
-      //     $log.debug("error:" + error);
-      // });
-      //}
-      // var html = "<br /><br /><button type='button' class='btn clear'>Yes</button> | <button type='button' class='btn clear'>No</button>";
-      // toastr.info(html, 'Please confirm before we complete the action.<br/><br/> Are you sure you want to delete ' + obj.id + '?', {
-      //     timeOut: 50000,
-      //     progressBar: false,
-      //     extendedTimeOut: 100000,
-      //     onShown: function(toast) {
-      //         angular.element(toast.el[0]).find("button")[0].onclick = vm.yesRemoveData;
-      //     }
-      // });
-
+      .then(dataComplete)
+      .catch(dataFailed);
     }
 
     function save(obj) {
@@ -129,14 +132,14 @@
       if (obj.id) {
 
         return dataService.Update(apiEndpointName, obj)
-          .then(dataComplete)
-          .catch(dataFailed);
+        .then(dataComplete)
+        .catch(dataFailed);
 
       } else {
 
         return dataService.Create(apiEndpointName, obj)
-          .then(dataComplete)
-          .catch(dataFailed);
+        .then(dataComplete)
+        .catch(dataFailed);
 
       }
 
