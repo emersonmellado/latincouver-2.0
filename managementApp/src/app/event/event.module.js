@@ -149,7 +149,7 @@
     }
 
     function dataComplete(response) {
-      if(response.success == false) {
+      if(response.success && response.success == false) {
         dataFailed(response);
         return;
       }

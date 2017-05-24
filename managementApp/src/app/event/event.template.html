@@ -19,7 +19,18 @@
                                     <span class="required" ng-show="form.name.$error.required">
                                         *
                                     </span>
-                                    <input class="form-control" data-ng-class="{'invalid' : form.name.$invalid && !form.name.$pristine}" data-ng-model="vm.form.attributes.name" name="name" ng-required="true" placeholder="What is the event name?" type="text" />
+                                    <input class="form-control" data-ng-class="{'invalid' : form.name.$invalid && !form.name.$pristine}" data-ng-model="vm.form.attributes.name" name="name" ng-required="true" type="text" />
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="group">
+                                    <label>
+                                        Description
+                                    </label>
+                                    <span class="required" ng-show="form.description.$error.required">
+                                        *
+                                    </span>
+                                    <input class="form-control" data-ng-class="{'invalid' : form.description.$invalid && !form.description.$pristine}" data-ng-model="vm.form.attributes.description" name="description" type="text" />
                                 </div>
                             </div>
                             <div class="col-xs-6">
@@ -30,7 +41,7 @@
                                     <span class="required" ng-show="form.image_url.$error.required">
                                         *
                                     </span>
-                                    <input class="form-control" data-ng-class="{'invalid' : form.image_url.$invalid && !form.image_url.$pristine}" data-ng-model="vm.form.attributes.image_url" name="image-url" ng-required="true" placeholder="What is the event image url?" type="text" />
+                                    <input class="form-control" data-ng-class="{'invalid' : form.image_url.$invalid && !form.image_url.$pristine}" data-ng-model="vm.form.attributes.image_url" name="image-url" ng-required="true" type="text" />
                                 </div>
                             </div>
                             <div class="col-xs-6">
@@ -41,7 +52,7 @@
                                     <span class="required" ng-show="form.external_url.$error.required">
                                         *
                                     </span>
-                                    <input class="form-control" data-ng-class="{'invalid' : form.external_url.$invalid && !form.external_url.$pristine}" data-ng-model="vm.form.attributes.external_url" name="external-url" placeholder="What is the event external url?" type="text" />
+                                    <input class="form-control" data-ng-class="{'invalid' : form.external_url.$invalid && !form.external_url.$pristine}" data-ng-model="vm.form.attributes.external_url" name="external-url" type="text" />
                                 </div>
                             </div>
                             <div class="col-xs-3">
@@ -52,7 +63,7 @@
                                     <span class="required" ng-show="form.latitude.$error.required">
                                         *
                                     </span>
-                                    <input class="form-control" data-ng-class="{'invalid' : form.latitude.$invalid && !form.latitude.$pristine}" data-ng-model="vm.form.attributes.latitude" name="latitude" placeholder="What is the event latitude?" type="text" />
+                                    <input class="form-control" data-ng-class="{'invalid' : form.latitude.$invalid && !form.latitude.$pristine}" data-ng-model="vm.form.attributes.latitude" name="latitude" type="text" />
                                 </div>
                             </div>
                             <div class="col-xs-3">
@@ -63,7 +74,7 @@
                                     <span class="required" ng-show="form.longitude.$error.required">
                                         *
                                     </span>
-                                    <input class="form-control" data-ng-class="{'invalid' : form.longitude.$invalid && !form.longitude.$pristine}" data-ng-model="vm.form.attributes.longitude" name="longitude" placeholder="What is the event longitude?" type="text" />
+                                    <input class="form-control" data-ng-class="{'invalid' : form.longitude.$invalid && !form.longitude.$pristine}" data-ng-model="vm.form.attributes.longitude" name="longitude" type="text" />
                                 </div>
                             </div>
                             <div class="col-xs-2">
@@ -74,7 +85,7 @@
                                     <span class="required" ng-show="form.active.$error.required">
                                         *
                                     </span>
-                                    <input class="form-control" data-ng-class="{'invalid' : form.active.$invalid && !form.active.$pristine}" ng-model="vm.form.attributes.active" name="active" ng-required="true" placeholder="What is the event active?" type="checkbox" />
+                                    <input class="form-control" data-ng-class="{'invalid' : form.active.$invalid && !form.active.$pristine}" ng-model="vm.form.attributes.active" name="active" ng-required="true" type="checkbox" />
                                 </div>
                             </div>
                             <div class="col-xs-4">

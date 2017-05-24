@@ -1,22 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To create a new model and controller:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+rails generate scaffold Configuration main_title:string css_style_id:integer

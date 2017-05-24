@@ -56,7 +56,7 @@ module V1
 
     # Only allow a trusted parameter "white list" through.
     def event_params
-      params.require(:attributes).permit(:name, :image_url, :external_url, :longitude, :latitude, :active, :css_style_id)
+      params.require(:attributes).permit(:name, :description, :image_url, :external_url, :longitude, :latitude, :active, :css_style_id)
     end
   end
 end

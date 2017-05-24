@@ -4,19 +4,18 @@
       <span class="title">
         UPCOMING EVENTS
       </span>
-    </div>    
-  </ion-navbar>  
+    </div>
+  </ion-navbar>
 </ion-header>
 
 <ion-content class="content no-padding main-content">
-  <div class="main-list">   
+  <div class="main-list">
     <div class="button grow" *ngFor="let rec of events">
-      <div class="green">
-        <h3>{{rec['name']}}</h3>
-        <hr/>
-        <h4>{{rec['name']}}</h4>
+      <div class="{{rec.attributes.css_style.name}}">
+        <h3>{{rec.attributes.name}}</h3>
+        <h4>{{rec.attributes.description}}</h4>
       </div>
-      <img [src]="rec['imageUrl']">
+      <img [src]="rec.attributes.image_url">
     </div>
   </div>
 </ion-content>
@@ -25,7 +24,7 @@
   <div class="main-list">
     <div ui-sref="event" class="button item grow">
       <div class="green">
-        <h3>Carnaval del Sol</h3>            
+        <h3>Carnaval del Sol</h3>
         <h4>
           <i class="ion ion-calendar icon-accent"></i>
           July 9th & 10th | 9am - 10pm
@@ -33,19 +32,19 @@
         <h4>
           <i class="ion ion-android-pin icon-accent"></i>
           Concord Pacific Place  | 88 Pacific Blvd
-        </h4>                    
+        </h4>
       </div>
       <img src="http://latincouver.er7.ca/images/carnaval_delsol.png">
     </div>
     <div class="button item main-small grow" ui-sref="latinhub">
       <div class="blue">
-        <h3>Latin Innovation Hub</h3>                    
-      </div>                
+        <h3>Latin Innovation Hub</h3>
+      </div>
       <img src="http://latincouver.er7.ca/images/carnaval_delsol.png">
-    </div>            
+    </div>
     <div class="button item grow" href="#" onclick="window.open('http://www.latincouver.ca/events/latin-live-events/', '_system'); return false;">
       <div class="yellow">
-        <h3>Latin Live Events</h3>                    
+        <h3>Latin Live Events</h3>
       </div>
       <img src="assets/images/home/latin_america.jpg">
     </div>
@@ -54,12 +53,12 @@
         <h3>ExpoPlaza Latina</h3>
         <h4>
           <i class="ion ion-calendar icon-accent"></i>
-          September 14th 
+          September 14th
         </h4>
         <h4>
           <i class="ion ion-android-pin icon-accent"></i>
           Vancouver
-        </h4>                       
+        </h4>
       </div>
       <img src="assets/images/home/expoplaza_latina.jpg">
     </div>
@@ -73,9 +72,9 @@
         <h4>
           <i class="ion ion-android-pin icon-accent"></i>
           Vancouver
-        </h4>                       
+        </h4>
       </div>
       <img src="assets/images/home/LCPN.jpg">
-    </div>                        
+    </div>
   </div>
 </ion-content> -->

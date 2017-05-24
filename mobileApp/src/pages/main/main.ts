@@ -52,8 +52,9 @@ import { AlertController, App, List, ModalController, NavController, LoadingCont
     updateSchedule() {
       this.eventData.getData().subscribe((data: any) => {
 
-          this.events = this.php_crud_api_transform(data); 
-          console.log("this.events", this.events);  
+          //this.events = this.php_crud_api_transform(data);
+          this.events = data;
+          console.log("this.events", this.events);
 
         });
     }
@@ -64,7 +65,7 @@ import { AlertController, App, List, ModalController, NavController, LoadingCont
         tmp_ar[trans[key]] = key;
       }
       return tmp_ar;
-    }   
+    }
 
     get_objects(tables:any,table_name:any,where_index?:any,match_value?:any){
       var objects:any = [];
@@ -74,7 +75,7 @@ import { AlertController, App, List, ModalController, NavController, LoadingCont
         var object:any = {};
         for (let index in tables[table_name]['columns']) {
           var column = tables[table_name]['columns'][index];
-          
+
           object[column] = record[Number(index)];
           console.log("object", object);
           for (let relation in tables) {
@@ -87,8 +88,8 @@ import { AlertController, App, List, ModalController, NavController, LoadingCont
                 object[relation] = this.get_objects(tables,relation,column_indices[key],record[Number(index)]);
               }
             }
-          }              
-        }        
+          }
+        }
         objects.push(object);
       }
     }
@@ -153,7 +154,7 @@ import { AlertController, App, List, ModalController, NavController, LoadingCont
 //     }
 //   }
 //   return tree;
-// }      
-      
+// }
+
 
 }

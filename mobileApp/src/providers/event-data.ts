@@ -20,10 +20,12 @@ export class EventData {
       return Observable.of(this.data);
     } else {
       //return this.http.get('assets/data/data.json')
-      //return this.http.get('http://er7.ca/api.php')      
-      //return this.http.get('http://localhost:3000/events')      
-      //return this.http.get('http://latincouver.er7.ca/api/api.php/event')      
-      return this.http.get('http://latincouver.er7.ca/api/api.php/event?include=cssstyle')      
+      //return this.http.get('http://er7.ca/api.php')
+      //return this.http.get('http://localhost:3000/events')
+      //return this.http.get('http://latincouver.er7.ca/api/api.php/event')
+      //return this.http.get('http://latincouver.er7.ca/api/api.php/event?include=cssstyle')
+      //return this.http.get('http://latincouverapi.herokuapp.com/v1/json')
+      return this.http.get('http://localhost:3000/v1/json')
         .map(this.processData, this);
     }
   }
@@ -31,8 +33,8 @@ export class EventData {
   processData(data: any) {
     // just some good 'ol JS fun with objects and arrays
     // build up the data by linking speakers to sessions
-    
-    this.data = data.json();
+
+    this.data = data.json().data;
     //console.log("this.data", this.data);
     //this.data.tracks = [];
 
