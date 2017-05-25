@@ -5,10 +5,15 @@ module V1
     # GET /json
     def index
 
-      @events = Event.all
+      @events = Event.all.order(order: :asc)
       @settings = Setting.all
 
-      render json: @events, :each_serializer => JsonSerializer
+      # render json: {@events, :each_serializer => JsonSerializer}
+
+      render json: {
+        data: ActiveModel::Serializer::CollectionSerializer.new(@events, each_serializer: JsonSerializer, root: true),
+        settings: @settings
+      }
 
       # render json: {
       #   data: @json,
