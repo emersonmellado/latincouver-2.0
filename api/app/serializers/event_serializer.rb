@@ -1,5 +1,5 @@
 class EventSerializer < BaseSerializer
-  attributes :id, :name, :description, :image_url, :external_url, :longitude, :latitude, :active, :css_style_id, :order
+  attributes :id, :name, :short_description, :description, :image_url, :external_url, :longitude, :latitude, :active, :css_style_id, :order
 
   belongs_to :css_style
   has_many :schedules

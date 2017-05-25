@@ -15,7 +15,7 @@ end
 
 if Setting.count == 0
   puts "Creating production data for settings"
-  Setting.create!([{main_title: 'Upcoming Events yeah!', css_style_id:CssStyle.find_by(name: 'green-flat')}])
+  Setting.create!([{main_title: 'Upcoming Events yeah!', css_style:CssStyle.find_by(name: 'green-flat')}])
 end
 
 if User.count == 0
@@ -40,14 +40,13 @@ if Plaza.count == 0
     "active":1}])
 end
 
-if Trade.count == 0
-  puts "Creating production data for plaza"
-  Trade.create!([{name: 'Main Stage',"description":"<p>Saturday July 9th marks the beginning of Carnaval Del Sol! We are very proud to be able to host this event for the people we love. This is the most anticipated event yet and we hope it meets your expectations! Indulge in various genres and styles of music as we bring the Latin Community back into Vancouver!</p><p>Different artists and singers will be performing at different times, so be sure to check out the lists of bands we have coming and attend the Main Stage at the allotted times your favourite bands are performing.</p>",
-    "image_url":"http://latincouver.er7.ca/1.0/assets/images/plazas/main-stage.jpg",
-    "longitude":"",
-    "latitude":"",
-    css_style:CssStyle.find_by(name: 'red-flat'),
-    event:Event.find_by(name: 'Carnaval del Sol'),
-    "active":1}])
-end
-#end
+# if Trade.count == 0
+#   puts "Creating production data for plaza"
+#   Trade.create!([{name: 'Main Stage',"description":"<p>Saturday July 9th marks the beginning of Carnaval Del Sol! We are very proud to be able to host this event for the people we love. This is the most anticipated event yet and we hope it meets your expectations! Indulge in various genres and styles of music as we bring the Latin Community back into Vancouver!</p><p>Different artists and singers will be performing at different times, so be sure to check out the lists of bands we have coming and attend the Main Stage at the allotted times your favourite bands are performing.</p>",
+#     "image_url":"http://latincouver.er7.ca/1.0/assets/images/plazas/main-stage.jpg",
+#     "longitude":"",
+#     "latitude":"",
+#     css_style:CssStyle.find_by(name: 'red-flat'),
+#     event:Event.find_by(name: 'Carnaval del Sol'),
+#     "active":1}])
+# end

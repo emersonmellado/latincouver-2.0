@@ -11,8 +11,8 @@ module V1
       # render json: {@events, :each_serializer => JsonSerializer}
 
       render json: {
-        data: ActiveModel::Serializer::CollectionSerializer.new(@events, each_serializer: JsonSerializer, root: true),
-        settings: @settings
+        events: ActiveModel::Serializer::CollectionSerializer.new(@events, each_serializer: JsonSerializer),
+        settings: ActiveModel::Serializer::CollectionSerializer.new(@settings, each_serializer: SettingSerializer)
       }
 
       # render json: {
