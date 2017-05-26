@@ -2,7 +2,10 @@
   <ion-navbar no-border-bottom>
     <div class="bar bar-header bar-positive bar-positive-main">
       <span class="title">
-        UPCOMING EVENTS
+        {{settings.main_title}}
+      </span>
+      <span class="title">
+        {{settings.css_style.name}}
       </span>
     </div>
   </ion-navbar>
@@ -11,11 +14,11 @@
 <ion-content class="content no-padding main-content">
   <div class="main-list">
     <div class="button grow" *ngFor="let rec of events">
-      <div class="{{rec.attributes.css_style.name}}">
-        <h3>{{rec.attributes.name}}</h3>
-        <h4>{{rec.attributes.description}}</h4>
+      <div class="{{rec.css_style.name}}">
+        <h3>{{rec.name}}</h3>
+        <h4>{{rec.description}}</h4>
       </div>
-      <img [src]="rec.attributes.image_url">
+      <img [src]="rec.image_url">
     </div>
   </div>
 </ion-content>
