@@ -31,6 +31,7 @@
 
     vm.title = "Plaza Management";
     vm.add = add;
+    vm.cancel = cancel;
     vm.remove = remove;
     vm.edit = edit;
     vm.save = save;
@@ -51,7 +52,6 @@
         }
         vm.cssStyle.push(opt);
       });
-      console.log("vm.cssStyle", vm.cssStyle);
     });
 
     events.loadDropDown().then(function(res){
@@ -63,7 +63,6 @@
         }
         vm.events.push(opt);
       });
-      console.log("vm.events", vm.events);
     });
 
     activate();
@@ -84,6 +83,7 @@
           dataFailed(response.message);
         } else {
           vm.data = response.data;
+          console.log(vm.data);
         }
       }
 
@@ -92,13 +92,18 @@
     function add() {
       vm.form = {
         id: 0,
-        eventId: 0,
-        plazaId: 0,
-        cssClassId: 1,
-        name: '',
-        description: '',
-        imageUrl: '',
-        active: true
+        type: 'plazas',
+        attribute: {
+          active: true,
+          css_style_id: undefined,
+          description: '',
+          event_id: undefined,
+          image_url: '',
+          latitude: '',
+          longitude: '',
+          name: ''
+        }
+
       };
       vm.editing = true;
     }

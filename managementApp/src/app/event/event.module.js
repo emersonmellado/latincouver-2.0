@@ -42,7 +42,8 @@
       }
     }
 
-    cssStyle.loadDropDown().then(function(res){
+    cssStyle.loadDropDown()
+    .then(function(res){
       vm.cssStyle = [];
       angular.forEach(res.data, function(attributes){
         var opt = {
@@ -51,7 +52,6 @@
         }
         vm.cssStyle.push(opt);
       });
-      console.log("vm.cssStyle", vm.cssStyle);
     });
 
     activate();
@@ -76,6 +76,7 @@
     }
 
     function add() {
+
       vm.form = {
         id: 0,
         cssStyleId: 0,
@@ -92,7 +93,6 @@
 
     function edit(obj, index) {
       vm.form = angular.copy(obj);
-      console.log("vm.form", vm.form);
       vm.form.index = index;
       vm.editing = true;
     }
@@ -133,6 +133,8 @@
         .catch(dataFailed);
 
       } else {
+
+        console.log(obj);
 
         return dataService.Create(apiEndpointName, obj)
         .then(dataComplete)
