@@ -121,12 +121,28 @@
 
     function remove(obj) {
 
-      errorMsg = 'error removing event!';
-      completeMsg = 'Sucesfully removed!';
+      // errorMsg = 'error removing event!';
+      // completeMsg = 'Sucesfully removed!';
 
-      return dataService.Remove(apiEndpointName, obj)
-      .then(dataComplete)
-      .catch(dataFailed);
+      // return dataService.Remove(apiEndpointName, obj)
+      // .then(dataComplete)
+      // .catch(dataFailed);
+
+      vm.yesRemove = function() {
+        dataService.Remove(apiEndpointName, obj)
+        .then(dataComplete)
+        .catch(dataFailed);
+      }
+
+      var html = "<br /><br /><button type='button' class='btn clear'>Yes</button> | <button type='button' class='btn clear'>No</button>";
+      toastr.info(html, 'Please confirm before we complete the action.<br/><br/> Are you sure you want to delete ' + obj.attributes.name + '?', {
+        timeOut: 50000,
+        progressBar: false,
+        extendedTimeOut: 100000,
+        onShown: function(toast) {
+          angular.element(toast.el[0]).find("button")[0].onclick = vm.yesRemove;
+        }
+      });
     }
 
     function save(obj) {
@@ -154,6 +170,7 @@
       if(response.success === false) {
         dataFailed(response.message);
       } else {
+
         if (completeMsg) toastr.info(completeMsg);
         activate();
       }

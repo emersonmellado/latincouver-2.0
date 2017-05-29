@@ -31,34 +31,22 @@
               </div>
               <div class="col-xs-12">
                 <div class="group">
-                  <label>
-                    Image URL
-                  </label>
-                  <span class="required" ng-show="form.attributes.image_url.$error.required">
-                    *
-                  </span>
-                  <input class="form-control" data-ng-class="{'invalid' : form.attributes.image_url.$invalid && !form.attributes.image_url.$pristine}" data-ng-model="vm.form.attributes.image_url" name="image_url" ng-required="true" placeholder="What is the plaza image url?" type="text" />
-                </div>
-              </div>
-              <div class="col-xs-12">
-                <div class="group">
-                  <label>
-                    Description
-                  </label>
-                  <span class="required" ng-show="form.external_url.$error.required">
-                    *
-                  </span>
+                  <label>Description</label>
+                  <span class="required" ng-show="form.external_url.$error.required">*</span>
                   <input class="form-control" data-ng-class="{'invalid' : form.attributes.description.$invalid && !form.attributes.description.$pristine}" data-ng-model="vm.form.attributes.description" name="description" ng-required="true" placeholder="What is the plaza description?" type="text" />
                 </div>
               </div>
               <div class="col-xs-6">
                 <div class="group">
-                  <label>
-                    Event
-                  </label>
-                  <span class="required" ng-show="form.event_id.$error.required">
-                    *
-                  </span>
+                  <label>Image URL</label>
+                  <span class="required" ng-show="form.attributes.image_url.$error.required">*</span>
+                  <input class="form-control" data-ng-class="{'invalid' : form.attributes.image_url.$invalid && !form.attributes.image_url.$pristine}" data-ng-model="vm.form.attributes.image_url" name="image_url" ng-required="true" placeholder="What is the plaza image url?" type="text" />
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <div class="group">
+                  <label>Event</label>
+                  <span class="required" ng-show="form.event_id.$error.required">*</span>
                   <select ng-model="vm.form.attributes.event_id" class="form-control" data-ng-class="{'invalid' : form.event_id.$invalid && !form.event_id.$pristine}" ng-required="true">
                     <option value="">Select the event</option>
                     <option ng-repeat="item in vm.events" ng-selected="item.event_id==vm.form.attributes.event_id" value="{{item.event_id}}">{{item.value}}</option>
@@ -67,29 +55,40 @@
               </div>
               <div class="col-xs-6">
                 <div class="group">
-                  <label>
-                    Style
-                  </label>
-                  <span class="required" ng-show="form.css_style_id.$error.required">
-                    *
-                  </span>
+                  <label>Style</label>
+                  <span class="required" ng-show="form.css_style_id.$error.required">*</span>
                   <select ng-model="vm.form.attributes.css_style_id" class="form-control" data-ng-class="{'invalid' : form.css_style_id.$invalid && !form.css_style_id.$pristine}" ng-required="true">
                     <option value="">Select the style</option>
                     <option ng-repeat="item in vm.cssStyle" ng-selected="item.css_style_id==vm.form.attributes.css_style_id" value="{{item.css_style_id}}">{{item.value}}</option>
                   </select>
                 </div>
               </div>
-              <br/>
-              <div class="group pull-right">
-                <button class="btn btn-default btn-info" data-ng-click="vm.save(vm.form)" data-ng-disabled="!vm.editing || form.$invalid">
-                  <i class="glyphicon glyphicon-floppy-save"></i>
-                  Save
-                </button>
-                <button class="btn btn-default btn-default" data-ng-click="vm.cancel()" type="button">
-                  <i class="glyphicon glyphicon-floppy-cancel"></i>
-                  Cancel
-                </button>
+              <div class="col-xs-3">
+                <div class="group">
+                  <label>Latitude</label>
+                  <input class="form-control" data-ng-class="{'invalid' : form.latitude.$invalid && !form.latitude.$pristine}" data-ng-model="vm.form.attributes.latitude" name="latitude" type="text" />
+                </div>
               </div>
+              <div class="col-xs-3">
+                <div class="group">
+                  <label>Longitude</label>
+                  <span class="required" ng-show="form.longitude.$error.required">*</span>
+                  <input class="form-control" data-ng-class="{'invalid' : form.longitude.$invalid && !form.longitude.$pristine}" data-ng-model="vm.form.attributes.longitude" name="longitude" type="text" />
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <nav>
+                   <button class="btn btn-default btn-info" data-ng-click="vm.save(vm.form)" data-ng-disabled="!vm.editing || form.$invalid">
+                    <i class="glyphicon glyphicon-floppy-save"></i>
+                    Save
+                  </button>
+                  <button class="btn btn-default btn-default" data-ng-click="vm.cancel()" type="button">
+                    <i class="glyphicon glyphicon-floppy-cancel"></i>
+                    Cancel
+                  </button>
+                </nav>
+              </div>
+            </div>
             </form>
           </div>
         </div>
@@ -99,7 +98,7 @@
           <table class="table table-striped table-bordered">
             <thead>
               <tr>
-                <th colspan="8">
+                <th colspan="7">
                   <input class="form-control col-lg-12" data-ng-model="searchUser" data-ng-model-options="vm.modelOptions" placeholder="Search">
                 </input>
               </th>
@@ -116,7 +115,6 @@
               <th>EventId</th>
               <th>Name</th>
               <th>CssId</th>
-              <th>Description</th>
               <th>ImageUrl</th>
               <th>Lat/Long</th>
               <th>Active</th>
@@ -129,7 +127,6 @@
               <td>{{entry.attributes.event_id}}</td>
               <td>{{entry.attributes.name}}</td>
               <td>{{entry.attributes.css_style_id}}</td>
-              <td>{{entry.attributes.description}}</td>
               <td>{{entry.attributes.image_url}}</td>
               <td>{{entry.attributes.latitude}},{{entry.attributes.longitude}}</td>
               <td>{{entry.attributes.active ? 'Yes' : 'No'}}</td>

@@ -45,7 +45,6 @@
       .delete(url(apiEndpointName) + "/" + obj.id)
       .then(handleSuccess)
       .catch(handleError);
-
     }
 
     function update(apiEndpointName, obj) {
@@ -62,10 +61,12 @@
     }
 
     function handleSuccess(res) {
+      console.log(res);
       return res.data;
     }
 
     function handleError(error) {
+      console.log(error);
       return {
         success: false,
         message: error

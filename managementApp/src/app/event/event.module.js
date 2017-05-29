@@ -78,16 +78,18 @@
     function add() {
 
       vm.form = {
-        id: 0,
-        cssStyleId: 0,
+        active: true,
+        css_style_id: null,
+        description: '',
+        external_url: '',
+        image_url: '',
+        latitude: '',
+        longitude: '',
         name: '',
-        date: new Date(),
-        imageUrl: '',
-        externalUrl: '',
-        longitude: 0,
-        latitude: 0,
-        active: true
+        order: null,
+        short_description: ''
       };
+
       vm.editing = true;
     }
 

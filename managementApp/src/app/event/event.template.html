@@ -6,111 +6,92 @@
       </h2>
       <div class="panel panel-default" ng-show="vm.editing">
         <div class="panel-body">
-          <p ng-if="vm.error">
-            {{vm.error}}
-          </p>
+          <p ng-if="vm.error">{{vm.error}}</p>
           <div class="form-horizontal">
             <form name="form">
               <div class="col-xs-12">
                 <div class="group">
-                  <label>
-                    Name
-                  </label>
-                  <span class="required" ng-show="form.name.$error.required">
-                    *
-                  </span>
+                  <label>Name</label>
+                  <span class="required" ng-show="form.name.$error.required">*</span>
                   <input class="form-control" data-ng-class="{'invalid' : form.name.$invalid && !form.name.$pristine}" data-ng-model="vm.form.attributes.name" name="name" ng-required="true" type="text" />
                 </div>
               </div>
               <div class="col-xs-12">
                 <div class="group">
-                  <label>
-                    Description
-                  </label>
-                  <span class="required" ng-show="form.description.$error.required">
-                    *
-                  </span>
+                  <label>Description</label>
+                  <span class="required" ng-show="form.description.$error.required">*</span>
                   <input class="form-control" data-ng-class="{'invalid' : form.description.$invalid && !form.description.$pristine}" data-ng-model="vm.form.attributes.description" name="description" type="text" />
                 </div>
               </div>
               <div class="col-xs-6">
                 <div class="group">
-                  <label>
-                    Image URL
-                  </label>
-                  <span class="required" ng-show="form.image_url.$error.required">
-                    *
-                  </span>
+                  <label>Image URL</label>
+                  <span class="required" ng-show="form.image_url.$error.required">*</span>
                   <input class="form-control" data-ng-class="{'invalid' : form.image_url.$invalid && !form.image_url.$pristine}" data-ng-model="vm.form.attributes.image_url" name="image-url" ng-required="true" type="text" />
                 </div>
               </div>
               <div class="col-xs-6">
                 <div class="group">
-                  <label>
-                    External URL
-                  </label>
-                  <span class="required" ng-show="form.external_url.$error.required">
-                    *
-                  </span>
+                  <label>External URL</label>
+                  <span class="required" ng-show="form.external_url.$error.required">*</span>
                   <input class="form-control" data-ng-class="{'invalid' : form.external_url.$invalid && !form.external_url.$pristine}" data-ng-model="vm.form.attributes.external_url" name="external-url" type="text" />
                 </div>
               </div>
               <div class="col-xs-3">
                 <div class="group">
-                  <label>
-                    Latitude
-                  </label>
-                  <span class="required" ng-show="form.latitude.$error.required">
-                    *
-                  </span>
+                  <label>Latitude</label>
+                  <span class="required" ng-show="form.latitude.$error.required">*</span>
                   <input class="form-control" data-ng-class="{'invalid' : form.latitude.$invalid && !form.latitude.$pristine}" data-ng-model="vm.form.attributes.latitude" name="latitude" type="text" />
                 </div>
               </div>
               <div class="col-xs-3">
                 <div class="group">
-                  <label>
-                    Longitude
-                  </label>
-                  <span class="required" ng-show="form.longitude.$error.required">
-                    *
-                  </span>
+                  <label>Longitude</label>
+                  <span class="required" ng-show="form.longitude.$error.required">*</span>
                   <input class="form-control" data-ng-class="{'invalid' : form.longitude.$invalid && !form.longitude.$pristine}" data-ng-model="vm.form.attributes.longitude" name="longitude" type="text" />
                 </div>
               </div>
               <div class="col-xs-2">
                 <div class="group">
-                  <label>
-                    Active
-                  </label>
-                  <span class="required" ng-show="form.active.$error.required">
-                    *
-                  </span>
+                  <label>Active</label>
+                  <span class="required" ng-show="form.active.$error.required">*</span>
                   <input class="form-control" data-ng-class="{'invalid' : form.active.$invalid && !form.active.$pristine}" ng-model="vm.form.attributes.active" name="active" ng-required="true" type="checkbox" />
                 </div>
               </div>
               <div class="col-xs-4">
                 <div class="group">
-                  <label>
-                    Style
-                  </label>
-                  <span class="required" ng-show="form.css_style_id.$error.required">
-                    *
-                  </span>
+                  <label>Style</label>
+                  <span class="required" ng-show="form.css_style_id.$error.required">*</span>
                   <select ng-model="vm.form.attributes.css_style_id" class="form-control" data-ng-class="{'invalid' : form.css_style_id.$invalid && !form.css_style_id.$pristine}" ng-required="true">
                     <option value="">Select the style</option>
                     <option ng-repeat="item in vm.cssStyle" ng-selected="item.css_style_id==vm.form.attributes.css_style_id" value="{{item.css_style_id}}">{{item.value}}</option>
                   </select>
                 </div>
               </div>
-              <div class="col-xs-12 group pull-right">
-                <button class="btn btn-default btn-info" data-ng-click="vm.save(vm.form)" data-ng-disabled="!vm.editing || form.$invalid">
-                  <i class="glyphicon glyphicon-floppy-save"></i>
-                  Save
-                </button>
-                <button class="btn btn-default btn-default" data-ng-click="vm.cancel(vm.form)" type="button">
-                  <i class="glyphicon glyphicon-floppy-cancel"></i>
-                  Cancel
-                </button>
+              <div class="col-xs-6">
+                <div class="group">
+                  <label>Order</label>
+                  <input class="form-control" data-ng-class="{'invalid' : form.order.$invalid && !form.order.$pristine}" data-ng-model="vm.form.attributes.order" name="order" type="text" />
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <div class="group">
+                  <label>Short description</label>
+                  <span class="required" ng-show="form.short_description.$error.required">*</span>
+                  <input class="form-control" data-ng-class="{'invalid' : form.short_description.$invalid && !form.short_description.$pristine}" data-ng-model="vm.form.attributes.short_description" name="short_description" type="text" />
+                </div>
+              </div>
+              <div class="col-xs-12 group">
+                <nav>
+                  <button class="btn btn-default btn-info" data-ng-click="vm.save(vm.form)" data-ng-disabled="!vm.editing || form.$invalid">
+                    <i class="glyphicon glyphicon-floppy-save"></i>
+                    Save
+                  </button>
+                  <button class="btn btn-default btn-default" data-ng-click="vm.cancel(vm.form)" type="button">
+                    <i class="glyphicon glyphicon-floppy-cancel"></i>
+                    Cancel
+                  </button>
+                </nav>
               </div>
               <br/>
               <span class="small" ng-if="vm.auth_token">
@@ -155,27 +136,13 @@
             </thead>
             <tbody>
               <tr data-ng-repeat="entry in vm.data | filter: searchUser">
-                <td>
-                  {{entry.id}}
-                </td>
-                <td>
-                  {{entry.attributes.name}}
-                </td>
-                <td>
-                  {{entry.attributes.image_url}}
-                </td>
-                <td>
-                  {{entry.attributes.external_url}}
-                </td>
-                <td>
-                  {{entry.attributes.latitude}}, {{entry.attributes.longitude}}
-                </td>
-                <td>
-                  {{entry.attributes.active ? 'Yes' : 'No'}}
-                </td>
-                <td>
-                  {{entry.attributes.css_style_id}}
-                </td>
+                <td>{{entry.id}}</td>
+                <td>{{entry.attributes.name}}</td>
+                <td>{{entry.attributes.image_url}}</td>
+                <td>{{entry.attributes.external_url}}</td>
+                <td>{{entry.attributes.latitude}}, {{entry.attributes.longitude}}</td>
+                <td>{{entry.attributes.active ? 'Yes' : 'No'}}</td>
+                <td>{{entry.attributes.css_style_id}}</td>
                 <td>
                   <button class="btn btn-info" data-ng-click="vm.edit(entry, entry.id)" name="action" type="submit">
                     <i class="glyphicon glyphicon-pencil"></i>
