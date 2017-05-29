@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170424013736) do
+ActiveRecord::Schema.define(version: 20170529074243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,9 +45,10 @@ ActiveRecord::Schema.define(version: 20170424013736) do
     t.boolean  "active"
     t.integer  "user_id"
     t.integer  "css_style_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "event_id"
+    t.string   "short_description"
     t.index ["css_style_id"], name: "index_plazas_on_css_style_id", using: :btree
     t.index ["event_id"], name: "index_plazas_on_event_id", using: :btree
     t.index ["user_id"], name: "index_plazas_on_user_id", using: :btree
