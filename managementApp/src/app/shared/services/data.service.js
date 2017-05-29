@@ -28,10 +28,12 @@
       .post(url(apiEndpointName), obj)
       .then(handleSuccess)
       .catch(handleError);
-
     }
 
     function getAll(apiEndpointName) {
+
+      console.log('request')
+      console.log(url(apiEndpointName));
 
       return $http
       .get(url(apiEndpointName))
@@ -61,11 +63,13 @@
     }
 
     function handleSuccess(res) {
-      console.log(res);
+      //console.log('success response');
+      //console.log(res);
       return res.data;
     }
 
     function handleError(error) {
+      console.log('error response');
       console.log(error);
       return {
         success: false,

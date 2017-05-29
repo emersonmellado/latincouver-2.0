@@ -9,9 +9,9 @@
       controllerAs: 'vm'
     });
 
-  UserController.$inject = ['$log', 'toastr', 'dataService'];
+  UserController.$inject = ['$log', 'toastr', 'dataService', 'events'];
 
-  function UserController($log, toastr, dataService) {
+  function UserController($log, toastr, dataService, events) {
 
     //Change this vars for a new base service on Rails
     var singularName = "user";
@@ -31,15 +31,16 @@
 
     vm.title = "User Management";
     vm.add = add;
+
     vm.remove = remove;
     vm.edit = edit;
     vm.save = save;
     vm.modelOptions = {
-        updateOn: "blur default",
-        debounce: {
-            default: 300,
-            blur: 0
-        }
+      updateOn: "blur default",
+      debounce: {
+        default: 300,
+        blur: 0
+      }
     }
 
     activate();

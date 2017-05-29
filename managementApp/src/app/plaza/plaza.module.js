@@ -75,15 +75,14 @@
       completeMsg = '';
 
       return dataService.GetAll(apiEndpointName)
-      .then(getAllComplete)
-      .catch(dataFailed);
+        .then(getAllComplete)
+        .catch(dataFailed);
 
       function getAllComplete(response) {
         if(response.success === false) {
           dataFailed(response.message);
         } else {
           vm.data = response.data;
-          console.log(vm.data);
         }
       }
 
