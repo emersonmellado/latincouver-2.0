@@ -14,6 +14,20 @@
   margin-top: 20px;
 }
 
+@media (min-width: 992px) {
+
+  .col-md-offset-1 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+}
+
+nav {
+  padding-top: 15px;
+  text-align: right;
+}
+
 /* menu */
 
 header .navbar-default {
