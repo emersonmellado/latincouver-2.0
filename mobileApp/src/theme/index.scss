@@ -24,12 +24,17 @@ html, body {
     height: 100%;
     margin: 0;
 }
+
 a{
     text-decoration: none;
 }
+
 .title{
     @extend .bold;
     text-transform: uppercase;
+    color: $bg-app-inverse;
+    text-align: center;
+    background: $bg-app;
 }
 
 .content{    

@@ -11,6 +11,7 @@ import { AlertController, App, List, ModalController, NavController, LoadingCont
   import { EventData } from '../../providers/event-data';
   //import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
   //import { SessionDetailPage } from '../session-detail/session-detail';
+  import { EventDetailPage } from '../event-detail/event-detail';
   import { UserData } from '../../providers/user-data';
 
 
@@ -30,7 +31,7 @@ import { AlertController, App, List, ModalController, NavController, LoadingCont
     segment = 'all';
     excludeTracks: any = [];
     events: any = [];
-    settings: any = {};
+    settings: any = [];
     arrayOfKeys: any = [];
     groups: any = [];
     confDate: string;
@@ -53,8 +54,15 @@ import { AlertController, App, List, ModalController, NavController, LoadingCont
     updateSchedule() {
       this.eventData.getData().subscribe((data: any) => {
           this.events = data.events;
-          this.settings = data.settings;
-          console.log("this.settings", this.settings);
+          this.settings = data.settings[0];
+          console.log("this.settings", this.settings.main_title);
+          console.log("this.settings", this.settings.css_style.name);
         });
     }
+
+  goToEventDetail(event: any) {
+    // go to the session detail page
+    // and pass in the session data
+    this.navCtrl.push(EventDetailPage, event);
+  }    
 }

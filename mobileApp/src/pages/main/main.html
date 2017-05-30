@@ -1,22 +1,17 @@
-<ion-header>
+<ion-header class="{{settings.css_style?.name}}">
   <ion-navbar no-border-bottom>
-    <div class="bar bar-header bar-positive bar-positive-main">
-      <span class="title">
-        {{settings.main_title}}
-      </span>
-      <span class="title">
-        {{settings.css_style.name}}
-      </span>
+    <div class="title">
+      {{settings.main_title}}
     </div>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="content no-padding main-content">
   <div class="main-list">
-    <div class="button grow" *ngFor="let rec of events">
+    <div class="button grow" *ngFor="let rec of events" (click)="goToEventDetail(rec)">
       <div class="{{rec.css_style.name}}">
         <h3>{{rec.name}}</h3>
-        <h4>{{rec.description}}</h4>
+        <h4 [innerHTML]=rec.short_description></h4>
       </div>
       <img [src]="rec.image_url">
     </div>

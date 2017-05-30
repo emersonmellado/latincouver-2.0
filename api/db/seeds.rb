@@ -10,7 +10,7 @@ end
 
 if CssStyle.count == 0
   puts "Creating production data for css_style"
-  css_style = CssStyle.create!([{name: 'red-flat'},{name: 'yellow-flat'},{name: 'blue-flat'},{name: 'green-flat'}])
+  css_style = CssStyle.create!([{name: 'red'},{name: 'yellow'},{name: 'blue'},{name: 'green'},{name: 'red-flat'},{name: 'yellow-flat'},{name: 'blue-flat'},{name: 'green-flat'}])
 end
 
 if Setting.count == 0
@@ -26,7 +26,40 @@ end
 #if Rails.env != "production"
 if Event.count == 0
  puts "Creating test event"
- event = Event.create!([{name: 'Carnaval del Sol', css_style:CssStyle.find_by(name: 'green-flat')}])
+ event = Event.create!([{
+    name: 'Carnaval del Sol', 
+    image_url:'http://latincouver.er7.ca/1.0/assets/images/event/carnaval_delsol.jpg',
+    short_description: 'from 09/jul to 12/jul', 
+    description: 'VANCOUVER, PREPARATE PA` LA NOCHE MAS ESPERADA DE ESTE VERANO. Llego el momento de subir el nivel y elevar la calidad de rumba colombiana en Vancouver. Traigan sus campanas & sus maracas porque nos vamos a enrumbar con estilo y sabor. Acomp',
+    css_style:CssStyle.find_by(name: 'green'),
+    active: 1,
+    order:1
+  },{
+    name: 'Latin Innovation Hub', 
+    image_url:'http://latincouver.er7.ca/1.0/assets/images/event/latin_events.jpg',
+    short_description: '', 
+    description: 'VANCOUVER, PREPARATE PA` LA NOCHE MAS ESPERADA DE ESTE VERANO. Llego el momento de subir el nivel y elevar la calidad de rumba colombiana en Vancouver. Traigan sus campanas & sus maracas porque nos vamos a enrumbar con estilo y sabor. Acomp',
+    css_style:CssStyle.find_by(name: 'blue'),
+    active: 1,
+    order:2    
+  },{
+    name: 'Exploplaza Latina', 
+    image_url:'http://latincouver.er7.ca/1.0/assets/images/event/expoplaza_latina.jpg',
+    short_description: 'September 14th <br> <b>Vancouver</b>', 
+    description: 'VANCOUVER, PREPARATE PA` LA NOCHE MAS ESPERADA DE ESTE VERANO. Llego el momento de subir el nivel y elevar la calidad de rumba colombiana en Vancouver. Traigan sus campanas & sus maracas porque nos vamos a enrumbar con estilo y sabor. Acomp',
+    css_style:CssStyle.find_by(name: 'red'),
+    active: 1,
+    order:3
+  },{
+    name: 'Latin Live Events', 
+    image_url:'http://latincouver.er7.ca/1.0/assets/images/event/latin_america.jpg',
+    short_description: '', 
+    description: 'VANCOUVER, PREPARATE PA` LA NOCHE MAS ESPERADA DE ESTE VERANO. Llego el momento de subir el nivel y elevar la calidad de rumba colombiana en Vancouver. Traigan sus campanas & sus maracas porque nos vamos a enrumbar con estilo y sabor. Acomp',
+    css_style:CssStyle.find_by(name: 'yellow'),
+    active: 1,
+    order:4
+  }
+  ])
 end
 
 if Plaza.count == 0
