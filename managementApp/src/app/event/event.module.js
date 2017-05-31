@@ -78,7 +78,7 @@
     function add() {
 
       vm.form = {
-        active: true,
+        active: false,
         css_style_id: null,
         description: '',
         external_url: '',

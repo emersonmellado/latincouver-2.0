@@ -10,8 +10,7 @@
     'event',
     'home',
     'login',
-    'plaza',
-    'user'
+    'plaza'
     ])
   .controller('Lcv2Controller', Lcv2Controller);
 
