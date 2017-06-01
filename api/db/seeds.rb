@@ -15,12 +15,12 @@ end
 
 if Setting.count == 0
   puts "Creating production data for settings"
-  Setting.create!([{main_title: 'Upcoming Events yeah!', css_style:CssStyle.find_by(name: 'green-flat'), active: 1}])
+  Setting.create!([{main_title: 'Upcoming Events yeah!', css_style:CssStyle.find_by(name: 'green-flat')}])
 end
 
 if User.count == 0
   puts "Creating admin user"
-  users = User.create!([{name: 'admin', password:'admin@2017', nickname:'admin', image:'admin', email: 'admin@email.com', created_at:'2017-05-17 01:27:00', updated_at:'2017-05-17 01:27:00', active: 1}])
+  users = User.create!([{name: 'admin', password:'admin@2017', nickname:'admin', image:'admin', email: 'admin@email.com', created_at:'2017-05-17 01:27:00', updated_at:'2017-05-17 01:27:00'}])
 end
 
 #if Rails.env != "production"
