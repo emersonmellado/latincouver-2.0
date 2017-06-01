@@ -63,8 +63,8 @@
     }
 
     function handleSuccess(res) {
-      //console.log('success response');
-      //console.log(res);
+      console.log('success response');
+      console.log(res);
       return res.data;
     }
 

@@ -10,7 +10,9 @@
     'event',
     'home',
     'login',
-    'plaza'
+    'plaza',
+    'trade',
+    'tradeLink'
     ])
   .controller('Lcv2Controller', Lcv2Controller);
 

@@ -19,6 +19,12 @@ function routes($locationProvider, $routeProvider) {
   .when('/plaza', {
     template: '<plaza></plaza>'
   })
+  .when('/trade', {
+    template: '<trade></trade>'
+  })
+  .when('/trade-link', {
+    template: '<trade-link></trade-link>'
+  })
   .when('/user', {
    template: '<user></user>'
  })
