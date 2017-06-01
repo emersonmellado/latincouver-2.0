@@ -12,6 +12,7 @@
 @import "../assets/ionic/scss/_mixins.scss";
 @import "../assets/ionic/scss/_items.scss";
 @import "scss/_mixins.scss";
+//@import "scss/_navbar.scss";
 @import "scss/_fonts.scss";
 @import "scss/_colors.scss";
 @import "scss/_event.scss";
@@ -19,7 +20,7 @@
 @import "scss/_sidemenu.scss";
 @import "scss/_splash.scss";
 
-*{ font-family: "AvenirNext"!important; }
+//*{ font-family: "AvenirNext"!important; }
 html, body {    
     height: 100%;
     margin: 0;

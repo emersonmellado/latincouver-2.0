@@ -8,6 +8,11 @@ if TradeGroup.count == 0
   TradeGroup.create!([{name: 'Vendors'},{name: 'Business'},{name: 'Sponsors'}, {name: 'Artists'}])
 end
 
+if TradeLink.count == 0
+  puts "Creating production data for trade_link"
+  TradeLink.create!([{name: 'Er7', href:'http://www.er7.ca', active:1}])
+end
+
 if CssStyle.count == 0
   puts "Creating production data for css_style"
   css_style = CssStyle.create!([{name: 'red'},{name: 'yellow'},{name: 'blue'},{name: 'green'},{name: 'red-flat'},{name: 'yellow-flat'},{name: 'blue-flat'},{name: 'green-flat'}])
@@ -73,13 +78,21 @@ if Plaza.count == 0
     "active":1}])
 end
 
-# if Trade.count == 0
-#   puts "Creating production data for plaza"
-#   Trade.create!([{name: 'Main Stage',"description":"<p>Saturday July 9th marks the beginning of Carnaval Del Sol! We are very proud to be able to host this event for the people we love. This is the most anticipated event yet and we hope it meets your expectations! Indulge in various genres and styles of music as we bring the Latin Community back into Vancouver!</p><p>Different artists and singers will be performing at different times, so be sure to check out the lists of bands we have coming and attend the Main Stage at the allotted times your favourite bands are performing.</p>",
-#     "image_url":"http://latincouver.er7.ca/1.0/assets/images/plazas/main-stage.jpg",
-#     "longitude":"",
-#     "latitude":"",
-#     css_style:CssStyle.find_by(name: 'red-flat'),
-#     event:Event.find_by(name: 'Carnaval del Sol'),
-#     "active":1}])
-# end
+if Trade.count == 0
+  puts "Creating production data for trade"
+  Trade.create!([{
+    name: 'Will Campa',
+    "description":"<p>Recording several albums with Cumbre and Maraca, Wil is best recognized internationally for his Grammy Nominated contribution to the CD ‘Tremenda Rumba’ in 2002. In 2005 Wil formed what is known today as one of Cuba elite groups ‘Wil Campa Y Su Orquesta,’ releasing two albums: ‘Es Tiempo’ in 2006 and ‘Todo Es Posible’ in 2011, winning him a Nomination for Best Album 2012 at the Cubadisco (Cuba’s equivalent of the Grammy’s). Wil Campa Y Su Orquesta have been touring extensively nationally (e.g. Havana Jazz Festival) and internationally, inspiring and introducing thousands of audiences to Cuba’s musical royalty.</p><p>Wil’ s childhood was spent in Pinar del Rio, Cuba, where he grew up amidst streets filled with joyful traditional Cuban music.Wil’ s vision, musical talent, and chorographical direction have placed this Orchestra, Wil Campa Y Su Orquesta, as one of the most exciting touring groups! </p>",
+    "image_url":"http://latincouver.er7.ca/1.0/assets/images/artists/Will-Campa.jpg",
+    css_style:CssStyle.find_by(name: 'red-flat'),
+    event:Event.find_by(name: 'Carnaval del Sol'),
+    "active":1
+    },{
+    name: 'Samba Fusion',
+    "description":"<p>This multi-cultural troupe performs several styles of dance fusion including Brazilian Samba, Forro, Samba Reggae, Afro- Brazilian, Gypsy, Hip Hop, Contemporary, Salsa/Latin/Reggaeton, African, Polynesian, and Burlesque.</p><p>Samba Fusion was formed by Andrea Monteiro and Naija K in Vancouver based on their common dance background in ‘Samba.’As the ideas flowed in the initial stages of the group 's development, more dancers joined and each dancer brought on their experience in different styles of dance. Rooted in Brazilian Samba fused with numerous dance styles, music and rhythms, Samba Fusion will wow you with their colourful attire and steamy dance moves!</p>",
+    "image_url":"http://latincouver.er7.ca/1.0/assets/images/Samba-Fusion.png",
+    css_style:CssStyle.find_by(name: 'red-flat'),
+    event:Event.find_by(name: 'Carnaval del Sol'),
+    "active":1}
+    ])
+end

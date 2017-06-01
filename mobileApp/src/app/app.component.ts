@@ -49,9 +49,10 @@ export class LatincouverApp {
   { title: 'About', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'information-circle' }
   ];
   loggedInPages: PageInterface[] = [
-  { title: 'Account', component: AccountPage, icon: 'person' },
-  { title: 'Support', component: SupportPage, icon: 'help' },
-  { title: 'Logout', component: TabsPage, icon: 'log-out', logsOut: true }
+  { title: 'Schedule', component: TabsPage, tabComponent: SchedulePage, icon: 'calendar' },
+  { title: 'Speakers', component: TabsPage, tabComponent: SpeakerListPage, index: 1, icon: 'contacts' },
+  { title: 'Map', component: TabsPage, tabComponent: MapPage, index: 2, icon: 'map' },
+  { title: 'About', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'information-circle' }
   ];
   loggedOutPages: PageInterface[] = [
   { title: 'Login', component: LoginPage, icon: 'log-in' }//,

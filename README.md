@@ -66,6 +66,10 @@ In this version we are going to create a few things and try to decouple the api 
   The first corelation between the tables are held basicaly by the relation tables (css-styles, trade-groups, trade-type, trade-product, trade-link, plazas s schedules)
   The mains table is the event, it can handle multiple events in the same view (that is required because we may have more than one event )
 
+  http://latincouver.er7.ca/admin/
+  user: lc_admin
+  pass: ^TQV]3[gLkQu8GHQ
+
 ## MobileApp (Ionic 2.0)
   - Deploy to heroku-mobile
 
