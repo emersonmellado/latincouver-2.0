@@ -8,11 +8,6 @@ if TradeGroup.count == 0
   TradeGroup.create!([{name: 'Vendors'},{name: 'Business'},{name: 'Sponsors'}, {name: 'Artists'}])
 end
 
-if TradeLink.count == 0
-  puts "Creating production data for trade_link"
-  TradeLink.create!([{name: 'Er7', href:'http://www.er7.ca', active:1}])
-end
-
 if CssStyle.count == 0
   puts "Creating production data for css_style"
   css_style = CssStyle.create!([{name: 'red'},{name: 'yellow'},{name: 'blue'},{name: 'green'},{name: 'red-flat'},{name: 'yellow-flat'},{name: 'blue-flat'},{name: 'green-flat'}])
@@ -95,4 +90,11 @@ if Trade.count == 0
     event:Event.find_by(name: 'Carnaval del Sol'),
     "active":1}
     ])
+end
+
+
+if TradeLink.count == 0
+  puts "Creating production data for trade_link"
+  TradeLink.create!([{name: 'Er7', href:'http://www.er7.ca', active:1, 
+    trade:Trade.find_by(name: 'Will Campa')}])
 end
