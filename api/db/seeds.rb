@@ -83,7 +83,8 @@ if Trade.count == 0
     event:Event.find_by(name: 'Carnaval del Sol'),
     "active":1,
     trade_type:TradeType.find_by(name: 'Show'),
-    trade_group:TradeGroup.find_by(name: 'Artists')
+    trade_group:TradeGroup.find_by(name: 'Artists'),
+    plaza:Plaza.find_by(name: 'Main Stage')
     },{
     name: 'Samba Fusion',
     "description":"<p>This multi-cultural troupe performs several styles of dance fusion including Brazilian Samba, Forro, Samba Reggae, Afro- Brazilian, Gypsy, Hip Hop, Contemporary, Salsa/Latin/Reggaeton, African, Polynesian, and Burlesque.</p><p>Samba Fusion was formed by Andrea Monteiro and Naija K in Vancouver based on their common dance background in ‘Samba.’As the ideas flowed in the initial stages of the group 's development, more dancers joined and each dancer brought on their experience in different styles of dance. Rooted in Brazilian Samba fused with numerous dance styles, music and rhythms, Samba Fusion will wow you with their colourful attire and steamy dance moves!</p>",
@@ -92,7 +93,8 @@ if Trade.count == 0
     event:Event.find_by(name: 'Carnaval del Sol'),
     "active":1,
     trade_type:TradeType.find_by(name: 'Show'),
-    trade_group:TradeGroup.find_by(name: 'Artists')
+    trade_group:TradeGroup.find_by(name: 'Artists'),
+    plaza:Plaza.find_by(name: 'Main Stage')
     }
     ])
 end
