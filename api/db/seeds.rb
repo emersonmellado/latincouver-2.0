@@ -1,6 +1,6 @@
 if TradeType.count == 0
   puts "Creating production data for trade_type"
-  TradeType.create!([{name: 'Food'},{name: 'Products'},{name: 'Non-Profit'}])
+  TradeType.create!([{name: 'Food'},{name: 'Products'},{name: 'Non-Profit'},{name:'Show'}])
 end
 
 if TradeGroup.count == 0
@@ -81,7 +81,9 @@ if Trade.count == 0
     "image_url":"http://latincouver.er7.ca/1.0/assets/images/artists/Will-Campa.jpg",
     css_style:CssStyle.find_by(name: 'red-flat'),
     event:Event.find_by(name: 'Carnaval del Sol'),
-    "active":1
+    "active":1,
+    trade_type:TradeType.find_by(name: 'Show')},
+    trade_group:TradeGroup.find_by(name: 'Artists')}
     },{
     name: 'Samba Fusion',
     "description":"<p>This multi-cultural troupe performs several styles of dance fusion including Brazilian Samba, Forro, Samba Reggae, Afro- Brazilian, Gypsy, Hip Hop, Contemporary, Salsa/Latin/Reggaeton, African, Polynesian, and Burlesque.</p><p>Samba Fusion was formed by Andrea Monteiro and Naija K in Vancouver based on their common dance background in ‘Samba.’As the ideas flowed in the initial stages of the group 's development, more dancers joined and each dancer brought on their experience in different styles of dance. Rooted in Brazilian Samba fused with numerous dance styles, music and rhythms, Samba Fusion will wow you with their colourful attire and steamy dance moves!</p>",
