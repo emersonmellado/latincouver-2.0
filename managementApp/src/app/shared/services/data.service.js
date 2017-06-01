@@ -65,6 +65,7 @@
     function handleSuccess(res) {
       console.log('success response');
       console.log(res);
+      if(res.status != 200 && res.status != 201) return handleError(res);
       return res.data;
     }
 

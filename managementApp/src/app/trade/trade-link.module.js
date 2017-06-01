@@ -42,18 +42,6 @@
       }
     }
 
-    cssStyle.loadDropDown()
-    .then(function(res){
-      vm.cssStyle = [];
-      angular.forEach(res.data, function(attributes){
-        var opt = {
-          css_style_id: attributes.id,
-          value: attributes.attributes.name
-        }
-        vm.cssStyle.push(opt);
-      });
-    });
-
     activate();
 
     function activate() {
@@ -64,13 +52,12 @@
       completeMsg = '';
 
       return dataService.GetAll(apiEndpointName)
-      .then(getAllComplete)
-      .catch(dataFailed);
+        .then(getAllComplete)
+        .catch(dataFailed);
 
       function getAllComplete(response) {
         if (response && response.data){
           vm.data = response.data;
-          vm.data = [{name: 'link1'}, {name: 'link2'}];
         }
       }
 
@@ -79,16 +66,12 @@
     function add() {
 
       vm.form = {
-        active: false,
-        css_style_id: null,
-        description: '',
-        external_url: '',
-        image_url: '',
-        latitude: '',
-        longitude: '',
-        name: '',
-        order: null,
-        short_description: ''
+        attributes: {
+          active: true,
+          href: '',
+          name: ''
+          },
+        id: 0
       };
 
       vm.editing = true;
@@ -137,24 +120,14 @@
 
       } else {
 
-        obj = {
-          event: 1
-        }
-
         console.log(obj);
 
         return dataService.Create(apiEndpointName, obj)
-        .then(dataComplete)
-        .catch(dataFailed);
+          .then(dataComplete)
+          .catch(dataFailed);
 
       }
 
-    }
-
-    function serializeAttributes(obj){
-      var ret = obj.attributes.replace(/-/g, '_');
-      console.log("ret", ret);
-      return ret;
     }
 
     function dataComplete(response) {
