@@ -1,26 +1,26 @@
 if TradeType.count == 0
   puts "Creating production data for trade_type"
-  TradeType.create!([{name: 'Food'},{name: 'Products'},{name: 'Non-Profit'},{name:'Show'}])
+  TradeType.create!([{name: 'Food', active: 1},{name: 'Products', active: 1},{name: 'Non-Profit', active: 1},{name:'Show', active: 1}])
 end
 
 if TradeGroup.count == 0
   puts "Creating production data for trade_group"
-  TradeGroup.create!([{name: 'Vendors'},{name: 'Business'},{name: 'Sponsors'}, {name: 'Artists'}])
+  TradeGroup.create!([{name: 'Vendors', active: 1},{name: 'Business', active: 1},{name: 'Sponsors', active: 1}, {name: 'Artists', active: 1}])
 end
 
 if CssStyle.count == 0
   puts "Creating production data for css_style"
-  css_style = CssStyle.create!([{name: 'red'},{name: 'yellow'},{name: 'blue'},{name: 'green'},{name: 'red-flat'},{name: 'yellow-flat'},{name: 'blue-flat'},{name: 'green-flat'}])
+  css_style = CssStyle.create!([{name: 'red', active: 1},{name: 'yellow', active: 1},{name: 'blue', active: 1},{name: 'green', active: 1},{name: 'red-flat', active: 1},{name: 'yellow-flat', active: 1},{name: 'blue-flat', active: 1},{name: 'green-flat', active: 1}])
 end
 
 if Setting.count == 0
   puts "Creating production data for settings"
-  Setting.create!([{main_title: 'Upcoming Events yeah!', css_style:CssStyle.find_by(name: 'green-flat')}])
+  Setting.create!([{main_title: 'Upcoming Events yeah!', css_style:CssStyle.find_by(name: 'green-flat'), active: 1}])
 end
 
 if User.count == 0
   puts "Creating admin user"
-  users = User.create!([{name: 'admin', password:'admin@2017', nickname:'admin', image:'admin', email: 'admin@email.com', created_at:'2017-05-17 01:27:00', updated_at:'2017-05-17 01:27:00'}])
+  users = User.create!([{name: 'admin', password:'admin@2017', nickname:'admin', image:'admin', email: 'admin@email.com', created_at:'2017-05-17 01:27:00', updated_at:'2017-05-17 01:27:00', active: 1}])
 end
 
 #if Rails.env != "production"
@@ -82,15 +82,18 @@ if Trade.count == 0
     css_style:CssStyle.find_by(name: 'red-flat'),
     event:Event.find_by(name: 'Carnaval del Sol'),
     "active":1,
-    trade_type:TradeType.find_by(name: 'Show')},
-    trade_group:TradeGroup.find_by(name: 'Artists')}
+    trade_type:TradeType.find_by(name: 'Show'),
+    trade_group:TradeGroup.find_by(name: 'Artists')
     },{
     name: 'Samba Fusion',
     "description":"<p>This multi-cultural troupe performs several styles of dance fusion including Brazilian Samba, Forro, Samba Reggae, Afro- Brazilian, Gypsy, Hip Hop, Contemporary, Salsa/Latin/Reggaeton, African, Polynesian, and Burlesque.</p><p>Samba Fusion was formed by Andrea Monteiro and Naija K in Vancouver based on their common dance background in ‘Samba.’As the ideas flowed in the initial stages of the group 's development, more dancers joined and each dancer brought on their experience in different styles of dance. Rooted in Brazilian Samba fused with numerous dance styles, music and rhythms, Samba Fusion will wow you with their colourful attire and steamy dance moves!</p>",
     "image_url":"http://latincouver.er7.ca/1.0/assets/images/Samba-Fusion.png",
     css_style:CssStyle.find_by(name: 'red-flat'),
     event:Event.find_by(name: 'Carnaval del Sol'),
-    "active":1}
+    "active":1,
+    trade_type:TradeType.find_by(name: 'Show'),
+    trade_group:TradeGroup.find_by(name: 'Artists')
+    }
     ])
 end
 
