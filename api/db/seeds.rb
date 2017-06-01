@@ -10,7 +10,7 @@ end
 
 if CssStyle.count == 0
   puts "Creating production data for css_style"
-  css_style = CssStyle.create!([{name: 'red', active: 1},{name: 'yellow', active: 1},{name: 'blue', active: 1},{name: 'green', active: 1},{name: 'red-flat', active: 1},{name: 'yellow-flat', active: 1},{name: 'blue-flat', active: 1},{name: 'green-flat', active: 1}])
+  css_style = CssStyle.create!([{name: 'red'},{name: 'yellow'},{name: 'blue'},{name: 'green'},{name: 'red-flat'},{name: 'yellow-flat'},{name: 'blue-flat'},{name: 'green-flat'}])
 end
 
 if Setting.count == 0
