@@ -1,3 +1,3 @@
 class TradeLinkSerializer < BaseSerializer
-  attributes :id, :name, :active
+  attributes :id, :name, :href, :active
 end
