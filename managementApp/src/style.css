@@ -1,4 +1,6 @@
-
+h1 {
+  text-align: center;
+}
 
 .form {
   transition:all linear 0.5s;

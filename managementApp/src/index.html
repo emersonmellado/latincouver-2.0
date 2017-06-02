@@ -28,8 +28,16 @@
           <li><a href="#!/home">Home</a></li>
           <li><a href="#!/event">Events</a></li>
           <li><a href="#!/plaza">Plaza</a></li>
-          <li><a href="#!/trade">Trade</a></li>
-          <li><a href="#!/trade-link">Trade-link</a></li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Others <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#!/trade">Trade</a></li>
+            <li><a href="#!/trade-link">Trade-link</a></li>
+            <li><a href="#!/trade-group">Trade-group</a></li>
+            <li><a href="#!/trade-product">Trade-product</a></li>
+            <li><a href="#!/trade-type">Trade-type</a></li>
+          </ul>
+        </li>
           <li><a href="" ng-click="vm.logout()">Logout</a></li>
         </ul>
       </div>
@@ -63,7 +71,10 @@
   <script src="app/home/home.module.js"></script>
   <script src="app/plaza/plaza.module.js"></script>
   <script src="app/trade/trade.module.js"></script>
+  <script src="app/trade/trade-group.module.js"></script>
   <script src="app/trade/trade-link.module.js"></script>
+  <script src="app/trade/trade-product.module.js"></script>
+  <script src="app/trade/trade-type.module.js"></script>
   <script src="app/login/login.module.js"></script>
   <script src="app/shared/constants.js"></script>
   <script src="app/shared/factories/factory.js"></script>

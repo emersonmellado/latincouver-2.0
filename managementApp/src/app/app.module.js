@@ -12,7 +12,10 @@
     'login',
     'plaza',
     'trade',
-    'tradeLink'
+    'tradeGroup',
+    'tradeLink',
+    'tradeProduct',
+    'tradeType'
     ])
   .controller('Lcv2Controller', Lcv2Controller);
 
