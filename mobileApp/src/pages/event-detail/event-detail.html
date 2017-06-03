@@ -1,8 +1,12 @@
 <ion-header>
   <ion-navbar>
-    <ion-title class="title">{{event.name}}</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{event.name}}</ion-title>
   </ion-navbar>
 </ion-header>
+
 
 <ion-content padding>
   <h1>{{event.name}}</h1>

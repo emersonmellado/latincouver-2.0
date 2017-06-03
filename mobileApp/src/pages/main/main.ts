@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { AlertController, App, List, ModalController, NavController, LoadingController } from 'ionic-angular';
+import { AlertController, App, List, ModalController, NavController, LoadingController, MenuController } from 'ionic-angular';
 
 /*
   To learn how to use third party libs in an
@@ -13,6 +13,8 @@ import { AlertController, App, List, ModalController, NavController, LoadingCont
   //import { SessionDetailPage } from '../session-detail/session-detail';
   import { EventDetailPage } from '../event-detail/event-detail';
   import { UserData } from '../../providers/user-data';
+
+  import { Events } from 'ionic-angular';
 
 
   @Component({
@@ -37,6 +39,8 @@ import { AlertController, App, List, ModalController, NavController, LoadingCont
     confDate: string;
 
     constructor(
+      public appEvents: Events,
+      public menu: MenuController,
       public alertCtrl: AlertController,
       public app: App,
       public loadingCtrl: LoadingController,
@@ -44,25 +48,33 @@ import { AlertController, App, List, ModalController, NavController, LoadingCont
       public navCtrl: NavController,
       public eventData: EventData,
       public user: UserData,
-      ) {}
+      ) { }
 
     ionViewDidLoad() {
       this.app.setTitle('Main');
-      this.updateSchedule();
+      this.updateSchedule();      
     }
 
     updateSchedule() {
       this.eventData.getData().subscribe((data: any) => {
+          
           this.events = data.events;
           this.settings = data.settings[0];
-          console.log("this.settings", this.settings.main_title);
-          console.log("this.settings", this.settings.css_style.name);
+          //this.goToEventDetail(this.events[0]);
+          
         });
     }
 
   goToEventDetail(event: any) {
     // go to the session detail page
     // and pass in the session data
-    this.navCtrl.push(EventDetailPage, event);
+    // this.appEvents.publish('user:login');
+    // this.navCtrl.push(EventDetailPage, event);
+    //this.appEvents.publish('user:login');
+    this.menu.enable(true, 'loggedInMenu');
+    //return new Promise(resolve => {
+      
+      this.navCtrl.push(EventDetailPage, event);
+    //  });
   }    
 }

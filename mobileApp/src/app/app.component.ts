@@ -8,15 +8,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
 
 import { AboutPage } from '../pages/about/about';
-import { AccountPage } from '../pages/account/account';
+// import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
 import { MapPage } from '../pages/map/map';
 // import { SignupPage } from '../pages/signup/signup';
 import { TabsPage } from '../pages/tabs/tabs';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { SchedulePage } from '../pages/schedule/schedule';
+import { MainPage } from '../pages/main/main';
 import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
-import { SupportPage } from '../pages/support/support';
+// import { SupportPage } from '../pages/support/support';
 
 //import { ConferenceData } from '../providers/conference-data';
 import { EventData } from '../providers/event-data';
@@ -50,9 +51,6 @@ export class LatincouverApp {
   ];
   loggedInPages: PageInterface[] = [
   { title: 'Schedule', component: TabsPage, tabComponent: SchedulePage, icon: 'calendar' },
-  { title: 'Speakers', component: TabsPage, tabComponent: SpeakerListPage, index: 1, icon: 'contacts' },
-  { title: 'Map', component: TabsPage, tabComponent: MapPage, index: 2, icon: 'map' },
-  { title: 'About', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'information-circle' }
   ];
   loggedOutPages: PageInterface[] = [
   { title: 'Login', component: LoginPage, icon: 'log-in' }//,
@@ -75,8 +73,11 @@ export class LatincouverApp {
     // Check if the user has already seen the tutorial
     this.storage.get('hasSeenTutorial')
     .then((hasSeenTutorial) => {
+      // hasSeenTutorial = false;
+      console.log("hasSeenTutorial", hasSeenTutorial);
       if (hasSeenTutorial) {
-        this.rootPage = TabsPage;
+        this.rootPage = MainPage;
+        // this.rootPage = TabsPage;
       } else {
         this.rootPage = TutorialPage;
       }
@@ -122,7 +123,10 @@ export class LatincouverApp {
 
   listenToLoginEvents() {
     this.events.subscribe('user:login', () => {
-      this.enableMenu(true);
+      this.enableMenu(true);   
+      console.log("this.rootPage:a", this.rootPage);
+      this.rootPage = TabsPage;       
+      console.log("this.rootPage:b", this.rootPage);
     });
 
     this.events.subscribe('user:signup', () => {

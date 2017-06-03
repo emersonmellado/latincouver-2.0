@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.latincouver" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Ionic Conference</name>
-  <description>
-        An Ionic Framework application for the Ionic Conference.
+  <description>&#xD;
+        An Ionic Framework application for the Ionic Conference.&#xD;
   </description>
-  <author email="emersonmellado@gmail.com" href="http://emersonmellado.com/">
-      Emerson Mellado
+  <author email="emersonmellado@gmail.com" href="http://emersonmellado.com/">&#xD;
+      Emerson Mellado&#xD;
   </author>
   <content src="index.html"/>
   <access origin="*"/>
