@@ -1,3 +1,3 @@
-class TradeProductSerializer < BaseSerializer
+class TradeProductSerializer < ActiveModel::Serializer
   attributes :id, :name, :active
 end

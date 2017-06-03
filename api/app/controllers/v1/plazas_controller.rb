@@ -1,5 +1,5 @@
 module V1
-  class PlazasController < BaseController
+  class PlazasController < ApplicationController
     before_action :set_plaza, only: [:show, :update, :destroy]
 
     # GET /plazas

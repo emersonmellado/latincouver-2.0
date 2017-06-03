@@ -1,5 +1,5 @@
 module V1
-  class CssStylesController < BaseController
+  class CssStylesController < ApplicationController
     before_action :set_css_style, only: [:show, :update, :destroy]
 
     # GET /css_styles
