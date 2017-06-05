@@ -57,9 +57,16 @@ In this version we are going to create a few things and try to decouple the api 
   git subtree push --prefix api heroku-api master  
   git push heroku-api `git subtree split --prefix api master`:master --force
   - Reset db
+  heroku pg:reset DATABASE_URL --confirm latincouverapi
   heroku pg:reset DATABASE --confirm latincouverapi
+
+  //Force reload of the entire schema
+  heroku run rake db:schema:load DISABLE_DATABASE_ENVIRONMENT_CHECK=1
+  
   heroku run rake db:migrate
   heroku run rake db:seed
+
+  heroku restart
 
 ## ManagementApp (angular 1.6 UI for json management)
   - How to create an event:
