@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20170604074243) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "event_id"
+    t.string   "short_description"
     t.index ["css_style_id"], name: "index_plazas_on_css_style_id", using: :btree
     t.index ["event_id"], name: "index_plazas_on_event_id", using: :btree
   end
