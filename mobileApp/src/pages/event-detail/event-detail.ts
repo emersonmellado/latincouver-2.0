@@ -23,6 +23,7 @@ export class EventDetailPage {
     //LatincouverApp.rootPage = TabsPage;
     //this.navCtrl.setRoot(TabsPage);
     this.event = navParams.data;
+    console.log(".plazas", this.event.plazas);
     //this.events.publish('user:login');
   }
 }

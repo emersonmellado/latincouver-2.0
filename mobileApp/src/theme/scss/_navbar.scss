@@ -1,0 +1,20 @@
+.title{
+    @extend .bold;
+    text-transform: uppercase;
+    color: $bg-app-inverse;
+    text-align: center;
+    background: $bg-app;
+}
+.toolbar-title-md {
+ color: $bg-app-inverse!important;
+}
+.toolbar-title div{
+  color: $bg-app-inverse;
+}
+.bar.bar-positive{
+    border: 0px;
+}
+
+.button-inner {
+ color: $bg-app-inverse;
+}

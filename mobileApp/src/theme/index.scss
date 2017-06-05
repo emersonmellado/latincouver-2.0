@@ -12,13 +12,14 @@
 @import "../assets/ionic/scss/_mixins.scss";
 @import "../assets/ionic/scss/_items.scss";
 @import "scss/_mixins.scss";
-//@import "scss/_navbar.scss";
+@import "scss/_navbar.scss";
 @import "scss/_fonts.scss";
 @import "scss/_colors.scss";
 @import "scss/_event.scss";
 @import "scss/_home.scss";
 @import "scss/_sidemenu.scss";
 @import "scss/_splash.scss";
+@import "scss/_plazas.scss";
 
 //*{ font-family: "AvenirNext"!important; }
 html, body {    
@@ -30,21 +31,10 @@ a{
     text-decoration: none;
 }
 
-.title{
-    @extend .bold;
-    text-transform: uppercase;
-    color: $bg-app-inverse;
-    text-align: center;
-    background: $bg-app;
-}
-
 .content{    
     padding: 0;
     margin: 0;
     background: $primaryMid;
-}
-.bar.bar-positive{
-    border: 0px;
 }
 .no-padding {
     padding: 0px !important;
@@ -54,6 +44,8 @@ a{
 .tabs-positive, .tab-nav, .tabs{
     border-color: $primaryMid!important;
 }
+
+//Overrides
 
 
 /* Do not remove this comments bellow. It's the markers used by gulp-inject to inject

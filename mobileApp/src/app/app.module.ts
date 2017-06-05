@@ -15,7 +15,10 @@ import { SchedulePage } from '../pages/schedule/schedule';
 import { MainPage } from '../pages/main/main';
 import { ScheduleFilterPage } from '../pages/schedule-filter/schedule-filter';
 import { SessionDetailPage } from '../pages/session-detail/session-detail';
+
 import { EventDetailPage } from '../pages/event-detail/event-detail';
+import { PlazaListPage } from '../pages/plaza-list/plaza-list';
+
 import { SignupPage } from '../pages/signup/signup';
 import { SpeakerDetailPage } from '../pages/speaker-detail/speaker-detail';
 import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
@@ -43,6 +46,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ScheduleFilterPage,
     SessionDetailPage,
     EventDetailPage,
+    PlazaListPage,
     SignupPage,
     SpeakerDetailPage,
     SpeakerListPage,
@@ -68,6 +72,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ScheduleFilterPage,
     SessionDetailPage,
     EventDetailPage,
+    PlazaListPage,
     SignupPage,
     SpeakerDetailPage,
     SpeakerListPage,
@@ -81,7 +86,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     EventData,
     UserData,
     InAppBrowser,
-    SplashScreen
+    SplashScreen,
+    IonicStorageModule
   ]
 })
 export class AppModule { }

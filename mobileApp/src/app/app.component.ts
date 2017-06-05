@@ -44,20 +44,13 @@ export class LatincouverApp {
   // the left menu only works after login
   // the login page disables the left menu
   appPages: PageInterface[] = [
-  { title: 'Schedule', component: TabsPage, tabComponent: SchedulePage, icon: 'calendar' },
+  { title: 'Main', component: TabsPage, tabComponent: MainPage, icon: 'calendar' },
   { title: 'Speakers', component: TabsPage, tabComponent: SpeakerListPage, index: 1, icon: 'contacts' },
   { title: 'Map', component: TabsPage, tabComponent: MapPage, index: 2, icon: 'map' },
   { title: 'About', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'information-circle' }
   ];
-  loggedInPages: PageInterface[] = [
-  { title: 'Schedule', component: TabsPage, tabComponent: SchedulePage, icon: 'calendar' },
-  ];
-  loggedOutPages: PageInterface[] = [
-  { title: 'Login', component: LoginPage, icon: 'log-in' }//,
-  // { title: 'Signup', component: SignupPage, icon: 'person-add' },
-  // { title: 'Support', component: SupportPage, icon: 'help' }
-  ];
   rootPage: any;
+  eventActive: any;
 
   constructor(
     public events: Events,
@@ -76,8 +69,8 @@ export class LatincouverApp {
       // hasSeenTutorial = false;
       console.log("hasSeenTutorial", hasSeenTutorial);
       if (hasSeenTutorial) {
-        this.rootPage = MainPage;
-        // this.rootPage = TabsPage;
+        //this.rootPage = MainPage;
+        this.rootPage = TabsPage;
       } else {
         this.rootPage = TutorialPage;
       }
@@ -122,11 +115,8 @@ export class LatincouverApp {
   }
 
   listenToLoginEvents() {
-    this.events.subscribe('user:login', () => {
+    this.events.subscribe('load:event', () => {
       this.enableMenu(true);   
-      console.log("this.rootPage:a", this.rootPage);
-      this.rootPage = TabsPage;       
-      console.log("this.rootPage:b", this.rootPage);
     });
 
     this.events.subscribe('user:signup', () => {
