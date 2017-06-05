@@ -40,14 +40,11 @@ export class LatincouverApp {
   // @ViewChild(Nav) gets a reference to the app's root nav
   @ViewChild(Nav) nav: Nav;
 
-  // List of pages that can be navigated to from the left menu
-  // the left menu only works after login
-  // the login page disables the left menu
   appPages: PageInterface[] = [
-  { title: 'Main', component: TabsPage, tabComponent: MainPage, icon: 'calendar' },
-  { title: 'Speakers', component: TabsPage, tabComponent: SpeakerListPage, index: 1, icon: 'contacts' },
-  { title: 'Map', component: TabsPage, tabComponent: MapPage, index: 2, icon: 'map' },
-  { title: 'About', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'information-circle' }
+    { title: 'Main', component: TabsPage, tabComponent: MainPage, icon: 'calendar' },
+    { title: 'Speakers', component: TabsPage, tabComponent: SpeakerListPage, index: 1, icon: 'contacts' },
+    { title: 'Map', component: TabsPage, tabComponent: MapPage, index: 2, icon: 'map' },
+    { title: 'About', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'information-circle' }
   ];
   rootPage: any;
   eventActive: any;

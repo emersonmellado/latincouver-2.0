@@ -25,9 +25,10 @@ export class EventData {
       //return this.http.get('http://localhost:3000/events')
       //return this.http.get('http://latincouver.er7.ca/api/api.php/event')
       //return this.http.get('http://latincouver.er7.ca/api/api.php/event?include=cssstyle')
-      //return this.http.get('http://latincouverapi.herokuapp.com/v1/json')
+      
       console.log("Hit API");
       return this.http.get('http://localhost:3000/v1/json')
+      //return this.http.get('http://latincouverapi.herokuapp.com/v1/json')
         .map(this.processData, this);
     }
   }
