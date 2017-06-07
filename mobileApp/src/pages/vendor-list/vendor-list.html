@@ -11,19 +11,19 @@
   <ion-list>
     <ion-grid fixed>
       <ion-row align-items-stretch>
-        <ion-col col-12 col-md-6 align-self-stretch align-self-center *ngFor="let speaker of speakers">
+        <ion-col col-12 col-md-6 align-self-stretch align-self-center *ngFor="let speaker of events">
           <ion-card class="speaker-card">
 
             <ion-card-header>
               <button ion-item detail-none (click)="goToSpeakerDetail(speaker)">
-                <ion-avatar item-left>
+               <!--  <ion-avatar item-left>
                   <img [src]="speaker.profilePic" alt="Speaker profile pic">
-                </ion-avatar>
+                </ion-avatar> -->
                 {{speaker.name}}
               </button>
             </ion-card-header>
 
-            <ion-card-content class="outer-content">
+           <!--  <ion-card-content class="outer-content">
               <ion-list>
                 <button ion-item *ngFor="let session of speaker.sessions" (click)="goToSessionDetail(session)">
                   <h3>{{session.name}}</h3>
@@ -54,7 +54,7 @@
                   Contact
                 </button>
               </ion-col>
-            </ion-row>
+            </ion-row> -->
 
           </ion-card>
 

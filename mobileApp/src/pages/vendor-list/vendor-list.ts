@@ -101,5 +101,5 @@ export class VendorListPage {
   //   });
 
   //   actionSheet.present();
-  }
+  //}
 }

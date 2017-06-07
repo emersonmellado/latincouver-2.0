@@ -46,9 +46,7 @@ export class MainPage {
     public eventData: EventData,
     public user: UserData,
     public storage: IonicStorageModule
-    ) { 
-    console.log("Load:Main");
-  }
+    ) { }
 
   ionViewDidEnter() {
     this.hideTabBar();
@@ -56,21 +54,21 @@ export class MainPage {
 
   ionViewDidLeave() {
     this.showTabBar();
-  }    
+  }
 
   ionViewDidLoad() {
     this.app.setTitle('Main');
-    this.updateSchedule();        
-  }  
+    this.updateSchedule();
+  }
 
   hideTabBarButton() {
-  }   
+  }
 
   showTabBar(){
     let tabs:any = document.querySelectorAll('.tabbar');
     if ( tabs !== null ) {
       Object.keys(tabs).map((key) => {
-        tabs[Number(key)].style.transform = 'translateY(0)';        
+        tabs[Number(key)].style.transform = 'translateY(0)';
       });
     }
 
@@ -78,9 +76,9 @@ export class MainPage {
     if ( scroll_content !== null ){
       Object.keys(scroll_content).map((key) => {
         scroll_content[Number(key)].style.marginBottom = '56px';
-      });      
-    }     
-  }  
+      });
+    }
+  }
 
   hideTabBar(){
     let tabs:any = document.querySelectorAll('.tabbar');
@@ -88,19 +86,19 @@ export class MainPage {
       Object.keys(tabs).map((key) => {
         tabs[Number(key)].style.transform = 'translateY(56px)';
       });
-    }  
+    }
 
     let scroll_content:any = document.querySelectorAll('.scroll-content');
     if ( scroll_content !== null ){
       Object.keys(scroll_content).map((key) => {
         scroll_content[Number(key)].style.marginBottom = '0px';
-      });      
-    }     
+      });
+    }
   }
 
   updateSchedule() {
     this.eventData.getData().subscribe((data: any) => {
-        
+
         this.events = data.events;
         this.settings = data.settings[0];
         //this.goToEventDetail(this.events[0]);
@@ -111,5 +109,20 @@ export class MainPage {
   goToEventDetail(event: any) {
     this.appEvents.publish('load:event');
     this.navCtrl.push(PlazaListPage, event);
-  }    
+  }
 }
+
+
+
+
+// Import {NavController,NavParams} from ('ionic/ionicframework')
+
+// Class myPage {
+// constructor(nav:NavController,params:NavParams){
+// this.nav = nav;
+// this.params = params;
+// }
+// myMethod(){
+// this.nav.push(MyNewPage,{items = this.params});
+// }
+// }

@@ -22,6 +22,7 @@ import { PlazaListPage } from '../pages/plaza-list/plaza-list';
 import { SignupPage } from '../pages/signup/signup';
 import { SpeakerDetailPage } from '../pages/speaker-detail/speaker-detail';
 import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
+import { VendorListPage } from '../pages/vendor-list/vendor-list';
 import { TabsPage } from '../pages/tabs/tabs';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { SupportPage } from '../pages/support/support';
@@ -50,6 +51,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SignupPage,
     SpeakerDetailPage,
     SpeakerListPage,
+    VendorListPage,
     TabsPage,
     TutorialPage,
     SupportPage,
@@ -76,6 +78,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SignupPage,
     SpeakerDetailPage,
     SpeakerListPage,
+    VendorListPage,
     TabsPage,
     TutorialPage,
     SupportPage

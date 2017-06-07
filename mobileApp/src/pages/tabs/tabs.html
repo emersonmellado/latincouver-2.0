@@ -1,6 +1,6 @@
 <ion-tabs id="tabs" [selectedIndex]="mySelectedIndex">
-	<ion-tab [root]="tab1Root" tabTitle="Event" tabIcon="calendar"></ion-tab>
-	<ion-tab [root]="tab2Root" tabTitle="Vendors" tabIcon="contacts"></ion-tab>
-	<ion-tab [root]="tab3Root" tabTitle="Map" tabIcon="map"></ion-tab>
-	<ion-tab [root]="tab4Root" tabTitle="About" tabIcon="information-circle"></ion-tab>
+	<ion-tab [root]="tab1Root" [rootParams]="event" tabTitle="Event" tabIcon="calendar"></ion-tab>
+	<ion-tab [root]="tab2Root" [rootParams]="event" tabTitle="Vendors" tabIcon="contacts"></ion-tab>
+	<ion-tab [root]="tab3Root" [rootParams]="event" tabTitle="Map" tabIcon="map"></ion-tab>
+	<ion-tab [root]="tab4Root" [rootParams]="event" tabTitle="About" tabIcon="information-circle"></ion-tab>
 </ion-tabs>

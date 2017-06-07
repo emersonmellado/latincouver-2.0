@@ -9,8 +9,7 @@ import { TabsPage } from '../tabs/tabs';
 export class PlazaListPage {
   event: any;
 
-  constructor(
-    public navParams: NavParams) {
+  constructor(public navParams: NavParams) {
     this.event = navParams.data;
   }
 }
