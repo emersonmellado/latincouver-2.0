@@ -12,12 +12,13 @@ import { UserData } from '../../providers/user-data';
 
 import { Events } from 'ionic-angular';
 
-import {ShareService} from '../../services/ShareService';
+import { ShareService } from '../../services/shareservice';
 
 
 @Component({
   selector: 'page-main',
-  templateUrl: 'main.html'
+  templateUrl: 'main.html',
+  providers: [ShareService]
 })
 export class MainPage {
   // the list is a child of the schedule page

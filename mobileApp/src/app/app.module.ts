@@ -34,7 +34,7 @@ import { UserData } from '../providers/user-data';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import {ShareService} from './pages/services/ShareService';
+import {ShareService} from '../pages/services/shareservice';
 
 @NgModule({
   declarations: [

@@ -1,9 +1,9 @@
-export class ShareService {
+export class shareservice {
 
     event: any;
 
     constructor() {
-        this.event = {};
+        this.event = '';
     }
 
     setEventData(event) {
