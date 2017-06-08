@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ActionSheet, ActionSheetController, Config, NavController } from 'ionic-angular';
+import { Nav, NavParams, ActionSheet, ActionSheetController, Config, NavController } from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 //import { ConferenceData } from '../../providers/conference-data';
@@ -19,12 +19,17 @@ export class VendorListPage {
   events: any[] = [];
 
   constructor(
+    public navParams: NavParams,
+    public nav: Nav,
     public actionSheetCtrl: ActionSheetController,
     public navCtrl: NavController,
     public eventData: EventData,
     public config: Config,
     public inAppBrowser: InAppBrowser
-  ) { }
+  ) {
+    console.log("navParams.data", this.navParams);
+    console.log("nav", this.nav);
+  }
 
   ionViewDidLoad() {
     // this.confData.getSpeakers().subscribe((speakers: any[]) => {

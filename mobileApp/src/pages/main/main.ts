@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { AlertController, App, List, ModalController, NavController, LoadingController, MenuController } from 'ionic-angular';
+import { Nav, AlertController, App, List, ModalController, NavController, LoadingController, MenuController } from 'ionic-angular';
 
 import { IonicStorageModule } from '@ionic/storage';
 
@@ -11,6 +11,8 @@ import { PlazaListPage } from '../plaza-list/plaza-list';
 import { UserData } from '../../providers/user-data';
 
 import { Events } from 'ionic-angular';
+
+import {ShareService} from '../../services/ShareService';
 
 
 @Component({
@@ -45,8 +47,12 @@ export class MainPage {
     public navCtrl: NavController,
     public eventData: EventData,
     public user: UserData,
-    public storage: IonicStorageModule
-    ) { }
+    public storage: IonicStorageModule,
+    public nav: Nav,
+    private shareService: ShareService
+    ) {
+    console.log("nav", this.nav.rootParams.operator.thisArg.data);
+  }
 
   ionViewDidEnter() {
     this.hideTabBar();

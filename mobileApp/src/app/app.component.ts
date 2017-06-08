@@ -48,6 +48,7 @@ export class LatincouverApp {
   ];
   rootPage: any;
   eventActive: any;
+  event: any;
 
   constructor(
     public events: Events,
@@ -75,7 +76,8 @@ export class LatincouverApp {
     })
 
     // load the conference data
-    eventData.load();
+    var data = eventData.load();
+    this.event = data;
 
     // decide which menu items should be hidden by current login status stored in local storage
     this.userData.hasLoggedIn().then((hasLoggedIn) => {
@@ -113,7 +115,7 @@ export class LatincouverApp {
 
   listenToLoginEvents() {
     this.events.subscribe('load:event', () => {
-      this.enableMenu(true);   
+      this.enableMenu(true);
     });
 
     this.events.subscribe('user:signup', () => {

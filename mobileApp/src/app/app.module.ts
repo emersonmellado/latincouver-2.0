@@ -34,6 +34,8 @@ import { UserData } from '../providers/user-data';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import {ShareService} from './pages/services/ShareService';
+
 @NgModule({
   declarations: [
     LatincouverApp,
@@ -90,7 +92,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     UserData,
     InAppBrowser,
     SplashScreen,
-    IonicStorageModule
+    IonicStorageModule,
+    ShareService
   ]
 })
 export class AppModule { }
