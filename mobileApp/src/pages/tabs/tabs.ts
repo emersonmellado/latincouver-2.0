@@ -9,7 +9,6 @@ import { MapPage } from '../map/map';
 import { MainPage } from '../main/main';
 import { VendorListPage } from '../vendor-list/vendor-list';
 
-
 @Component({
   templateUrl: 'tabs.html'
 })
@@ -29,5 +28,4 @@ export class TabsPage {
     this.event = this.navParams.data;
     this.mySelectedIndex = navParams.data.tabIndex || 0;
   }
-
 }

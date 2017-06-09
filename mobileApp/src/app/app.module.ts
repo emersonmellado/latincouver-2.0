@@ -34,7 +34,7 @@ import { UserData } from '../providers/user-data';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import {ShareService} from '../pages/services/shareservice';
+// import {ShareService} from '../services/ShareService';
 
 @NgModule({
   declarations: [
@@ -92,8 +92,7 @@ import {ShareService} from '../pages/services/shareservice';
     UserData,
     InAppBrowser,
     SplashScreen,
-    IonicStorageModule,
-    ShareService
+    IonicStorageModule
   ]
 })
 export class AppModule { }

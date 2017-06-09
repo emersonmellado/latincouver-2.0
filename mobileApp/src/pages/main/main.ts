@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Injectable } from '@angular/core';
 
 import { Nav, AlertController, App, List, ModalController, NavController, LoadingController, MenuController } from 'ionic-angular';
 
@@ -12,13 +12,12 @@ import { UserData } from '../../providers/user-data';
 
 import { Events } from 'ionic-angular';
 
-import { ShareService } from '../../services/shareservice';
+import { ShareService } from '../../services/ShareService';
 
-
+@Injectable()
 @Component({
   selector: 'page-main',
-  templateUrl: 'main.html',
-  providers: [ShareService]
+  templateUrl: 'main.html'
 })
 export class MainPage {
   // the list is a child of the schedule page
@@ -39,6 +38,7 @@ export class MainPage {
   tabBarElement: any;
 
   constructor(
+    private shareService: ShareService,
     public appEvents: Events,
     public menu: MenuController,
     public alertCtrl: AlertController,
@@ -49,8 +49,7 @@ export class MainPage {
     public eventData: EventData,
     public user: UserData,
     public storage: IonicStorageModule,
-    public nav: Nav,
-    private shareService: ShareService
+    public nav: Nav
     ) {
     console.log("nav", this.nav.rootParams.operator.thisArg.data);
   }

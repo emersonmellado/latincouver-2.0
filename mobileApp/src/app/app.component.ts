@@ -23,6 +23,8 @@ import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
 import { EventData } from '../providers/event-data';
 import { UserData } from '../providers/user-data';
 
+import { ShareService } from '../services/ShareService';
+
 export interface PageInterface {
   title: string;
   component: any;
@@ -33,7 +35,8 @@ export interface PageInterface {
 }
 
 @Component({
-  templateUrl: 'app.template.html'
+  templateUrl: 'app.template.html',
+  providers: [ShareService]
 })
 export class LatincouverApp {
   // the root nav is a child of the root app component
