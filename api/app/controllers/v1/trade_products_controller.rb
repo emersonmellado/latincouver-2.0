@@ -1,5 +1,5 @@
 module V1
-  class TradeProductsController < BaseController
+  class TradeProductsController < ApplicationController
     before_action :set_trade_product, only: [:show, :update, :destroy]
 
     # GET /trade_products

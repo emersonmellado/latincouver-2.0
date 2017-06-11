@@ -1,5 +1,5 @@
 module V1
-  class TradeLinksController < BaseController
+  class TradeLinksController < ApplicationController
     before_action :set_trade_link, only: [:show, :update, :destroy]
 
     # GET /trade_links

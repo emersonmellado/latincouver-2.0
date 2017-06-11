@@ -1,5 +1,5 @@
 module V1
-  class TradeTypesController < BaseController
+  class TradeTypesController < ApplicationController
     before_action :set_trade_type, only: [:show, :update, :destroy]
 
     # GET /trade_types

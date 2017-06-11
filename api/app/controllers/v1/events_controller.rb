@@ -1,5 +1,6 @@
 module V1
-  class EventsController < BaseController
+  class EventsController < ApplicationController
+  #class EventsController < BaseController
     before_action :set_event, only: [:show, :update, :destroy]
 
     respond_to :json
@@ -21,7 +22,7 @@ module V1
       @event = Event.new(event_params)
 
       if @event.save
-        render json: @event, status: :created, location: @event
+        render json: @event, status: 201, location: @event
       else
         serialize_error(@event.errors, :unprocessable_entity)
       end

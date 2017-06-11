@@ -1,5 +1,5 @@
 module V1
-  class TradeGroupsController < BaseController
+  class TradeGroupsController < ApplicationController
     before_action :set_trade_group, only: [:show, :update, :destroy]
 
     ## GET /trade_groups
