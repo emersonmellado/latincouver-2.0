@@ -108,27 +108,14 @@ export class MainPage {
         this.events = data.events;
         this.settings = data.settings[0];
         //this.goToEventDetail(this.events[0]);
+
         this.hideTabBar();
       });
   }
 
-  goToEventDetail(event: any) {
+  goToPlazaList(event: any) {
     this.appEvents.publish('load:event');
+    this.shareService.setEventData(event);
     this.navCtrl.push(PlazaListPage, event);
   }
 }
-
-
-
-
-// Import {NavController,NavParams} from ('ionic/ionicframework')
-
-// Class myPage {
-// constructor(nav:NavController,params:NavParams){
-// this.nav = nav;
-// this.params = params;
-// }
-// myMethod(){
-// this.nav.push(MyNewPage,{items = this.params});
-// }
-// }

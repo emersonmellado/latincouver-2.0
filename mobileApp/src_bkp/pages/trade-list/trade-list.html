@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Trades</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content speaker-list">
+  <ion-list>
+    <ion-grid fixed>
+      <ion-row align-items-stretch>
+        <div class="button-bar event-bar">
+          <div class="button col col-33 event-header-button" data-ng-class="{'event-active' : $state.is('vendors')}" ui-sref="vendors">
+            <div>
+              FOOD
+            </div>
+          </div>
+          <div class="button col col-33 event-header-button" ui-sref=".products" data-ng-class="{'event-active' : $state.is('vendors.products')}">
+            <div>
+              PRODUCTS
+            </div>
+          </div>
+          <div class="button col col-33 event-header-button" ui-sref=".nonprofit" data-ng-class="{'event-active' : $state.is('vendors.nonprofit')}">
+            <div>
+              NON PROFIT
+            </div>
+          </div>
+        </div>
+        <ion-col col-12 col-md-6 align-self-stretch align-self-center *ngFor="let trade of trades">
+
+               <!--  <ion-avatar item-left>
+                  <img [src]="speaker.profilePic" alt="Speaker profile pic">
+                </ion-avatar> -->
+                <img class="plaza-image" [src]="trade.image_url">
+                <h2>{{trade.name}}</h2>
+                <p>{{trade.products}}</p>
+
+<!--                 <a class="item item-thumbnail-left" href="#" data-ng-repeat="v in vendor.vendorsList_food | filter:vendorSearch"  ui-sref="detailMaster({section:v.detailMaster, id:v.id})">
+                    <img class="plaza-image" data-ng-src="{{v.image}}" data-ng-show="v.image">
+                    <h2>{{v.name}}</h2>
+                    <p>{{v.products}}</p>
+                </a>
+              -->
+           <!--  <ion-card-content class="outer-content">
+              <ion-list>
+                <button ion-item *ngFor="let session of speaker.sessions" (click)="goToSessionDetail(session)">
+                  <h3>{{session.name}}</h3>
+                </button>
+
+                <button ion-item (click)="goToSpeakerDetail(speaker)">
+                  <h3>About {{speaker.name}}</h3>
+                </button>
+              </ion-list>
+            </ion-card-content>
+
+            <ion-row no-padding>
+              <ion-col>
+                <button ion-button clear small color="primary" icon-left (click)="goToSpeakerTwitter(speaker)">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                  Tweet
+                </button>
+              </ion-col>
+              <ion-col text-center>
+                <button ion-button clear small color="primary" icon-left (click)="openSpeakerShare(speaker)">
+                  <ion-icon name='share-alt'></ion-icon>
+                  Share
+                </button>
+              </ion-col>
+              <ion-col text-right>
+                <button ion-button clear small color="primary" icon-left (click)="openContact(speaker)">
+                  <ion-icon name='chatboxes'></ion-icon>
+                  Contact
+                </button>
+              </ion-col>
+            </ion-row> -->
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+  </ion-content>

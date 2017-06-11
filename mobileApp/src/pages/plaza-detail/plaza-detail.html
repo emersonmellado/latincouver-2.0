@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Plaza Detail</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>{{plaza.name}}</h1>
+
+<!--   <h4 *ngFor="let plaza of plaza">
+    {{plaza.name}}
+  </h4> -->
+
+  <p [innerHTML]=plaza.description></p>
+</ion-content>

@@ -3,23 +3,13 @@ import { Component, ViewChild } from '@angular/core';
 import { Events, MenuController, Nav, Platform } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-//import { NativeStorage } from '@ionic-native/native-storage';
-
 import { Storage } from '@ionic/storage';
 
-import { AboutPage } from '../pages/about/about';
-// import { AccountPage } from '../pages/account/account';
-import { LoginPage } from '../pages/login/login';
 import { MapPage } from '../pages/map/map';
-// import { SignupPage } from '../pages/signup/signup';
 import { TabsPage } from '../pages/tabs/tabs';
 import { TutorialPage } from '../pages/tutorial/tutorial';
-import { SchedulePage } from '../pages/schedule/schedule';
 import { MainPage } from '../pages/main/main';
-import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
-// import { SupportPage } from '../pages/support/support';
-
-//import { ConferenceData } from '../providers/conference-data';
+import { TradeListPage } from '../pages/trade-list/trade-list';
 import { EventData } from '../providers/event-data';
 import { UserData } from '../providers/user-data';
 
@@ -45,9 +35,9 @@ export class LatincouverApp {
 
   appPages: PageInterface[] = [
     { title: 'Main', component: TabsPage, tabComponent: MainPage, icon: 'calendar' },
-    { title: 'Speakers', component: TabsPage, tabComponent: SpeakerListPage, index: 1, icon: 'contacts' },
-    { title: 'Map', component: TabsPage, tabComponent: MapPage, index: 2, icon: 'map' },
-    { title: 'About', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'information-circle' }
+    { title: 'What to do', component: TabsPage, tabComponent: TradeListPage, index: 1, icon: 'contacts' },
+    { title: 'Where', component: TabsPage, tabComponent: MapPage, index: 2, icon: 'map' }
+    // { title: 'About', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'information-circle' }
   ];
   rootPage: any;
   eventActive: any;

@@ -1,0 +1,10 @@
+.toolbar-background-md{
+  color: inherit;
+  background: $bg-app;
+}
+.toolbar-background-white{
+  background: white;
+  .toolbar-background-md{
+    background: white;
+  }
+}

@@ -7,12 +7,12 @@
 </ion-header>
 <ion-content class="content no-padding main-content">
   <div class="main-list">
-    <div class="button grow" *ngFor="let rec of events" (click)="goToEventDetail(rec)">
-      <div class="{{rec.css_style.name}}">
-        <h3>{{rec.name}}</h3>
-        <h4 [innerHTML]=rec.short_description></h4>
+    <div class="button grow" *ngFor="let event of events" (click)="goToPlazaList(event)">
+      <div class="{{event.css_style.name}}">
+        <h3>{{event.name}}</h3>
+        <h4 [innerHTML]=event.short_description></h4>
       </div>
-      <img [src]="rec.image_url">
+      <img [src]="event.image_url">
     </div>
   </div>
 </ion-content>

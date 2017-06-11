@@ -1,0 +1,47 @@
+<ion-content no-bounce>
+  <ion-slides #slides (ionSlideWillChange)="onSlideChangeStart($event)" pager>
+    <ion-slide class="box first">
+      <div>
+        <h1>
+        <span>
+          LATINCOUVER
+        </span>
+        HELPS YOU TO CONNECT AND GROW THROUGH CULTURE AND BUSINESS.
+        </h1>
+      </div>
+    </ion-slide>
+    <ion-slide class="box second">
+      <div>
+        <h1>
+        WE ARE THE SQUARE ONE FOR 100,000
+        <span>
+          LATIN AMERICANS
+        </span>
+        MAKING BRITISH COLUMBIA THEIR NEW HOME.
+        </h1>
+      </div>
+    </ion-slide>
+    <ion-slide class="box third">
+      <div>
+        <h1>
+        REGARDLESS OF WHERE YOU ARE FROM,
+        <span>
+          LATINCOUVER
+        </span>
+        IS HERE TO HELP BRIDGE THE GAP.
+        </h1>
+        <button class="button button-energized" ion-button icon-right large clear (click)="startApp()" color="light">
+        Continue
+        <ion-icon name="arrow-forward"></ion-icon>
+        </button>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
+<ion-footer no-border>
+  <ion-navbar class="content">
+    <ion-buttons end *ngIf="showSkip">
+      <button ion-button (click)="startApp()" class="button-skip">Skip</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-footer>

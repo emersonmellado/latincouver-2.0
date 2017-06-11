@@ -12,12 +12,12 @@
   <p>{{event.short_description}}</p>
   <p>{{event.description}}</p>
   <div class="plaza-list">
-      <div class="row" *ngFor="let plaza of event.plazas">
+      <div class="row" *ngFor="let plaza of event.plazas" (click)=goToPlazaDetail(plaza)>
         <div>
           <img [src]="plaza.image_url">
         </div>
         <div class="{{plaza.css_style.name}}">
-            <p>{{plaza.name}}</p>            
+            <p>{{plaza.name}}</p>
         </div>
       </div>
   </div>

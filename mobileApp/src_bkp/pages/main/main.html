@@ -1,0 +1,18 @@
+<ion-header class="{{settings.css_style?.name}}">
+  <ion-navbar no-border-bottom>
+    <div class="title">
+      {{settings.main_title}}
+    </div>
+  </ion-navbar>
+</ion-header>
+<ion-content class="content no-padding main-content">
+  <div class="main-list">
+    <div class="button grow" *ngFor="let event of events" (click)="goToEventDetail(event)">
+      <div class="{{event.css_style.name}}">
+        <h3>{{event.name}}</h3>
+        <h4 [innerHTML]=event.short_description></h4>
+      </div>
+      <img [src]="event.image_url">
+    </div>
+  </div>
+</ion-content>
