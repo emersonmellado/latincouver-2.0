@@ -1,21 +1,25 @@
 <ion-header>
   <ion-navbar>
-    <ion-title class="title">{{event.name}}</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><div class="title">{{event.name}}</div></ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+
+<ion-content>
   <h1>{{event.name}}</h1>
   <p>{{event.short_description}}</p>
+  <p>{{event.description}}</p>
   <div class="plaza-list">
       <div class="row" *ngFor="let plaza of event.plazas">
-          <div>
-              <img [src]="plaza.image_url">
-          </div>
-          <div class="red">
-              <p>{{plaza.name}}</p>
-              <i class="ion ion-chevron-right"></i>
-          </div>
+        <div>
+          <img [src]="plaza.image_url">
+        </div>
+        <div class="{{plaza.css_style.name}}">
+            <p>{{plaza.name}}</p>            
+        </div>
       </div>
-  </div>    
+  </div>
 </ion-content>

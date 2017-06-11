@@ -1,44 +1,47 @@
-<ion-header no-border>
-  <ion-navbar>
-    <ion-buttons end *ngIf="showSkip">
-      <button ion-button (click)="startApp()" color="primary">Skip</button>
-    </ion-buttons>
-  </ion-navbar>
-</ion-header>
-
 <ion-content no-bounce>
   <ion-slides #slides (ionSlideWillChange)="onSlideChangeStart($event)" pager>
-
-    <ion-slide>
-      <img src="assets/img/ica-slidebox-img-1.png" class="slide-image"/>
-      <h2 class="slide-title">
-        Welcome to <b>ICA</b>
-      </h2>
-      <p>
-        The <b>ionic conference app</b> is a practical preview of the ionic framework in action, and a demonstration of proper code use.
-      </p>
+    <ion-slide class="box first">
+      <div>
+        <h1>
+        <span>
+          LATINCOUVER
+        </span>
+        HELPS YOU TO CONNECT AND GROW THROUGH CULTURE AND BUSINESS.
+        </h1>
+      </div>
     </ion-slide>
-
-    <ion-slide>
-      <img src="assets/img/ica-slidebox-img-2.png" class="slide-image"/>
-      <h2 class="slide-title" >What is Ionic?</h2>
-      <p><b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.</p>
+    <ion-slide class="box second">
+      <div>
+        <h1>
+        WE ARE THE SQUARE ONE FOR 100,000
+        <span>
+          LATIN AMERICANS
+        </span>
+        MAKING BRITISH COLUMBIA THEIR NEW HOME.
+        </h1>
+      </div>
     </ion-slide>
-
-    <ion-slide>
-      <img src="assets/img/ica-slidebox-img-3.png" class="slide-image"/>
-      <h2 class="slide-title">What is Ionic Platform?</h2>
-      <p>The <b>Ionic Platform</b> is a cloud platform for managing and scaling Ionic apps with integrated services like push notifications, native builds, user auth, and live updating.</p>
-    </ion-slide>
-
-    <ion-slide>
-      <img src="assets/img/ica-slidebox-img-4.png" class="slide-image"/>
-      <h2 class="slide-title">Ready to Play?</h2>
-      <button ion-button icon-right large clear (click)="startApp()">
+    <ion-slide class="box third">
+      <div>
+        <h1>
+        REGARDLESS OF WHERE YOU ARE FROM,
+        <span>
+          LATINCOUVER
+        </span>
+        IS HERE TO HELP BRIDGE THE GAP.
+        </h1>
+        <button class="button button-energized" ion-button icon-right large clear (click)="startApp()" color="light">
         Continue
         <ion-icon name="arrow-forward"></ion-icon>
-      </button>
+        </button>
+      </div>
     </ion-slide>
-
   </ion-slides>
 </ion-content>
+<ion-footer no-border>
+  <ion-navbar class="content">
+    <ion-buttons end *ngIf="showSkip">
+      <button ion-button (click)="startApp()" class="button-skip">Skip</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-footer>

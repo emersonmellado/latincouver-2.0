@@ -15,10 +15,14 @@ import { SchedulePage } from '../pages/schedule/schedule';
 import { MainPage } from '../pages/main/main';
 import { ScheduleFilterPage } from '../pages/schedule-filter/schedule-filter';
 import { SessionDetailPage } from '../pages/session-detail/session-detail';
+
 import { EventDetailPage } from '../pages/event-detail/event-detail';
+import { PlazaListPage } from '../pages/plaza-list/plaza-list';
+
 import { SignupPage } from '../pages/signup/signup';
 import { SpeakerDetailPage } from '../pages/speaker-detail/speaker-detail';
 import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
+import { VendorListPage } from '../pages/vendor-list/vendor-list';
 import { TabsPage } from '../pages/tabs/tabs';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { SupportPage } from '../pages/support/support';
@@ -29,6 +33,8 @@ import { UserData } from '../providers/user-data';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+// import {ShareService} from '../services/ShareService';
 
 @NgModule({
   declarations: [
@@ -43,9 +49,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ScheduleFilterPage,
     SessionDetailPage,
     EventDetailPage,
+    PlazaListPage,
     SignupPage,
     SpeakerDetailPage,
     SpeakerListPage,
+    VendorListPage,
     TabsPage,
     TutorialPage,
     SupportPage,
@@ -68,9 +76,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ScheduleFilterPage,
     SessionDetailPage,
     EventDetailPage,
+    PlazaListPage,
     SignupPage,
     SpeakerDetailPage,
     SpeakerListPage,
+    VendorListPage,
     TabsPage,
     TutorialPage,
     SupportPage
@@ -81,7 +91,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     EventData,
     UserData,
     InAppBrowser,
-    SplashScreen
+    SplashScreen,
+    IonicStorageModule
   ]
 })
 export class AppModule { }
