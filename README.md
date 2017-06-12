@@ -8,7 +8,7 @@ In this version we are going to create a few things and try to decouple the api 
   All endpoints has the methods: `GET` | `POST` | `DELETE` | `PUT`
 
   * http://latincouverapi.heroku.com/trade-type
-        
+
     `POST`
     ```{
       "attributes":{
@@ -21,7 +21,7 @@ In this version we are going to create a few things and try to decouple the api 
     Types are: Food, Products, Non-Profit
 
   * http://latincouverapi.heroku.com/trade-groups
-    Vendors, Business, Sponsors, Artists  
+    Vendors, Business, Sponsors, Artists
 
   * http://latincouverapi.heroku.com/css-styles
     red-flat, blue-flat, yellow-flat, green-flat
@@ -50,19 +50,25 @@ In this version we are going to create a few things and try to decouple the api 
   http://latincouverapi.heroku.com/trade-link
   http://latincouverapi.heroku.com/trade-product
 
-  
+
   - Deploy to heroku-api:
   heroku git:remote -a latincouverapi
   git remote rename heroku heroku-api
-  git subtree push --prefix api heroku-api master  
+  git subtree push --prefix api heroku-api master
   git push heroku-api `git subtree split --prefix api master`:master --force
-  - Reset db
+  - Reset db local
+  rake db:schema:dump
+  rake db:schema:load
+
+  rails db:migrate:reset dev:setup
+
+  - Reset db Heroku
   heroku pg:reset DATABASE_URL --confirm latincouverapi
   heroku pg:reset DATABASE --confirm latincouverapi
 
   //Force reload of the entire schema
   heroku run rake db:schema:load DISABLE_DATABASE_ENVIRONMENT_CHECK=1
-  
+
   heroku run rake db:migrate
   heroku run rake db:seed
 

@@ -19,7 +19,7 @@ module V1
       @trade_link = TradeLink.new(trade_link_params)
 
       if @trade_link.save
-        render json: @trade_link, status: :created, location: @trade_link
+        render json: @trade_link, status: :created
       else
         render json: @trade_link.errors, status: :unprocessable_entity
       end
@@ -47,7 +47,7 @@ module V1
 
     # Only allow a trusted parameter "white list" through.
     def trade_link_params
-      params.require(:attributes).permit(:name, :active)
+      params.require(:attributes).permit(:name, :href, :active, :trade_id)
     end
   end
 end
