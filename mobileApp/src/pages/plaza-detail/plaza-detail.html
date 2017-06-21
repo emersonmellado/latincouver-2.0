@@ -6,10 +6,21 @@
 
 <ion-content padding>
   <h1>{{plaza.name}}</h1>
-
-<!--   <h4 *ngFor="let plaza of plaza">
-    {{plaza.name}}
-  </h4> -->
-
   <p [innerHTML]=plaza.description></p>
+  <div class="list event-list">
+    <div class="row" *ngFor="let trade of event.trades; let i = index"  ngIf="i % 2 == 0">
+      <div class="col col-50">
+        <img [src]="event.trades[i].image_url">
+        <div>
+          <h5>{{event.trades[i].name}}</h5>
+        </div>
+      </div>
+      <div class="col col-50">
+        <img [src]="event.trades[i+1].image_url">
+        <div>
+          <h5>{{event.trades[i+1].name}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
 </ion-content>

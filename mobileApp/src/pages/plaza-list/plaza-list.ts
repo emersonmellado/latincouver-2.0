@@ -17,8 +17,6 @@ export class PlazaListPage {
     public nav: Nav,
     public navCtrl: NavController
   ) {
-    console.log("navParams.data", navParams.data);
-    console.log("nav", nav);
     this.event = navParams.data;
   }
 

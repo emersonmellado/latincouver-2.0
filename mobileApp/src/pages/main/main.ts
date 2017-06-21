@@ -50,9 +50,7 @@ export class MainPage {
     public user: UserData,
     public storage: IonicStorageModule,
     public nav: Nav
-    ) {
-    console.log("nav", this.nav.rootParams.operator.thisArg.data);
-  }
+    ) { }
 
   ionViewDidEnter() {
     this.hideTabBar();
@@ -107,7 +105,6 @@ export class MainPage {
 
         this.events = data.events;
         this.settings = data.settings[0];
-        //this.goToEventDetail(this.events[0]);
 
         this.hideTabBar();
       });
