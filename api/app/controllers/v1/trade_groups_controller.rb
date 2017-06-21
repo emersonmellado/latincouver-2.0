@@ -19,18 +19,18 @@ module V1
       @trade_group = TradeGroup.new(trade_group_params)
 
       if @trade_group.save
-        render json: @trade_group, status: :created, location: @trade_group
+        render json: {success: true, trade_group: @trade_group}, status: :created
       else
-        render json: @trade_group.errors, status: :unprocessable_entity
+        render json: {success: false, message: @trade_group.errors}, status: :unprocessable_entity
       end
     end
 
     # PATCH/PUT /trade_groups/1
     def update
       if @trade_group.update(trade_group_params)
-        render json: @trade_group
+        render json: {success: true, trade_group: @trade_group}, status: :ok
       else
-        render json: @trade_group.errors, status: :unprocessable_entity
+        render json: {success: false, message: @trade_group.errors}, status: :unprocessable_entity
       end
     end
 

@@ -19,16 +19,16 @@ module V1
       @trade = Trade.new(trade_params)
 
       if @trade.save
-        render json: @trade, status: :created, location: @trade
+        render json: {success: true, trade: @trade}, status: :created
       else
-        render json: @trade.errors, status: :unprocessable_entity
+        render json: {success: false, message: @trade.errors}, status: :unprocessable_entity
       end
     end
 
     # PATCH/PUT /trades/1
     def update
       if @trade.update(trade_params)
-        render json: @trade
+        render json: {success: true, trade: @trade}, status: :ok
       else
         render json: @trade.errors, status: :unprocessable_entity
       end

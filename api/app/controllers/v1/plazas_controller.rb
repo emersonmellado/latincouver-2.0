@@ -19,18 +19,18 @@ module V1
       @plaza = Plaza.new(plaza_params)
 
       if @plaza.save
-        render json: @plaza, status: :created, location: @plaza
+        render json: {success: true, plaza: @plaza}, status: :created
       else
-        render json: @plaza.errors, status: :unprocessable_entity
+        render json: {success: false, message: @plaza.errors}, status: :unprocessable_entity
       end
     end
 
     # PATCH/PUT /plazas/1
     def update
       if @plaza.update(plaza_params)
-        render json: @plaza
+        render json: {success: true, plaza: @plaza}, status: :ok
       else
-        render json: @plaza.errors, status: :unprocessable_entity
+        render json: {success: false, message: @plaza.errors}, status: :unprocessable_entity
       end
     end
 

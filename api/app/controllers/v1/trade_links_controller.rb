@@ -19,18 +19,18 @@ module V1
       @trade_link = TradeLink.new(trade_link_params)
 
       if @trade_link.save
-        render json: @trade_link, status: :created
+        render json: {success: true, trade_link: @trade_link}, status: :created
       else
-        render json: @trade_link.errors, status: :unprocessable_entity
+        render json: {success: false, message: @trade_link.errors}, status: :unprocessable_entity
       end
     end
 
     # PATCH/PUT /trade_links/1
     def update
       if @trade_link.update(trade_link_params)
-        render json: @trade_link
+        render json: {success: true, trade_link: @trade_link}, status: :ok
       else
-        render json: @trade_link.errors, status: :unprocessable_entity
+        render json: {success: false, message: @trade_link.errors}, status: :unprocessable_entity
       end
     end
 

@@ -1,9 +1,9 @@
 module V1
   class EventsController < ApplicationController
   #class EventsController < BaseController
-    before_action :set_event, only: [:show, :update, :destroy]
+  before_action :set_event, only: [:show, :update, :destroy]
 
-    respond_to :json
+  respond_to :json
 
     # GET /events
     def index
@@ -22,18 +22,20 @@ module V1
       @event = Event.new(event_params)
 
       if @event.save
-        render json: @event, status: 201, location: @event
+        @event.update_attribute(:order, Event.maximum(:order)+1)
+
+        render json: {success: true, event: @event}, status: :created
       else
-        serialize_error(@event.errors, :unprocessable_entity)
+        render json: {success: false, message: @event.errors}, status: :unprocessable_entity
       end
     end
 
     # PATCH/PUT /events/1
     def update
       if @event.update(event_params)
-        render json: @event
+        render json: {success: true, event: @event}, status: :ok
       else
-        serialize_error(@event.errors, :unprocessable_entity)
+        render json: {success: false, message: @event.errors}, status: :unprocessable_entity
       end
     end
 
@@ -42,8 +44,6 @@ module V1
       begin
         @event.destroy
       rescue => ex
-        # render json: @event.errors
-        # serialize_error("Cannot delete an event with related data.", :unprocessable_entity)
         render json: {success: false, message: "Cannot delete an event with related data."}
       end
 

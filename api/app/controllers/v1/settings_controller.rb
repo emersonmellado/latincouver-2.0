@@ -19,18 +19,18 @@ module V1
       @setting = Setting.new(setting_params)
 
       if @setting.save
-        render json: @setting, status: :created, location: @setting
+        render json: {success: true, setting: @setting}, status: :created
       else
-        render json: @setting.errors, status: :unprocessable_entity
+        render json: {success: false, message: @setting.errors}, status: :unprocessable_entity
       end
     end
 
     # PATCH/PUT /settings/1
     def update
       if @setting.update(setting_params)
-        render json: @setting
+        render json: {success: true, setting: @setting}, status: :ok
       else
-        render json: @setting.errors, status: :unprocessable_entity
+        render json: {success: false, message: @setting.errors}, status: :unprocessable_entity
       end
     end
 

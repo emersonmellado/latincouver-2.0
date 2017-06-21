@@ -19,18 +19,18 @@ module V1
       @schedule = Schedule.new(schedule_params)
 
       if @schedule.save
-        render json: @schedule, status: :created, location: @schedule
+        render json: {success: true, schedule: @schedule}, status: :created
       else
-        render json: @schedule.errors, status: :unprocessable_entity
+        render json: {success: false, message: @schedule.errors}, status: :unprocessable_entity
       end
     end
 
     # PATCH/PUT /schedules/1
     def update
       if @schedule.update(schedule_params)
-        render json: @schedule
+        render json: {success: true, schedule: @schedule}, status: :ok
       else
-        render json: @schedule.errors, status: :unprocessable_entity
+        render json: {success: false, message: @schedule.errors}, status: :unprocessable_entity
       end
     end
 
