@@ -48,6 +48,26 @@
                   <input class="form-control" data-ng-class="{'invalid' : form.order.$invalid && !form.order.$pristine}" data-ng-model="vm.form.attributes.order" name="order" type="text" />
                 </div>
               </div>
+              <div class="col-xs-6">
+                <div class="group">
+                  <label>Type</label>
+                  <span class="required" ng-show="form.trade_type.$error.required">*</span>
+                  <select class="form-control" name="trade_type" ng-model="vm.form.attributes.trade_type" data-ng-class="{'invalid' : form.trade_type.$invalid && !form.trade_type.$pristine}" ng-required="true">
+                    <option ng-selected="vm.form.attributes.trade_type==''" value="">Select Type</option>
+                    <option ng-repeat="type in vm.tradetypes" ng-selected="vm.form.attributes.trade_type==type.id" value="{{type.id}}">{{type.attributes.name}}</option>
+                  </select>
+                </div>
+              </div>
+               <div class="col-xs-6">
+                <div class="group">
+                  <label>Group</label>
+                  <span class="required" ng-show="form.trade_group.$error.required">*</span>
+                  <select class="form-control" name="trade_group" ng-model="vm.form.attributes.trade_group" data-ng-class="{'invalid' : form.trade_group.$invalid && !form.trade_group.$pristine}" ng-required="true">
+                    <option ng-selected="vm.form.attributes.trade_group==''" value="">Select Group</option>
+                    <option ng-repeat="group in vm.tradegroups" ng-selected="vm.form.attributes.trade_group==trade.id" value="{{group.id}}">{{group.attributes.name}}</option>
+                  </select>
+                </div>
+              </div>
               <div class="col-xs-12 group">
                 <nav>
                   <button class="btn btn-default btn-info" data-ng-click="vm.save(vm.form)" data-ng-disabled="!vm.editing || form.$invalid">

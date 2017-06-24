@@ -26,6 +26,8 @@
     vm.error = false;
     vm.form;
     vm.data;
+    vm.tradetypes;
+    vm.tradegroups;
 
     vm.title = "Trade Management";
     vm.add = add;
@@ -51,13 +53,45 @@
       errorMsg = 'error accessing ' + apiEndpointName + '!';
       completeMsg = '';
 
-      return dataService.GetAll(apiEndpointName)
+      getAllTrades();
+
+    }
+
+    function getAllTrades() {
+
+      dataService.GetAll('trade-types')
+        .then(getAllTradeTypesComplete)
+        .catch(dataFailed);
+
+      dataService.GetAll('trade-groups')
+        .then(getAllTradeGroupsComplete)
+        .catch(dataFailed);
+
+      dataService.GetAll(apiEndpointName)
         .then(getAllComplete)
         .catch(dataFailed);
+
+      function getAllTradeTypesComplete(response) {
+        if (response && response.data){
+          vm.tradetypes = response.data;       
+        } else {
+          dataFailed({message: 'Error reading types'});
+        }
+      }
+
+      function getAllTradeGroupsComplete(response) {
+        if (response && response.data){
+          vm.tradegroups = response.data;    
+        } else {
+          dataFailed({message: 'Error reading groups'});
+        }
+      }
 
       function getAllComplete(response) {
         if (response && response.data){
           vm.data = response.data;
+        } else {
+          dataFailed({message: 'Error reading trades'});
         }
       }
 
@@ -73,7 +107,9 @@
           image_url: '',
           name: '',
           order: null,
-          short_description: ''
+          short_description: '',
+          trade_type: '',
+          trade_group: ''
         }
       };
 
@@ -135,16 +171,17 @@
 
     function dataComplete(response) {
 
-      if(response.success && response.success == false) {
+      if(!response.success || response.success == false) {
         dataFailed(response);
         return;
       }
       if (completeMsg) toastr.info(completeMsg);
-      activate();
+      getAllTrades();
     }
 
     function dataFailed(error) {
-      toastr.error(error.message);
+      var msg = error.message ? error.message : 'Error';
+      toastr.error(msg);
     }
 
   }
