@@ -26,6 +26,7 @@
     vm.error = false;
     vm.form;
     vm.data;
+    vm.trades;
 
     vm.title = "Trade-product Management";
     vm.add = add;
@@ -51,6 +52,28 @@
       errorMsg = 'error accessing ' + apiEndpointName + '!';
       completeMsg = '';
 
+      if (!vm.trades) {
+
+        dataService.GetAll('trades')
+          .then(getAllCompleteTrades)
+          .catch(dataFailed);
+
+        function getAllCompleteTrades(response) {
+          if (response && response.data){
+            vm.trades = [];
+            var list = response.data;
+            var len = list.length;
+            for (var i = 0; i < len; i++) {
+              if ((list[i].id * 1) > 0) {
+                vm.trades.push({id: list[i].id, name: (list[i].id + ' - ' + list[i].attributes.name)});
+              }
+            }
+          }
+          console.log(vm.trades);
+        }
+
+      }
+
       return dataService.GetAll(apiEndpointName)
         .then(getAllComplete)
         .catch(dataFailed);
@@ -67,6 +90,7 @@
 
       vm.form = {
         attributes: {
+          trade_id: '',
           active: true,
           name: ''
           },

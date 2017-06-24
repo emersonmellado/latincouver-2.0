@@ -26,6 +26,7 @@
     vm.error = false;
     vm.form;
     vm.data;
+    vm.trades;
 
     vm.title = "Trade-link Management";
     vm.add = add;
@@ -51,6 +52,28 @@
       errorMsg = 'error accessing ' + apiEndpointName + '!';
       completeMsg = '';
 
+      if (!vm.trades) {
+
+        dataService.GetAll('trades')
+          .then(getAllCompleteTrades)
+          .catch(dataFailed);
+
+        function getAllCompleteTrades(response) {
+          if (response && response.data){
+            vm.trades = [];
+            var list = response.data;
+            var len = list.length;
+            for (var i = 0; i < len; i++) {
+              if ((list[i].id * 1) > 0) {
+                vm.trades.push({id: list[i].id, name: (list[i].id + ' - ' + list[i].attributes.name)});
+              }
+            }
+          }
+          console.log(vm.trades);
+        }
+
+      }
+
       return dataService.GetAll(apiEndpointName)
         .then(getAllComplete)
         .catch(dataFailed);
@@ -67,6 +90,7 @@
 
       vm.form = {
         attributes: {
+          trade_id: '',
           active: true,
           href: '',
           name: ''
@@ -79,11 +103,12 @@
 
     function edit(obj, index) {
       vm.form = angular.copy(obj);
+      if (!vm.form.attributes.trade_id) vm.form.attributes.trade_id = '';
       vm.form.index = index;
       vm.editing = true;
     }
 
-    function cancel(){
+    function cancel() {
       vm.form = {};
       vm.editing = false;
     }

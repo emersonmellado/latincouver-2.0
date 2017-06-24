@@ -11,6 +11,7 @@
     'home',
     'login',
     'plaza',
+    'settings',
     'trade',
     'tradeGroup',
     'tradeLink',
