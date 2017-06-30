@@ -7,6 +7,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { EventData } from '../../providers/event-data';
 //import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 //import { SessionDetailPage } from '../session-detail/session-detail';
+
+import { LoginPage } from '../pages/login/login';
 import { PlazaListPage } from '../plaza-list/plaza-list';
 import { UserData } from '../../providers/user-data';
 
@@ -47,7 +49,7 @@ export class MainPage {
     public modalCtrl: ModalController,
     public navCtrl: NavController,
     public eventData: EventData,
-    public user: UserData,
+    public userData: UserData,
     public storage: IonicStorageModule,
     public nav: Nav
     ) { }
@@ -102,7 +104,7 @@ export class MainPage {
 
   updateSchedule() {
     this.eventData.getData().subscribe((data: any) => {
-
+        console.log("data.events", data.events);
         this.events = data.events;
         this.settings = data.settings[0];
 

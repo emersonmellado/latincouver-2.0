@@ -13,7 +13,7 @@
 	</div>
 
 	<form #loginForm="ngForm" novalidate>
-		<ion-list no-lines>
+<!-- 		<ion-list no-lines>
 			<ion-item>
 				<ion-label stacked color="primary">Username</ion-label>
 				<ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
@@ -32,18 +32,18 @@
 			<p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>
 				Password is required
 			</p>
-		</ion-list>
+		</ion-list> -->
 
 		<ion-row responsive-sm>		
 			<ion-col>
 				<button ion-button (click)="doFbLogin()" type="submit" block>Facebook Login</button>
 			</ion-col>		
-			<ion-col>
+<!-- 			<ion-col>
 				<button ion-button (click)="onLogin(loginForm)" type="submit" block>Login</button>
 			</ion-col>
 			<ion-col>
 				<button ion-button (click)="onSignup()" color="light" block>Signup</button>
-			</ion-col>
+			</ion-col> -->
 		</ion-row>
 	</form>
 

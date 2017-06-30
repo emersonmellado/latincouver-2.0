@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Storage } from '@ionic/storage';
 
+import { LoginPage } from '../pages/login/login';
 import { MapPage } from '../pages/map/map';
 import { TabsPage } from '../pages/tabs/tabs';
 import { TutorialPage } from '../pages/tutorial/tutorial';
@@ -34,11 +35,17 @@ export class LatincouverApp {
   @ViewChild(Nav) nav: Nav;
 
   appPages: PageInterface[] = [
+    //{ title: 'About', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'information-circle' }
+  ];
+  loggedInPages: PageInterface[] = [
     { title: 'Main', component: TabsPage, tabComponent: MainPage, icon: 'calendar' },
     { title: 'What to do', component: TabsPage, tabComponent: TradeListPage, index: 1, icon: 'contacts' },
-    { title: 'Where', component: TabsPage, tabComponent: MapPage, index: 2, icon: 'map' }
-    // { title: 'About', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'information-circle' }
+    { title: 'Where', component: TabsPage, tabComponent: MapPage, index: 2, icon: 'map' },  
+    { title: 'Logout', component: LoginPage, icon: 'log-out', logsOut: true }
   ];
+  loggedOutPages: PageInterface[] = [
+    { title: 'Login', component: LoginPage, icon: 'log-in' },
+  ];  
   rootPage: any;
   eventActive: any;
   event: any;
@@ -68,13 +75,18 @@ export class LatincouverApp {
       this.platformReady()
     })
 
-    // load the conference data
-    var data = eventData.load();
-    this.event = data;
+
 
     // decide which menu items should be hidden by current login status stored in local storage
     this.userData.hasLoggedIn().then((hasLoggedIn) => {
       this.enableMenu(hasLoggedIn === true);
+      if (hasLoggedIn){
+        // load the conference data
+        var data = eventData.load();
+        this.event = data;
+      }else{
+        this.rootPage = LoginPage;
+      }
     });
 
     this.listenToLoginEvents();

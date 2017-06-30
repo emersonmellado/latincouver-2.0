@@ -6,6 +6,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { LatincouverApp } from './app.component';
 import { ObjectValuesPipe } from './pipes';
 
+import { LoginPage } from '../pages/login/login';
+
 import { AboutPage } from '../pages/about/about';
 import { PopoverPage } from '../pages/about-popover/about-popover';
 import { MapPage } from '../pages/map/map';
@@ -31,6 +33,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 @NgModule({
   declarations: [
     LatincouverApp,
+    LoginPage,
     AboutPage,
     MapPage,
     PopoverPage,
@@ -50,6 +53,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     LatincouverApp,
+    LoginPage,
     AboutPage,
     MapPage,
     PopoverPage,

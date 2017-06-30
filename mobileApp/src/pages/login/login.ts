@@ -15,7 +15,7 @@ import { UserData } from '../../providers/user-data';
   templateUrl: 'login.html'
 })
 export class LoginPage {
-  FB_APP_ID: number = 442474989419723;  
+  FB_APP_ID: number = 201166803343368;  
 
   login: {username?: string, password?: string} = {};
   submitted = false;
