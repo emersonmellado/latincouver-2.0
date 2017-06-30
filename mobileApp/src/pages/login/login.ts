@@ -15,13 +15,13 @@ import { UserData } from '../../providers/user-data';
   templateUrl: 'login.html'
 })
 export class LoginPage {
-  FB_APP_ID: number = 201166803343368;  
+  FB_APP_ID: number = 343643569387542;  
 
   login: {username?: string, password?: string} = {};
   submitted = false;
 
   constructor(public navCtrl: NavController, public userData: UserData) { 
-    Facebook.browserInit(this.FB_APP_ID, "v2.8");
+    Facebook.browserInit(this.FB_APP_ID, "v2.9");
   }
 
 doFbLogin(){
