@@ -33,11 +33,19 @@
 				Password is required
 			</p>
 		</ion-list> -->
+		<ion-list>
+		<ion-input [(ngModel)]="userId" name="userId" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
+					required>
+				</ion-input>				
+		</ion-list>
 
 		<ion-row responsive-sm>		
 			<ion-col>
-				<button ion-button (click)="doFbLogin()" type="submit" block>Facebook Login</button>
-			</ion-col>		
+				<button ion-button (click)="doFbLogin()" type="button" block>Facebook Login 8</button>
+			</ion-col>	
+			<ion-col>
+				<button ion-button (click)="goMain()" type="button" block>Go to main</button>
+			</ion-col>	
 <!-- 			<ion-col>
 				<button ion-button (click)="onLogin(loginForm)" type="submit" block>Login</button>
 			</ion-col>
@@ -46,5 +54,4 @@
 			</ion-col> -->
 		</ion-row>
 	</form>
-
 </ion-content>

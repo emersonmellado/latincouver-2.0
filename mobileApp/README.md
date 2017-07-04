@@ -1,8 +1,23 @@
 Facebook 
+
+
+https://developers.facebook.com/apps/246056445514095/settings/advanced/
     
 keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.keystore | openssl sha1 -binary | openssl base64
 
 --2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Bmce+9aHdOoVtE7fS3B07tfj7Bc=
+
+ionic plugin add cordova-plugin-facebook4 --variable APP_ID="442474989419723" --variable APP_NAME="erm_lc"
+cordova plugin add cordova-plugin-facebook4 --save --variable APP_ID="442474989419723" --variable APP_NAME="erm_lc"
+cordova plugin add cordova-plugin-facebook4 --save --variable APP_ID="246056445514095" --variable APP_NAME="Er7_app1"
+cordova plugin remove cordova-plugin-facebook4
+
+cordova plugin add cordova-plugin-facebook4@1.7.4 --save --variable APP_ID="246056445514095" --variable APP_NAME="Er7_app1"
+
+https://developers.facebook.com/apps/442474989419723/fb-login/ 
+
 
 FBID: 442474989419723
 https://developers.facebook.com/apps/442474989419723/dashboard/

@@ -80,13 +80,15 @@ export class LatincouverApp {
     // decide which menu items should be hidden by current login status stored in local storage
     this.userData.hasLoggedIn().then((hasLoggedIn) => {
       this.enableMenu(hasLoggedIn === true);
-      if (hasLoggedIn){
+      //if (hasLoggedIn){
         // load the conference data
         var data = eventData.load();
         this.event = data;
-      }else{
-        this.rootPage = LoginPage;
-      }
+      // }else{
+      //   if(window.location.hostname != "localhost"){
+      //     this.rootPage = LoginPage;
+      //   }        
+      // }
     });
 
     this.listenToLoginEvents();
