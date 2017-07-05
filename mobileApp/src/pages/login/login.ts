@@ -37,11 +37,14 @@ export class LoginPage {
     //the permissions your facebook app needs from the user
     permissions = ["public_profile"];
 
+    console.log("Facebook:clicked");
+
     Facebook.login(permissions)
     .then((response: any) => {
-      this.userId = response.authResponse.userID;
+      console.log("response", response);
+      let userId = response.authResponse.userID;
       let params = new Array();
-      this.userData.login(this.login.username, this.userId);
+      this.userData.login(this.login.username, userId);
       this.navCtrl.push(TabsPage);      
 
       // //Getting name and gender properties
@@ -52,6 +55,21 @@ export class LoginPage {
 
       // });
     });
+    console.log("Facebook:ended");
+  }  
+
+  doFbLogout(){
+    var nav = this.navCtrl;
+    Facebook.logout()
+    .then(function(response) {
+      console.log("Facebook:LOGOUT");
+      //user logged out so we will remove him from the NativeStorage
+      //NativeStorage.remove('user');
+      this.userData.logout();
+      nav.push(LoginPage);
+    }, function(error){
+      console.log(error);
+    });
   }  
 
   onLogin(form: NgForm) {
@@ -61,9 +79,5 @@ export class LoginPage {
       this.userData.login(this.login.username, '123');
       this.navCtrl.push(TabsPage);
     }
-  }
-
-  onSignup() {
-    this.navCtrl.push(SignupPage);
   }
 }
