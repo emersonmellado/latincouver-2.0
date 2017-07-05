@@ -75,11 +75,11 @@
             "cordova-plugin-whitelist": {},
             "cordova-plugin-wkwebview-engine": {},
             "ionic-plugin-keyboard": {},
+            "cordova-plugin-inappbrowser": {},
             "cordova-plugin-facebook4": {
                 "APP_ID": "246056445514095",
-                "APP_NAME": "Er7_app1"
-            },
-            "cordova-plugin-inappbrowser": {}
+                "APP_NAME": "Latincouver"
+            }
         }
     }
 }

@@ -11,7 +11,7 @@ Bmce+9aHdOoVtE7fS3B07tfj7Bc=
 
 ionic plugin add cordova-plugin-facebook4 --variable APP_ID="442474989419723" --variable APP_NAME="erm_lc"
 cordova plugin add cordova-plugin-facebook4 --save --variable APP_ID="442474989419723" --variable APP_NAME="erm_lc"
-cordova plugin add cordova-plugin-facebook4 --save --variable APP_ID="246056445514095" --variable APP_NAME="Er7_app1"
+cordova plugin add cordova-plugin-facebook4 --save --variable APP_ID="246056445514095" --variable APP_NAME="Latincouver"
 cordova plugin remove cordova-plugin-facebook4
 
 cordova plugin add cordova-plugin-facebook4@1.7.4 --save --variable APP_ID="246056445514095" --variable APP_NAME="Er7_app1"
