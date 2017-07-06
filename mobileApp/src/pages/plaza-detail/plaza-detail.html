@@ -7,29 +7,13 @@
 <ion-content padding>
   <p [innerHTML]=plaza.description></p>
   <div class="list plaza-list">
-
-<table>
- <div *ngFor="let item of data | let isEven = even;let i = index;let isLast= last">
- <tr *ngIf="isEven & !isLast">
-   <td>item1 value: {{data[i].value}}</td>
-   <td>item2 value: {{data[i + 1].value}}</td>   
-   </tr>
- </div>
-</table>
-
-    <div class="row" *ngFor="let trade of event.trades | let isEven = even;let i = index;let isLast=last">
+    <div class="row" *ngFor="let trade of event.trades">
       <div class="col col-50">
-        <img [src]="event.trades[i].image_url">
+        <img [src]="trade.image_url">
         <div>
-          <h5>{{event.trades[i].name}}</h5>
+          <h5>{{trade.name}}</h5>
         </div>
-      </div>
-      <div class="col col-50" *ngIf="isEven & !isLast">
-        <img [src]="event.trades[i+1].image_url">
-        <div>
-          <h5>{{event.trades[i+1].name}}</h5>
-        </div>
-      </div>      
+      </div>  
     </div>
   </div>
 </ion-content>

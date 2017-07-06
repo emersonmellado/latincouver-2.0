@@ -47,7 +47,7 @@ module V1
 
     # Only allow a trusted parameter "white list" through.
     def trade_params
-      params.require(:attributes).permit(:name, :description, :short_description, :order, :image_url, :active, :trade_type_id, :trade_group_id)
+      params.require(:attributes).permit(:event_id, :plaza_id, :name, :description, :short_description, :order, :image_url, :active, :trade_type_id, :trade_group_id)
     end
   end
 end
