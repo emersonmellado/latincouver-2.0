@@ -102,7 +102,6 @@
           longitude: '',
           name: ''
         }
-
       };
       vm.editing = true;
     }

@@ -14,10 +14,21 @@ cordova plugin add cordova-plugin-facebook4 --save --variable APP_ID="4424749894
 cordova plugin add cordova-plugin-facebook4 --save --variable APP_ID="246056445514095" --variable APP_NAME="Latincouver"
 cordova plugin remove cordova-plugin-facebook4
 
-cordova plugin add cordova-plugin-facebook4@1.7.4 --save --variable APP_ID="246056445514095" --variable APP_NAME="Er7_app1"
+cordova plugin add cordova-plugin-facebook4@1.7.4 --save --variable APP_ID="246056445514095" --variable APP_NAME="Latincouver"
 
 https://developers.facebook.com/apps/442474989419723/fb-login/ 
 
+
+
+openssl x509 -in ios_development.cer -inform DER -out ios_development.pem -outform PEM
+
+openssl pkcs12 -nocerts -in erm.p12 -out erm.pem
+
+openssl pkcs12 -export -inkey mykey.key -in erm.pem -out iphone_dev.p12
+
+openssl pkcs12 -export -inkey privatekey.key -in ios_development.pem -out ios_development.p12
+
+acd029356c8dffed88abb1fbedd1aa54eb562077
 
 FBID: 442474989419723
 https://developers.facebook.com/apps/442474989419723/dashboard/

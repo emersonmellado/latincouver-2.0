@@ -17,7 +17,7 @@ export class PlazaDetailPage {
     public navParams: NavParams
   ) {
     this.event = this.shareService.getEventData();
-    console.log("this.event", this.event.trades[0]);
+    console.log("this.event", this.event.trades);
     this.plaza = navParams.data;
   }
 }

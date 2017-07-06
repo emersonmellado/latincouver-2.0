@@ -21,7 +21,14 @@
 
     var vm = this;
 
-    vm.form = {};
+    vm.form = {
+      id: 0,
+      type: 'settings',
+      attribute: {
+        css_style_id: undefined,
+        main_title: '',
+      }
+    };
     vm.editing = false;
 
     vm.edit = edit;
@@ -63,12 +70,14 @@
 
     }
 
-    function save() {
+    function save(obj) {
 
       errorMsg = 'error saving' + apiEndpointName;
       completeMsg = 'All data sucesfully saved!';
 
-      return dataService.Update(apiEndpointName, form)
+      console.log("obj", obj);
+
+      return dataService.Update(apiEndpointName, obj)
         .then(dataComplete)
         .catch(dataFailed);
 
