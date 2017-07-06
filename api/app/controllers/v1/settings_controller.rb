@@ -47,7 +47,7 @@ module V1
 
     # Only allow a trusted parameter "white list" through.
     def setting_params
-      params.require(:setting).permit(:main_title, :css_style_id)
+      params.require(:attributes).permit(:main_title, :css_style_id)
     end
   end
 end
