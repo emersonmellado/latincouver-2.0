@@ -63,9 +63,13 @@
     }
 
     function handleSuccess(res) {
-      //console.log('success response');
-      //console.log(res);
-      return res.data;
+      console.log('success response');
+      console.log(res);
+      if(res.status != 200 && res.status != 201) {
+        return handleError(res);
+      } else {
+        return res.data;
+      }
     }
 
     function handleError(error) {

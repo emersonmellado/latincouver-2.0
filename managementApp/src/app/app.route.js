@@ -19,6 +19,24 @@ function routes($locationProvider, $routeProvider) {
   .when('/plaza', {
     template: '<plaza></plaza>'
   })
+  .when('/settings', {
+    template: '<settings></settings>'
+  })
+  .when('/trade', {
+    template: '<trade></trade>'
+  })
+  .when('/trade-link', {
+    template: '<trade-link></trade-link>'
+  })
+  .when('/trade-group', {
+    template: '<trade-group></trade-group>'
+  })
+  .when('/trade-product', {
+    template: '<trade-product></trade-product>'
+  })
+  .when('/trade-type', {
+    template: '<trade-type></trade-type>'
+  })
   .when('/user', {
    template: '<user></user>'
  })

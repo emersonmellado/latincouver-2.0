@@ -11,7 +11,12 @@
     'home',
     'login',
     'plaza',
-    'user'
+    'settings',
+    'trade',
+    'tradeGroup',
+    'tradeLink',
+    'tradeProduct',
+    'tradeType'
     ])
   .controller('Lcv2Controller', Lcv2Controller);
 
