@@ -9,9 +9,9 @@
     controllerAs: 'vm'
   });
 
-  TradeController.$inject = ['$q', '$log', 'toastr', 'dataService', '$auth'];
+  TradeController.$inject = ['$q', '$log', 'toastr', 'dataService', '$auth', 'events'];
 
-  function TradeController($q, $log, toastr, dataService, $auth) {
+  function TradeController($q, $log, toastr, dataService, $auth, events) {
 
     //Change this vars for a new base service on Rails
     var apiEndpointName = "trades";
@@ -45,6 +45,17 @@
     }
 
     activate();
+
+    events.loadDropDown().then(function(res){
+      vm.events = [];
+      angular.forEach(res.data, function(attributes){
+        var opt = {
+          event_id: attributes.id,
+          value: attributes.attributes.name
+        }
+        vm.events.push(opt);
+      });
+    });    
 
     function activate() {
 
