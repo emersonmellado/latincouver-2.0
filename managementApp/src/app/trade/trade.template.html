@@ -61,10 +61,10 @@
                <div class="col-xs-6">
                 <div class="group">
                   <label>Group</label>
-                  <span class="required" ng-show="form.trade_group.$error.required">*</span>
-                  <select class="form-control" name="trade_group" ng-model="vm.form.attributes.trade_group" data-ng-class="{'invalid' : form.trade_group.$invalid && !form.trade_group.$pristine}" ng-required="true">
-                    <option ng-selected="vm.form.attributes.trade_group==''" value="">Select Group</option>
-                    <option ng-repeat="group in vm.tradegroups" ng-selected="vm.form.attributes.trade_group==trade.id" value="{{group.id}}">{{group.attributes.name}}</option>
+                  <span class="required" ng-show="form.trade_group_id.$error.required">*</span>
+                  <select class="form-control" name="trade_group_id" ng-model="vm.form.attributes.trade_group_id" data-ng-class="{'invalid' : form.trade_group_id.$invalid && !form.trade_group_id.$pristine}" ng-required="true">
+                    <option ng-selected="vm.form.attributes.trade_group_id==''" value="">Select Group</option>
+                    <option ng-repeat="group in vm.tradegroups" ng-selected="vm.form.attributes.trade_group_id==group.id" value="{{group.id}}">{{group.attributes.name}}</option>
                   </select>
                 </div>
               </div>
